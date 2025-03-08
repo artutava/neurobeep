@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <title>Silicon | Software Dev Agency Landing v.3</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Silicon - Multipurpose Technology Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, creative agency, mobile app showcase, saas, fintech, finance, online courses, software, medical, conference landing, services, e-commerce, shopping cart, multipurpose, shop, ui kit, marketing, seo, landing, blog, portfolio, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Theme switcher (color modes) -->
+    <script src="assets/js/theme-switcher.js"></script>
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      [data-bs-theme="dark"] .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      [data-bs-theme="dark"] .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      [data-bs-theme="dark"] .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    
+    <!-- Page custom styles -->
+    <style>
+
+      /* Spin animation */
+      @-webkit-keyframes hero-spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes hero-spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .hero-animation-spin {
+        -webkit-animation: hero-spin 35s linear infinite;
+        animation: hero-spin 35s linear infinite;
+      }
+
+      /* Fade animation */
+      @-webkit-keyframes hero-fade {
+        0%, 100% { opacity: 0 }
+        50% { opacity: 1 }
+      }
+      @keyframes hero-fade {
+        0%, 100% { opacity: 0 }
+        50% { opacity: 1 }
+      }
+      .hero-animation-fade {
+        -webkit-animation: hero-fade 4s ease-in infinite;
+        animation: hero-fade 4s ease-in infinite;
+      }
+      .hero-animation-delay-1,
+      .hero-animation-delay-2,
+      .hero-animation-delay-3 {
+        opacity: 0;
+      }
+      .hero-animation-delay-1 { animation-delay: .75s; }
+      .hero-animation-delay-2 { animation-delay: 1.5s; }
+      .hero-animation-delay-3 { animation-delay: 2s; }
+    </style>
+
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg navbar-dark position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="index.html" class="navbar-brand pe-3">
+            <img src="assets/img/logo.svg" width="47" alt="Silicon">
+            Silicon
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end bg-dark">
+            <div class="offcanvas-header border-bottom border-light">
+              <h5 class="offcanvas-title text-white">Menu</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-current="page">Landings</a>
+                  <div class="dropdown-menu dropdown-menu-dark p-0">
+                    <div class="d-lg-flex">
+                      <div class="mega-dropdown-column d-flex justify-content-center align-items-center rounded-3 rounded-end-0 px-0" style="margin: -1px; background-color: #f3f6ff;">
+                        <img src="assets/img/landings.jpg" alt="Landings">
+                      </div>
+                      <div class="mega-dropdown-column pt-lg-3 pb-lg-4" style="--si-mega-dropdown-column-width: 15rem;">
+                        <ul class="list-unstyled mb-0">
+                          <li><a href="index.html" class="dropdown-item">Template Intro Page</a></li>
+                          <li><a href="landing-mobile-app-showcase-v1.html" class="dropdown-item">Mobile App Showcase v.1</a></li>
+                          <li><a href="landing-mobile-app-showcase-v2.html" class="dropdown-item">Mobile App Showcase v.2</a></li>
+                          <li><a href="landing-mobile-app-showcase-v3.html" class="dropdown-item">Mobile App Showcase v.3<span class="badge bg-success ms-2">New</span></a></li>
+                          <li><a href="landing-product.html" class="dropdown-item d-flex align-items-center">Product Landing</a></li>
+                          <li><a href="landing-saas-v1.html" class="dropdown-item">SaaS v.1</a></li>
+                          <li><a href="landing-saas-v2.html" class="dropdown-item">SaaS v.2</a></li>
+                          <li><a href="landing-saas-v3.html" class="dropdown-item">SaaS v.3</a></li>
+                          <li><a href="landing-saas-v4.html" class="dropdown-item">SaaS v.4</a></li>
+                          <li><a href="landing-saas-v5.html" class="dropdown-item">SaaS v.5<span class="badge bg-success ms-2">New</span></a></li>
+                        </ul>
+                      </div>
+                      <div class="mega-dropdown-column pt-lg-3 pb-lg-4">
+                        <ul class="list-unstyled mb-0">
+                          <li><a href="landing-startup.html" class="dropdown-item d-flex align-items-center">Startup</a></li>
+                          <li><a href="landing-financial.html" class="dropdown-item">Financial Consulting</a></li>
+                          <li><a href="landing-online-courses.html" class="dropdown-item">Online Courses</a></li>
+                          <li><a href="landing-medical.html" class="dropdown-item">Medical</a></li>
+                          <li><a href="landing-software-dev-agency-v1.html" class="dropdown-item">Software Dev Agency v.1</a></li>
+                          <li><a href="landing-software-dev-agency-v2.html" class="dropdown-item">Software Dev Agency v.2</a></li>
+                          <li><a href="landing-software-dev-agency-v3.html" class="dropdown-item">Software Dev Agency v.3</a></li>
+                          <li><a href="landing-conference.html" class="dropdown-item">Conference</a></li>
+                          <li><a href="landing-digital-agency.html" class="dropdown-item">Digital Agency</a></li>
+                          <li><a href="landing-blog.html" class="dropdown-item">Blog Homepage</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                  <div class="dropdown-menu dropdown-menu-dark">
+                    <div class="d-lg-flex pt-lg-3">
+                      <div class="mega-dropdown-column">
+                        <h6 class="text-light px-3 mb-2">About</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="about-v1.html" class="dropdown-item py-1">About v.1</a></li>
+                          <li><a href="about-v2.html" class="dropdown-item py-1">About v.2</a></li>
+                        </ul>
+                        <h6 class="text-light px-3 mb-2">Blog</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="blog-list-with-sidebar.html" class="dropdown-item py-1">List View with Sidebar</a></li>
+                          <li><a href="blog-grid-with-sidebar.html" class="dropdown-item py-1">Grid View with Sidebar</a></li>
+                          <li><a href="blog-list-no-sidebar.html" class="dropdown-item py-1">List View no Sidebar</a></li>
+                          <li><a href="blog-grid-no-sidebar.html" class="dropdown-item py-1">Grid View no Sidebar</a></li>
+                          <li><a href="blog-simple-feed.html" class="dropdown-item py-1">Simple Feed</a></li>
+                          <li><a href="blog-single.html" class="dropdown-item py-1">Single Post</a></li>
+                          <li><a href="blog-podcast.html" class="dropdown-item py-1">Podcast</a></li>
+                        </ul>
+                      </div>
+                      <div class="mega-dropdown-column">
+                        <h6 class="text-light px-3 mb-2">Portfolio</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="portfolio-grid.html" class="dropdown-item py-1">Grid View</a></li>
+                          <li><a href="portfolio-list.html" class="dropdown-item py-1">List View</a></li>
+                          <li><a href="portfolio-slider.html" class="dropdown-item py-1">Slider View</a></li>
+                          <li><a href="portfolio-courses.html" class="dropdown-item py-1">Courses</a></li>
+                          <li><a href="portfolio-single-project.html" class="dropdown-item py-1">Single Project</a></li>
+                          <li><a href="portfolio-single-course.html" class="dropdown-item py-1">Single Course</a></li>
+                        </ul>
+                        <h6 class="text-light px-3 mb-2">Services</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="services-v1.html" class="dropdown-item py-1">Services v.1</a></li>
+                          <li><a href="services-v2.html" class="dropdown-item py-1">Services v.2</a></li>
+                          <li><a href="services-single-v1.html" class="dropdown-item py-1">Service Details v.1</a></li>
+                          <li><a href="services-single-v2.html" class="dropdown-item py-1">Service Details v.2</a></li>
+                        </ul>
+                      </div>
+                      <div class="mega-dropdown-column">
+                        <h6 class="text-light px-3 mb-2">Pricing</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="pricing.html" class="dropdown-item py-1">Pricing Page</a></li>
+                        </ul>
+                        <h6 class="text-light px-3 mb-2">Contacts</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="contacts-v1.html" class="dropdown-item py-1">Contacts v.1</a></li>
+                          <li><a href="contacts-v2.html" class="dropdown-item py-1">Contacts v.2</a></li>
+                          <li><a href="contacts-v3.html" class="dropdown-item py-1">Contacts v.3</a></li>
+                        </ul>
+                        <h6 class="text-light px-3 mb-2">Specialty</h6>
+                        <ul class="list-unstyled">
+                          <li><a href="404-v1.html" class="dropdown-item py-1">404 Error v.1</a></li>
+                          <li><a href="404-v2.html" class="dropdown-item py-1">404 Error v.2</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a href="account-details.html" class="dropdown-item">Account Details</a></li>
+                    <li><a href="account-security.html" class="dropdown-item">Security</a></li>
+                    <li><a href="account-notifications.html" class="dropdown-item">Notifications</a></li>
+                    <li><a href="account-messages.html" class="dropdown-item">Messages</a></li>
+                    <li><a href="account-saved-items.html" class="dropdown-item">Saved Items</a></li>
+                    <li><a href="account-collections.html" class="dropdown-item">My Collections</a></li>
+                    <li><a href="account-payment.html" class="dropdown-item">Payment Details</a></li>
+                    <li><a href="account-signin.html" class="dropdown-item">Sign In</a></li>
+                    <li><a href="account-signup.html" class="dropdown-item">Sign Up</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="components/typography.html" class="nav-link">UI Kit</a>
+                </li>
+                <li class="nav-item">
+                  <a href="docs/getting-started.html" class="nav-link">Docs</a>
+                </li>
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top border-light">
+              <a href="https://themes.getbootstrap.com/product/silicon-business-technology-template-ui-kit/" class="btn btn-primary w-100" target="_blank" rel="noopener">
+                <i class="bx bx-cart fs-4 lh-1 me-1"></i>
+                &nbsp;Buy now
+              </a>
+            </div>      
+          </div>
+          <div class="pe-lg-1 ms-auto me-4" data-bs-theme="dark">
+            <div class="form-check form-switch mode-switch" data-bs-toggle="mode">
+              <input type="checkbox" class="form-check-input" id="theme-mode">
+              <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+              <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+            </div>
+          </div>
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="https://themes.getbootstrap.com/product/silicon-business-technology-template-ui-kit/" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+            <i class="bx bx-cart fs-5 lh-1 me-1"></i>
+            &nbsp;Buy now
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Hero + animations -->
+      <section class="position-relative d-flex align-items-center min-vh-100 py-5 bg-dark overflow-hidden">
+        <span class="position-absolute top-0 start-0 d-dark-mode-block d-none w-100 h-100 bg-secondary opacity-75"></span>
+        <div class="container position-relative mt-5 mb-lg-5 mb-md-4 mb-3 pt-3 pb-xl-3" data-bs-theme="dark">
+          <div class="row gy-5">
+            <div class="col-xl-5 col-lg-6">
+              <div class="position-relative zindex-5 text-lg-start text-center">
+                <h1 class="display-2 mb-4 pb-lg-3 pb-md-2">Top <span class="text-primary">software</span> engineering company</h1>
+                <p class="mb-4 pb-lg-3 pb-md-2">
+                  <span class="me-2 text-light">We are the Top Rated agency on</span>
+                  <img src="assets/img/landing/software-agency-3/clutch-rating.png" width="193" alt="Clutch rating" class="mt-n1">
+                </p>
+                <a href="#" class="btn btn-lg btn-primary">Start your project</a>
+              </div>
+            </div>
+            <div class="col-lg-6 offset-xl-1">
+              <div class="position-relative ms-xl-0 ms-lg-4">
+                <div class="position-absolute top-50 start-50 translate-middle ratio ratio-1x1" style="width: 125%; max-width: 49.75rem;">
+                  <div class="p-md-0 p-5">
+                    <img src="assets/img/landing/software-agency-3/hero-bg.png" alt="Shape" class="hero-animation-spin p-md-0 p-5">
+                  </div>
+                </div>
+                <div class="position-relative row row-cols-sm-2 row-cols-1 gx-xl-4 gx-lg-3 gx-md-4 gx-3">
+                  <div class="col">
+                    <div class="d-sm-grid d-flex gap-xl-4 gap-lg-3 gap-md-4 gap-sm-3 gap-2">
+                      <div class="d-flex align-items-center justify-content-center bg-secondary rounded-3" style="min-height: 176px; backdrop-filter: blur(6px);">
+                        <div class="p-xl-4 p-sm-3 p-2 fs-xl fw-semibold text-center">
+                          <span class="hero-animation-fade text-white">I need AI engineers</span>
+                        </div>
+                      </div>
+                      <div class="d-flex align-items-center justify-content-center bg-secondary rounded-3" style="min-height: 176px; backdrop-filter: blur(6px);">
+                        <div class="p-xl-4 p-sm-3 p-2 fs-xl fw-semibold text-center">
+                          <span class="hero-animation-fade hero-animation-delay-2 text-white">We are looking for Shopify Experts</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col mt-sm-5 mt-2 pt-sm-5">
+                    <div class="d-sm-grid d-flex gap-xl-4 gap-lg-3 gap-md-4 gap-sm-3 gap-2">
+                      <div class="d-flex align-items-center justify-content-center bg-secondary rounded-3" style="min-height: 176px; backdrop-filter: blur(6px);">
+                        <div class="p-xl-4 p-sm-3 p-2 fs-xl fw-semibold text-center">
+                          <span class="hero-animation-fade hero-animation-delay-1 text-white">I need MVP for startup</span>
+                        </div>
+                      </div>
+                      <div class="d-flex align-items-center justify-content-center bg-secondary rounded-3" style="min-height: 176px; backdrop-filter: blur(6px);">
+                        <div class="p-xl-4 p-sm-3 p-2 fs-xl fw-semibold text-center">
+                          <span class="hero-animation-fade hero-animation-delay-3 text-white">I need web development</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- About -->
+      <section class="container my-5 py-lg-5 py-md-4 py-3">
+        <div class="row gy-4 py-xl-3">
+          <div class="col-md-6">
+            <img src="assets/img/landing/software-agency-1/about-img.jpg" alt="Image" class="rounded-3">
+          </div>
+          <div class="col-lg-5 col-md-6 offset-lg-1 d-flex">
+            <div class="align-self-center ps-lg-0 ps-md-4">
+              <h2 class="h1 mb-lg-4 mb-3">Award-Winning Software Company</h2>
+              <p class="mb-4 pb-lg-3 fs-lg">Erat pharetra sed at fringilla etiam nullam platea fringilla. Gravida sodales sit mauris amet massa justo. Egestas ipsum amet tortor hendrerit amet phasellus adipiscing. Eget porta posuere pellentesque sed commodo gravida dignissim dignissim iaculis. Elementum nibh duis at in.</p>
+              <div class="d-flex align-items-center ms-sm-n4 ms-n3 mb-4 pb-lg-3">
+                <div class="ms-sm-4 ms-3">
+                  <img src="assets/img/landing/software-agency-3/awards/clutch-light.png" width="63" alt="Clutch" class="d-dark-mode-none d-block">
+                  <img src="assets/img/landing/software-agency-3/awards/clutch-dark.png" width="63" alt="Clutch" class="d-dark-mode-block d-none">
+                </div>
+                <div class="ms-sm-4 ms-3">
+                  <img src="assets/img/landing/software-agency-3/awards/forbes-light.png" width="72" alt="Clutch" class="d-dark-mode-none d-block">
+                  <img src="assets/img/landing/software-agency-3/awards/forbes-dark.png" width="72" alt="Clutch" class="d-dark-mode-block d-none">
+                </div>
+                <div class="ms-sm-4 ms-3">
+                  <img src="assets/img/landing/software-agency-3/awards/awwwards-light.png" width="37" alt="Clutch" class="d-dark-mode-none d-block">
+                  <img src="assets/img/landing/software-agency-3/awards/awwwards-dark.png" width="37" alt="Clutch" class="d-dark-mode-block d-none">
+                </div>
+              </div>
+              <a href="#" class="btn btn-lg btn-outline-primary">More about us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Solutions -->
+      <section class="container mb-5 pb-lg-5 pb-md-4 pb-3">
+        <h2 class="h1 mb-lg-5 mb-4 pb-lg-0 pb-md-2 text-center">Сustom Software Solutions</h2>
+
+        <!-- Swiper slider -->
+        <div class="swiper mb-xl-3" data-swiper-options='{
+          "spaceBetween": 24,
+          "breakpoints": {
+            "0": {
+              "slidesPerView": 1
+            },
+            "500": {
+              "slidesPerView": 2
+            },
+            "768": {
+              "slidesPerView": 3
+            },
+            "1200": {
+              "slidesPerView": 4
+            }
+          },
+          "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
+          }
+        }'>
+          <div class="swiper-wrapper">
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto">
+              <div class="card h-100">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/landing/software-agency-3/icons/01.svg" alt="Icon" class="d-block mb-3 mx-auto">
+                  <h3 class="h5 mb-3">Software Development</h3>
+                  <p class="mb-0">Commodo senectus massa est urna mi. Mattis dis arcu aenean libero viverra gravida.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto">
+              <div class="card h-100">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/landing/software-agency-3/icons/02.svg" alt="Icon" class="d-block mb-3 mx-auto">
+                  <h3 class="h5 mb-3">App Development</h3>
+                  <p class="mb-0">Enim vehicula integer mattis morbi risus. Hendrerit pharetra arcu quam viverra.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto">
+              <div class="card h-100">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/landing/software-agency-3/icons/03.svg" alt="Icon" class="d-block mb-3 mx-auto">
+                  <h3 class="h5 mb-3">Support &amp; Maintenance</h3>
+                  <p class="mb-0">Turpis ultrices lacinia ut placerat dignissim morbi. Amet lectus sed tortor in elit adipiscing magnis.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto">
+              <div class="card h-100">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/landing/software-agency-3/icons/04.svg" alt="Icon" class="d-block mb-3 mx-auto">
+                  <h3 class="h5 mb-3">Software QA &amp; Testing</h3>
+                  <p class="mb-0">Amet felis viverra proin feugiat. Eget metus metus lorem dolor pellentesque.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Swiper pagination -->
+          <div class="swiper-pagination position-static mt-4 pt-lg-3 pt-2"></div>
+        </div>
+      </section>
+
+
+      <!-- Industries (Slider) -->
+      <section class="container mb-5 pb-lg-5 pb-md-4 pb-3">
+        <h2 class="h1 mb-4 text-center d-lg-none">Industries We Serve</h2>
+        <div class="row gy-md-5 gy-4 mb-xl-3">
+          <div class="col-xl-4 col-lg-5 d-flex flex-column order-2 order-lg-1">
+            <h2 class="h1 mb-4 pb-3 pt-2 d-none d-lg-block">Industries We Serve</h2>
+
+            <!-- Swiper slider -->
+            <div class="swiper mx-0" data-swiper-options='{
+              "spaceBetween": 24,
+              "loop": true,
+              "tabs": true,
+              "autoHeight": true,
+              "navigation": {
+                "prevEl": "#prev-industry",
+                "nextEl": "#next-industry"
+              }
+            }'>
+              <div class="swiper-wrapper text-lg-start text-center">
+
+                <!-- Swiper item -->
+                <div class="swiper-slide" data-swiper-tab="#industry-1">
+                  <h3 class="h5 mb-lg-4 mb-3">Finance and insurance</h3>
+                  <p>Risus massa fames metus lectus diam maecenas dui. Nibh morbi id purus eget tellus diam, integer blandit. Ac condimentum a nisl sagittis, interdum. Et viverra maecenas quis cras sed gravida volutpat, cursus enim. </p>
+                </div>
+
+                <!-- Swiper item -->
+                <div class="swiper-slide" data-swiper-tab="#industry-2">
+                  <h3 class="h5 mb-lg-4 mb-3">Startup and technology</h3>
+                  <p>Interdum amet lobortis viverra et sapien aliquam nunc amet. Bibendum eu pellentesque sit risus leo commodo. Nibh dictum tellus lectus in risus eget cursus vitae nisi lacinia aliquam utuismod cras pellentesque.</p>
+                </div>
+
+                <!-- Swiper item -->
+                <div class="swiper-slide" data-swiper-tab="#industry-3">
+                  <h3 class="h5 mb-lg-4 mb-3">E-commerce</h3>
+                  <p>Egestas nunc eleifend lacinia suspendisse bibendum ultrices risus. Facilisis neque eleifend diam orci id. Iaculis dignissim sed malesuada porttitor ac iaculis nullam donec sed volutpat quis vulputate sollicitudin tincidunt.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper controls (Prev / next buttons) -->
+            <div class="d-flex justify-content-center justify-content-lg-start mt-2 mt-lg-auto">
+              <button type="button" id="prev-industry" class="btn btn-prev btn-icon btn-sm me-2" aria-label="Previous">
+                <i class="bx bx-chevron-left"></i>
+              </button>
+              <button type="button" id="next-industry" class="btn btn-next btn-icon btn-sm ms-2" aria-label="Next">
+                <i class="bx bx-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-7 offset-xl-1 order-1 order-lg-2">
+
+            <!-- Swiper tabs (Industry images) -->
+            <div class="swiper-tabs">
+
+              <!-- Industry 1 -->
+              <div id="industry-1" class="swiper-tab active">
+                <img src="assets/img/landing/software-agency-3/industries/01.jpg" class="rounded-3" alt="Image">
+              </div>
+
+              <!-- Industry 2 -->
+              <div id="industry-2" class="swiper-tab">
+                <img src="assets/img/landing/software-agency-3/industries/02.jpg" class="rounded-3" alt="Image">
+              </div>
+
+              <!-- Industry 3 -->
+              <div id="industry-3" class="swiper-tab">
+                <img src="assets/img/landing/software-agency-3/industries/03.jpg" class="rounded-3" alt="Image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Technologies -->
+      <section class="container mb-5 pb-lg-5 pb-md-4 pb-3">
+
+        <!-- Swiper slider -->
+        <div class="swiper mb-xl-3 text-center" data-swiper-options='{
+          "spaceBetween": 24,
+          "autoplay": true,
+          "breakpoints": {
+            "0": {
+              "slidesPerView": 2
+            },
+            "500": {
+              "slidesPerView": 3
+            },
+            "768": {
+              "slidesPerView": 4
+            },
+            "1200": {
+              "slidesPerView": 6
+            }
+          },
+          "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
+          }
+        }'>
+          <div class="swiper-wrapper">
+
+            <!-- Swiper item -->
+            <div class="swiper-slide">
+              <div class="mb-3">
+                <img src="assets/img/landing/software-agency-3/technologies/js-light.svg" alt="Logo" class="d-dark-mode-none d-inline-block">
+                <img src="assets/img/landing/software-agency-3/technologies/js-dark.svg" alt="Logo" class="d-dark-mode-inline-block d-none">
+              </div>
+              <span class="text-body">Javascript</span>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide">
+              <div class="mb-3">
+                <img src="assets/img/landing/software-agency-3/technologies/node-light.svg" alt="Logo" class="d-dark-mode-none d-inline-block">
+                <img src="assets/img/landing/software-agency-3/technologies/node-dark.svg" alt="Logo" class="d-dark-mode-inline-block d-none">
+              </div>
+              <span class="text-body">Node.JS</span>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide">
+              <div class="mb-3">
+                <img src="assets/img/landing/software-agency-3/technologies/react-light.svg" alt="Logo" class="d-dark-mode-none d-inline-block">
+                <img src="assets/img/landing/software-agency-3/technologies/react-dark.svg" alt="Logo" class="d-dark-mode-inline-block d-none">
+              </div>
+              <span class="text-body">React</span>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide">
+              <div class="mb-3">
+                <img src="assets/img/landing/software-agency-3/technologies/php-light.svg" alt="Logo" class="d-dark-mode-none d-inline-block">
+                <img src="assets/img/landing/software-agency-3/technologies/php-dark.svg" alt="Logo" class="d-dark-mode-inline-block d-none">
+              </div>
+              <span class="text-body">PHP</span>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide">
+              <div class="mb-3">
+                <img src="assets/img/landing/software-agency-3/technologies/angular-light.svg" alt="Logo" class="d-dark-mode-none d-inline-block">
+                <img src="assets/img/landing/software-agency-3/technologies/angular-dark.svg" alt="Logo" class="d-dark-mode-inline-block d-none">
+              </div>
+              <span class="text-body">Angular</span>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide">
+              <div class="mb-3">
+                <img src="assets/img/landing/software-agency-3/technologies/python-light.svg" alt="Logo" class="d-dark-mode-none d-inline-block">
+                <img src="assets/img/landing/software-agency-3/technologies/python-dark.svg" alt="Logo" class="d-dark-mode-inline-block d-none">
+              </div>
+              <span class="text-body">Python</span>
+            </div>
+          </div>
+
+          <!-- Swiper pagination -->
+          <div class="swiper-pagination position-static mt-4 pt-lg-3 pt-2"></div>
+        </div>
+      </section>
+
+
+      <!-- Projects -->
+      <section class="container mb-5 pb-lg-5 pb-md-4 pb-3">
+        <h2 class="h1 mb-lg-5 mb-4 pb-lg-0 pb-md-2 text-center">Explore Our Featured Projects</h2>
+
+        <!-- Project item -->
+        <div class="row gy-4 mb-4 pb-md-3 pb-2">
+          <div class="col-md-6 rellax" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="md">
+            <div class="bg-secondary rounded-3">
+              <img src="assets/img/landing/software-agency-3/projects/01.png" alt="Project image">
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 offset-lg-1 d-flex rellax" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="md">
+            <div class="align-self-center ps-lg-0 ps-md-4">
+              <h4 class="mb-lg-4 mb-3 fs-base fw-normal text-body">Mobile App</h4>
+              <h3 class="h2 mb-lg-4 mb-3">Task management app</h3>
+              <p class="mb-lg-4 mb-3">Odio mus adipiscing nunc sed viverra massa aliquam sit vestibulum maecenas arcu adipiscing tincidunt at velit pharetra varius sit.</p>
+              <ul class="mb-lg-4 mb-3 fs-sm text-muted list-inline" style="max-width: 19.125rem;">
+                <li class="list-inline-item me-1">
+                  Product Strategy
+                  <span class="ms-1">/</span>
+                </li>
+                <li class="list-inline-item me-1">
+                  Front end Development
+                  <span class="ms-1">/</span>
+                </li>
+                <li class="list-inline-item me-1">
+                  Systems Design
+                  <span class="ms-1">/</span>
+                </li>
+                <li class="list-inline-item me-1">
+                  Web Development
+                </li>
+              </ul>
+              <a href="#" class="btn btn-lg btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project item -->
+        <div class="row gy-4 mb-4 pb-md-3 pb-2">
+          <div class="col-md-6 rellax" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="md">
+            <div class="bg-secondary rounded-3">
+              <img src="assets/img/landing/software-agency-3/projects/02.png" alt="Project image">
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 offset-lg-1 d-flex rellax" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="md">
+            <div class="align-self-center ps-lg-0 ps-md-4">
+              <h4 class="mb-lg-4 mb-3 fs-base fw-normal text-body">Landing Page</h4>
+              <h3 class="h2 mb-lg-4 mb-3">Landing page for electric scooters</h3>
+              <p class="mb-lg-4 mb-3">Vitae non luctus rhoncus ipsum feugiat luctus ornare. Pretium nulla sed quis duis tristique orci. Odio in pellentesque urna sit facilisi convallis vel tempus.</p>
+              <ul class="mb-lg-4 mb-3 fs-sm text-muted list-inline" style="max-width: 19.125rem;">
+                <li class="list-inline-item me-1">
+                  Product Strategy
+                  <span class="ms-1">/</span>
+                </li>
+                <li class="list-inline-item me-1">
+                  Front end Development
+                  <span class="ms-1">/</span>
+                </li>
+                <li class="list-inline-item me-1">
+                  Systems Design
+                  <span class="ms-1">/</span>
+                </li>
+                <li class="list-inline-item me-1">
+                  Web Development
+                </li>
+              </ul>
+              <a href="#" class="btn btn-lg btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project item -->
+        <div class="row gy-4 mb-xl-3">
+          <div class="col-md-6 rellax" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="md">
+            <div class="bg-secondary rounded-3">
+              <img src="assets/img/landing/software-agency-3/projects/03.png" alt="Project image">
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 offset-lg-1 d-flex rellax" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="md">
+            <div class="align-self-center ps-lg-0 ps-md-4">
+              <h4 class="mb-lg-4 mb-3 fs-base fw-normal text-body">Web App</h4>
+              <h3 class="h2 mb-lg-4 mb-3">Сrypto market dashboard</h3>
+              <p class="mb-lg-4 mb-3">Donec donec ultricies feugiat imperdiet enim cras eget enim elementum eget ultrices praesent pretium morbi.</p>
+              <ul class="mb-lg-4 mb-3 fs-sm text-muted list-inline" style="max-width: 19.125rem;">
+                <li class="list-inline-item me-1">
+                  Front end Development
+                  <span class="ms-1">/</span>
+                </li>
+                <li class="list-inline-item me-1">
+                  Systems Design
+                  <span class="ms-1">/</span>
+                </li>
+                <li class="list-inline-item me-1">
+                  Web Development
+                </li>
+              </ul>
+              <a href="#" class="btn btn-lg btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Benefits -->
+      <section class="container mb-lg-5 mb-4 pb-3">
+        <h2 class="h1 mb-lg-5 mb-4 pb-lg-0 pb-md-2 text-center">Our benefits</h2>
+
+        <!-- Swiper slider -->
+        <div class="swiper mb-xl-3 text-sm-start text-center" data-swiper-options='{
+          "spaceBetween": 24,
+          "autoplay": true,
+          "breakpoints": {
+            "0": {
+              "slidesPerView": 1
+            },
+            "500": {
+              "slidesPerView": 2
+            },
+            "768": {
+              "slidesPerView": 3
+            },
+            "1200": {
+              "slidesPerView": 4
+            }
+          },
+          "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
+          }
+        }'>
+          <div class="swiper-wrapper">
+
+            <!-- Swiper item -->
+            <div class="swiper-slide">
+              <div class="mx-sm-0 mx-auto" style="max-width: 19.125rem;">
+                <h4 class="h5 mb-3">Prototype in 24 hrs</h4>
+                <p class="mb-0">Commodo senectus massa est urna mi. Mattis dis arcu aenean libero viverra gravida id. Imperdiet elit integer elit.</p>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide">
+              <div class="mx-sm-0 mx-auto" style="max-width: 19.125rem;">
+                <h4 class="h5 mb-3">MVP within two weeks</h4>
+                <p class="mb-0">Purus netus eget facilisis morbi pellentesque. Fermentum mi sit a mi ebentot pellentesque.</p>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide">
+              <div class="mx-sm-0 mx-auto" style="max-width: 19.125rem;">
+                <h4 class="h5 mb-3">Kickstart development</h4>
+                <p class="mb-0">Purus netus eget facilisis morbi pellentesque. Fermentum mi sit a mi ebentot pellentesque.</p>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide">
+              <div class="mx-sm-0 mx-auto" style="max-width: 19.125rem;">
+                <h4 class="h5 mb-3">24/7 Tech support</h4>
+                <p class="mb-0">Commodo senectus massa est urna mi. Mattis dis arcu aenean libero viverra gravida id. Imperdiet elit integer elit.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Swiper pagination -->
+          <div class="swiper-pagination position-static mt-4 pt-lg-3 pt-2"></div>
+        </div>
+      </section>
+
+
+      <!-- Brands (carousel on screens < 1100px) -->
+      <section class="container mb-5 pb-lg-5 pb-md-4 pb-3">
+        <div class="swiper mx-n2" data-swiper-options='{
+          "spaceBetween": 8,
+          "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
+          },
+          "breakpoints": {
+            "0": {
+              "slidesPerView": 2
+            },
+            "768": {
+              "slidesPerView": 3
+            },
+            "1200": {
+              "slidesPerView": 4
+            }
+          }
+        }'>
+          <div class="swiper-wrapper">
+
+            <!-- Item -->
+            <div class="swiper-slide py-3">
+              <a href="#" class="card card-body card-hover px-2 mx-2">
+                <img src="assets/img/brands/01.svg" class="d-block mx-auto my-2" width="154" alt="Brand">
+              </a>
+            </div>
+
+            <!-- Item -->
+            <div class="swiper-slide py-3">
+              <a href="#" class="card card-body card-hover px-2 mx-2">
+                <img src="assets/img/brands/02.svg" class="d-block mx-auto my-2" width="154" alt="Brand">
+              </a>
+            </div>
+
+            <!-- Item -->
+            <div class="swiper-slide py-3">
+              <a href="#" class="card card-body card-hover px-2 mx-2">
+                <img src="assets/img/brands/03.svg" class="d-block mx-auto my-2" width="154" alt="Brand">
+              </a>
+            </div>
+
+            <!-- Item -->
+            <div class="swiper-slide py-3">
+              <a href="#" class="card card-body card-hover px-2 mx-2">
+                <img src="assets/img/brands/04.svg" class="d-block mx-auto my-2" width="154" alt="Brand">
+              </a>
+            </div>
+          </div>
+
+          <!-- Pagination (bullets) -->
+          <div class="swiper-pagination position-relative pt-2 mt-4"></div>
+        </div>
+      </section>
+
+
+      <!-- Blog -->
+      <section class="container mb-5 pb-lg-5 pb-md-4 pb-3">
+
+        <!-- Swiper slider -->
+        <div class="swiper mb-xl-3 text-sm-start text-center" data-swiper-options='{
+          "spaceBetween": 24,
+          "autoplay": true,
+          "breakpoints": {
+            "0": {
+              "slidesPerView": 1
+            },
+            "500": {
+              "slidesPerView": 2
+            },
+            "768": {
+              "slidesPerView": 3
+            }
+          },
+          "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
+          }
+        }'>
+          <div class="swiper-wrapper">
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto">
+              <article class="card h-100 border-0 bg-transparent">
+                <div class="position-relative">
+                  <a href="#" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                  <img src="assets/img/blog/05.jpg" class="rounded-3" alt="Image">
+                </div>
+                <div class="card-body pb-0 px-0">
+                  <div class="d-flex align-items-center justify-content-between mb-3">
+                    <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Business</a>
+                    <span class="fs-sm text-muted">12 hours ago</span>
+                  </div>
+                  <h3 class="h5 mb-0 fw-semibold">
+                    <a href="#">How to check the website before releasing?</a>
+                  </h3>
+                </div>
+              </article>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto">
+              <article class="card h-100 border-0 bg-transparent">
+                <div class="position-relative">
+                  <a href="#" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                  <img src="assets/img/blog/07.jpg" class="rounded-3" alt="Image">
+                </div>
+                <div class="card-body pb-0 px-0">
+                  <div class="d-flex align-items-center justify-content-between mb-3">
+                    <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Digital</a>
+                    <span class="fs-sm text-muted">11 hours ago</span>
+                  </div>
+                  <h3 class="h5 mb-0 fw-semibold">
+                    <a href="#">Inclusive Marketing: Why and How Does it Work?</a>
+                  </h3>
+                </div>
+              </article>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto">
+              <article class="card h-100 border-0 bg-transparent">
+                <div class="position-relative">
+                  <a href="#" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                  <img src="assets/img/blog/08.jpg" class="rounded-3" alt="Image">
+                </div>
+                <div class="card-body pb-0 px-0">
+                  <div class="d-flex align-items-center justify-content-between mb-3">
+                    <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Development</a>
+                    <span class="fs-sm text-muted">10 hours ago</span>
+                  </div>
+                  <h3 class="h5 mb-0 fw-semibold">
+                    <a href="#">Your Guide to Optimising A JavaScript-enabled Website</a>
+                  </h3>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Swiper pagination -->
+          <div class="swiper-pagination position-static mt-4 pt-lg-3 pt-2"></div>
+        </div>
+      </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer position-relative bg-dark pt-5 pb-4 pb-lg-5">
+      <span class="position-absolute top-0 start-0 d-dark-mode-block d-none w-100 h-100 bg-secondary opacity-75"></span>
+      <div class="position-relative container pt-lg-4" data-bs-theme="dark">
+        <div class="row pb-5">
+          <div class="col-lg-4 col-md-6">
+            <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+              <img src="assets/img/logo.svg" width="47" alt="Silicon">
+              Silicon
+            </div>
+            <p class="fs-sm text-light opacity-70 pb-lg-3 mb-4">Proin ipsum pharetra, senectus eget scelerisque varius pretium platea velit. Lacus, eget eu vitae nullam proin turpis etiam mi sit. Non feugiat feugiat egestas nulla nec. Arcu tempus, eget elementum dolor ullamcorper sodales ultrices eros.</p>
+            <form class="needs-validation" novalidate>
+              <label for="subscr-email" class="form-label">Subscribe to our newsletter</label>
+              <div class="input-group">
+                <input type="email" id="subscr-email" class="form-control rounded-start ps-5" placeholder="Your email" required>
+                <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
+                <div class="invalid-tooltip position-absolute top-100 start-0">Please provide a valid email address.</div>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-xl-6 col-lg-7 col-md-5 offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+            <div id="footer-links" class="row">
+              <div class="col-lg-4">
+                <h6 class="mb-2">
+                  <a href="#useful-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Useful Links</a>
+                </h6>
+                <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Services</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Our Clients</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Testimonials</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">News</a></li>
+                  </ul>
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-3">
+                <h6 class="mb-2">
+                  <a href="#social-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Socials</a>
+                </h6>
+                <div id="social-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Facebook</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">LinkedIn</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Twitter</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Instagram</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
+                <h6 class="mb-2">Contact Us</h6>
+                <a href="mailto:email@example.com" class="fw-medium">email@example.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+          <span class="text-light opacity-50">&copy; All rights reserved. Made by </span>
+          <a class="nav-link d-inline-block p-0" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a>
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/rellax/rellax.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>

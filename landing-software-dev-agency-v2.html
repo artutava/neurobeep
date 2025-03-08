@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <title>Silicon | Software Dev Agency Landing v.2</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Silicon - Multipurpose Technology Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, creative agency, mobile app showcase, saas, fintech, finance, online courses, software, medical, conference landing, services, e-commerce, shopping cart, multipurpose, shop, ui kit, marketing, seo, landing, blog, portfolio, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Theme switcher (color modes) -->
+    <script src="assets/js/theme-switcher.js"></script>
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      [data-bs-theme="dark"] .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      [data-bs-theme="dark"] .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      [data-bs-theme="dark"] .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+      <header class="header navbar navbar-expand-lg navbar-dark position-absolute navbar-sticky">
+        <div class="container px-3">
+          <a href="index.html" class="navbar-brand pe-3">
+            <img src="assets/img/logo.svg" width="47" alt="Silicon">
+            Silicon
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end bg-dark">
+            <div class="offcanvas-header border-bottom border-light">
+              <h5 class="offcanvas-title text-white">Menu</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-current="page">Landings</a>
+                  <div class="dropdown-menu dropdown-menu-dark p-0">
+                    <div class="d-lg-flex">
+                      <div class="mega-dropdown-column d-flex justify-content-center align-items-center rounded-3 rounded-end-0 px-0" style="margin: -1px; background-color: #f3f6ff;">
+                        <img src="assets/img/landings.jpg" alt="Landings">
+                      </div>
+                      <div class="mega-dropdown-column pt-lg-3 pb-lg-4" style="--si-mega-dropdown-column-width: 15rem;">
+                        <ul class="list-unstyled mb-0">
+                          <li><a href="index.html" class="dropdown-item">Template Intro Page</a></li>
+                          <li><a href="landing-mobile-app-showcase-v1.html" class="dropdown-item">Mobile App Showcase v.1</a></li>
+                          <li><a href="landing-mobile-app-showcase-v2.html" class="dropdown-item">Mobile App Showcase v.2</a></li>
+                          <li><a href="landing-mobile-app-showcase-v3.html" class="dropdown-item">Mobile App Showcase v.3<span class="badge bg-success ms-2">New</span></a></li>
+                          <li><a href="landing-product.html" class="dropdown-item d-flex align-items-center">Product Landing</a></li>
+                          <li><a href="landing-saas-v1.html" class="dropdown-item">SaaS v.1</a></li>
+                          <li><a href="landing-saas-v2.html" class="dropdown-item">SaaS v.2</a></li>
+                          <li><a href="landing-saas-v3.html" class="dropdown-item">SaaS v.3</a></li>
+                          <li><a href="landing-saas-v4.html" class="dropdown-item">SaaS v.4</a></li>
+                          <li><a href="landing-saas-v5.html" class="dropdown-item">SaaS v.5<span class="badge bg-success ms-2">New</span></a></li>
+                        </ul>
+                      </div>
+                      <div class="mega-dropdown-column pt-lg-3 pb-lg-4">
+                        <ul class="list-unstyled mb-0">
+                          <li><a href="landing-startup.html" class="dropdown-item d-flex align-items-center">Startup</a></li>
+                          <li><a href="landing-financial.html" class="dropdown-item">Financial Consulting</a></li>
+                          <li><a href="landing-online-courses.html" class="dropdown-item">Online Courses</a></li>
+                          <li><a href="landing-medical.html" class="dropdown-item">Medical</a></li>
+                          <li><a href="landing-software-dev-agency-v1.html" class="dropdown-item">Software Dev Agency v.1</a></li>
+                          <li><a href="landing-software-dev-agency-v2.html" class="dropdown-item">Software Dev Agency v.2</a></li>
+                          <li><a href="landing-software-dev-agency-v3.html" class="dropdown-item">Software Dev Agency v.3</a></li>
+                          <li><a href="landing-conference.html" class="dropdown-item">Conference</a></li>
+                          <li><a href="landing-digital-agency.html" class="dropdown-item">Digital Agency</a></li>
+                          <li><a href="landing-blog.html" class="dropdown-item">Blog Homepage</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                  <div class="dropdown-menu dropdown-menu-dark">
+                    <div class="d-lg-flex pt-lg-3">
+                      <div class="mega-dropdown-column">
+                        <h6 class="text-light px-3 mb-2">About</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="about-v1.html" class="dropdown-item py-1">About v.1</a></li>
+                          <li><a href="about-v2.html" class="dropdown-item py-1">About v.2</a></li>
+                        </ul>
+                        <h6 class="text-light px-3 mb-2">Blog</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="blog-list-with-sidebar.html" class="dropdown-item py-1">List View with Sidebar</a></li>
+                          <li><a href="blog-grid-with-sidebar.html" class="dropdown-item py-1">Grid View with Sidebar</a></li>
+                          <li><a href="blog-list-no-sidebar.html" class="dropdown-item py-1">List View no Sidebar</a></li>
+                          <li><a href="blog-grid-no-sidebar.html" class="dropdown-item py-1">Grid View no Sidebar</a></li>
+                          <li><a href="blog-simple-feed.html" class="dropdown-item py-1">Simple Feed</a></li>
+                          <li><a href="blog-single.html" class="dropdown-item py-1">Single Post</a></li>
+                          <li><a href="blog-podcast.html" class="dropdown-item py-1">Podcast</a></li>
+                        </ul>
+                      </div>
+                      <div class="mega-dropdown-column">
+                        <h6 class="text-light px-3 mb-2">Portfolio</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="portfolio-grid.html" class="dropdown-item py-1">Grid View</a></li>
+                          <li><a href="portfolio-list.html" class="dropdown-item py-1">List View</a></li>
+                          <li><a href="portfolio-slider.html" class="dropdown-item py-1">Slider View</a></li>
+                          <li><a href="portfolio-courses.html" class="dropdown-item py-1">Courses</a></li>
+                          <li><a href="portfolio-single-project.html" class="dropdown-item py-1">Single Project</a></li>
+                          <li><a href="portfolio-single-course.html" class="dropdown-item py-1">Single Course</a></li>
+                        </ul>
+                        <h6 class="text-light px-3 mb-2">Services</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="services-v1.html" class="dropdown-item py-1">Services v.1</a></li>
+                          <li><a href="services-v2.html" class="dropdown-item py-1">Services v.2</a></li>
+                          <li><a href="services-single-v1.html" class="dropdown-item py-1">Service Details v.1</a></li>
+                          <li><a href="services-single-v2.html" class="dropdown-item py-1">Service Details v.2</a></li>
+                        </ul>
+                      </div>
+                      <div class="mega-dropdown-column">
+                        <h6 class="text-light px-3 mb-2">Pricing</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="pricing.html" class="dropdown-item py-1">Pricing Page</a></li>
+                        </ul>
+                        <h6 class="text-light px-3 mb-2">Contacts</h6>
+                        <ul class="list-unstyled mb-3">
+                          <li><a href="contacts-v1.html" class="dropdown-item py-1">Contacts v.1</a></li>
+                          <li><a href="contacts-v2.html" class="dropdown-item py-1">Contacts v.2</a></li>
+                          <li><a href="contacts-v3.html" class="dropdown-item py-1">Contacts v.3</a></li>
+                        </ul>
+                        <h6 class="text-light px-3 mb-2">Specialty</h6>
+                        <ul class="list-unstyled">
+                          <li><a href="404-v1.html" class="dropdown-item py-1">404 Error v.1</a></li>
+                          <li><a href="404-v2.html" class="dropdown-item py-1">404 Error v.2</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a href="account-details.html" class="dropdown-item">Account Details</a></li>
+                    <li><a href="account-security.html" class="dropdown-item">Security</a></li>
+                    <li><a href="account-notifications.html" class="dropdown-item">Notifications</a></li>
+                    <li><a href="account-messages.html" class="dropdown-item">Messages</a></li>
+                    <li><a href="account-saved-items.html" class="dropdown-item">Saved Items</a></li>
+                    <li><a href="account-collections.html" class="dropdown-item">My Collections</a></li>
+                    <li><a href="account-payment.html" class="dropdown-item">Payment Details</a></li>
+                    <li><a href="account-signin.html" class="dropdown-item">Sign In</a></li>
+                    <li><a href="account-signup.html" class="dropdown-item">Sign Up</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="components/typography.html" class="nav-link">UI Kit</a>
+                </li>
+                <li class="nav-item">
+                  <a href="docs/getting-started.html" class="nav-link">Docs</a>
+                </li>
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top border-light">
+              <a href="https://themes.getbootstrap.com/product/silicon-business-technology-template-ui-kit/" class="btn btn-primary w-100" target="_blank" rel="noopener">
+                <i class="bx bx-cart fs-4 lh-1 me-1"></i>
+                &nbsp;Buy now
+              </a>
+            </div>      
+          </div>
+          <div class="pe-lg-1 ms-auto me-4" data-bs-theme="dark">
+            <div class="form-check form-switch mode-switch" data-bs-toggle="mode">
+              <input type="checkbox" class="form-check-input" id="theme-mode">
+              <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+              <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+            </div>
+          </div>
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="https://themes.getbootstrap.com/product/silicon-business-technology-template-ui-kit/" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+            <i class="bx bx-cart fs-5 lh-1 me-1"></i>
+            &nbsp;Buy now
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Hero + BG parallax -->
+      <section class="jarallax bg-dark min-vh-100" data-jarallax data-speed="0.4" data-bs-theme="dark">
+        <span class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(116.18% 118% at 50% 100%, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 41.83%, rgba(241, 244, 253, 0.07) 82.52%);"></span>
+        <div class="jarallax-img" style="background-image: url(assets/img/landing/software-agency-2/hero-bg.png);"></div>
+        <div class="min-vh-100 d-flex flex-column py-5">
+
+          <div class="container position-relative text-center zindex-5 pt-4 pt-md-5 pb-5 mt-auto">
+            <div class="row mt-5">
+              <div class="col-xl-10 mx-auto">
+                <h1 class="display-1 mb-md-4 pb-3">Software Development Experts</h1>
+                <p class="text-body mx-auto mb-md-5 mb-4 pb-xl-2 pb-md-0 pb-sm-2 fs-5" style="max-width: 36.5rem;">
+                  We are experts with
+                  <img src="assets/img/landing/software-agency-2/clutch-rating.png" width="136" alt="Clutch rating" class="d-inline-block mt-n3 ms-1">
+                  providing the widest range of IT services and solutions for growing your business.
+                </p>
+                <a href="#" class="btn btn-lg btn-primary shadow-primary">Start your project</a>
+              </div>
+            </div>
+          </div>
+          <div class="container mt-auto pb-lg-2 pb-xl-3">
+            <ul class="list-unstyled d-flex align-items-start justify-content-center flex-wrap text-nowrap mt-xl-0 mt-md-n4 mt-sm-n3 mt-n2 ms-md-n4 ms-n3 mb-0 pt-lg-5 pt-md-4">
+              <li class="d-flex align-items-center text-body mt-md-4 mt-sm-3 mt-2 ms-md-4 ms-3">
+                <i class="bx bx-check-circle me-2 fs-5 text-primary"></i>
+                Extensive work experience
+              </li>
+              <li class="d-flex align-items-center text-body mt-md-4 mt-sm-3 mt-2 ms-md-4 ms-3">
+                <i class="bx bx-check-circle me-2 fs-5 text-primary"></i>
+                Flexible working conditions
+              </li>
+              <li class="d-flex align-items-center text-body mt-md-4 mt-sm-3 mt-2 ms-md-4 ms-3">
+                <i class="bx bx-check-circle me-2 fs-5 text-primary"></i>
+                Large and friendly team
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Our Services -->
+      <section class="container my-5 py-lg-5 py-md-4 pt-2 pb-3">
+        <h2 class="h1 mb-md-5 mb-4 py-xl-3 pb-lg-2 pb-md-0 pb-sm-2 text-center">Our Services</h2>
+
+        <!-- Service item -->
+        <div class="row gy-4 mb-5 pb-xl-5 pb-md-4 pb-3">
+          <div class="col-lg-5 col-md-6 order-md-1 order-2 d-flex rellax" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="md">
+            <div class="align-self-center pe-lg-0 pe-md-4">
+              <h3 class="mb-md-4">Product Design</h3>
+              <p class="mb-md-4 mb-3 fs-lg">Nullam semper enim quis vulputate mollis. Donec ultrices elementum mauris, ac porttitor mi cursus eget. Vestibulum gravida risus et lacus finibus tincidunt. Vivamus dui ante, pharetra eu blandit ac, vulputate et diam eu faucibus.</p>
+              <hr class="my-md-4 my-3">
+              <ul class="list-unstyled d-flex flex-wrap mt-md-n3 mt-n2 ms-md-n4 ms-n3 mb-0 pb-lg-4 pb-md-2 fw-bold">
+                <li class="mt-md-3 mt-2 ms-md-4 ms-3">UX/UI</li>
+                <li class="mt-md-3 mt-2 ms-md-4 ms-3">Web design</li>
+                <li class="mt-md-3 mt-2 ms-md-4 ms-3">Interactive design</li>
+                <li class="mt-md-3 mt-2 ms-md-4 ms-3">Motion design</li>
+              </ul>
+              <a href="#" class="btn btn-lg btn-outline-primary w-sm-auto w-100 mt-4">Learn more</a>
+            </div>
+          </div>
+          <div class="col-md-6 offset-lg-1 order-md-2 order-1 rellax" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="md">
+            <div class="bg-secondary rounded-3">
+              <img src="assets/img/landing/software-agency-2/services/01-light.png" alt="Image" class="d-dark-mode-none d-block">
+              <img src="assets/img/landing/software-agency-2/services/01-dark.png" alt="Image" class="d-dark-mode-block d-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Service item -->
+        <div class="row gy-4 mb-5 pb-xl-5 pb-md-4 pb-3">
+          <div class="col-lg-5 col-md-6 order-md-1 order-2 d-flex rellax" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="md">
+            <div class="align-self-center pe-lg-0 pe-md-4">
+              <h3 class="mb-md-4">Web Development</h3>
+              <p class="mb-md-4 mb-3 fs-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in arcu ligula. Vestibulum euismod interdum risus eu interdum. Vivamus suscipit mauris at erat ultricies, vitae placerat nulla feugiat. Integer venenatis blandit efficitur.</p>
+              <hr class="my-md-4 my-3">
+              <div class="d-flex align-items-center mt-n3 ms-n4 pb-lg-4 pb-md-2">
+                <div class="mt-3 ms-4 pe-md-2">
+                  <img src="assets/img/landing/software-agency-2/services/vue-light.png" width="92" alt="Vue.js" class="d-dark-mode-none d-block me-sm-1">
+                  <img src="assets/img/landing/software-agency-2/services/vue-dark.png" width="92" alt="Vue.js" class="d-dark-mode-block d-none me-sm-1">
+                </div>
+                <div class="mt-3 ms-4 pe-md-2">
+                  <img src="assets/img/landing/software-agency-2/services/node-light.png" width="63" alt="Node.js" class="d-dark-mode-none d-block me-sm-1">
+                  <img src="assets/img/landing/software-agency-2/services/node-dark.png" width="63" alt="Node.js" class="d-dark-mode-block d-none me-sm-1">
+                </div>
+                <div class="mt-3 ms-4 pe-md-2">
+                  <img src="assets/img/landing/software-agency-2/services/java.png" width="77" alt="Java" class="d-block me-sm-1">
+                </div>
+                <div class="mt-3 ms-4 pe-md-2">
+                  <img src="assets/img/landing/software-agency-2/services/react.png" width="104" alt="React" class="d-block me-sm-1">
+                </div>
+              </div>
+              <a href="#" class="btn btn-lg btn-outline-primary w-sm-auto w-100 mt-4">Learn more</a>
+            </div>
+          </div>
+          <div class="col-md-6 offset-lg-1 order-md-2 order-1 rellax" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="md">
+            <div class="bg-secondary rounded-3">
+              <img src="assets/img/landing/software-agency-2/services/02-light.png" alt="Illustration" class="d-dark-mode-none d-block">
+              <img src="assets/img/landing/software-agency-2/services/02-dark.png" alt="Illustration" class="d-dark-mode-block d-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Service item -->
+        <div class="row gy-4 mb-xl-3">
+          <div class="col-lg-5 col-md-6 order-md-1 order-2 d-flex rellax" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="md">
+            <div class="align-self-center pe-lg-0 pe-md-4">
+              <h3 class="mb-md-4">Software Testing</h3>
+              <p class="mb-md-4 mb-3 fs-lg">Phasellus posuere leo vitae quam faucibus cursus. Phasellus eu ex ultrices, facilisis ex at, aliquet felis. Cras id rutrum ante. Curabitur suscipit diam a facilisis laoreet. Duis id elit imperdiet eros vestibulum molestie. Nulla pellentesque justo enim,</p>
+              <div class="d-flex flex-wrap text-nowrap mb-4">
+                <div class="me-4 pe-3">
+                  <h5 class="h2 mb-1">85+</h5>
+                  <span class="text-body">Tested projects</span>
+                </div>
+                <div class="me-4 pe-3">
+                  <h5 class="h2 mb-1">200+</h5>
+                  <span class="text-body">Happy clients</span>
+                </div>
+              </div>
+              <a href="#" class="btn btn-lg btn-outline-primary w-sm-auto w-100 mt-4">Learn more</a>
+            </div>
+          </div>
+          <div class="col-md-6 offset-lg-1 order-md-2 order-1 rellax" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="md">
+            <div class="bg-secondary rounded-3">
+              <img src="assets/img/landing/software-agency-2/services/03-light.png" alt="Illustration" class="d-dark-mode-none d-block">
+              <img src="assets/img/landing/software-agency-2/services/03-dark.png" alt="Illustration" class="d-dark-mode-block d-none">
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Our awards -->
+      <section class="position-relative py-5 bg-dark">
+        <span class="position-absolute top-0 start-0 d-dark-mode-block d-none w-100 h-100 bg-secondary"></span>
+        <div class="position-relative container my-lg-5 my-md-4 my-3 py-xl-3" data-bs-theme="dark">
+          <h2 class="h1 mb-md-4 mb-3 text-center">Our Awards</h2>
+          <p class="text-body mb-md-5 mb-4 pb-xl-3 pb-lg-2 pb-md-0 pb-sm-2 mx-auto text-center" style="max-width: 32.875rem;">In blandit luctus proin mauris a commodo, dolor diam tempus, aenean magna fusce eu. Id porttitor aliquam eget aliquet sagittis</p>
+
+          <!-- Swiper slider -->
+          <div class="swiper mt-n1" data-swiper-options='{
+            "spaceBetween": 24,
+            "breakpoints": {
+              "0": {
+                "slidesPerView": 1
+              },
+              "500": {
+                "slidesPerView": 2
+              },
+              "768": {
+                "slidesPerView": 3
+              },
+              "1200": {
+                "slidesPerView": 4
+              }
+            },
+            "pagination": {
+              "el": ".swiper-pagination",
+              "clickable": true
+            }
+          }'>
+            <div class="swiper-wrapper">
+
+              <!-- Swiper item -->
+              <div class="swiper-slide h-auto pt-1">
+                <div class="card shadow-sm card-hover position-relative h-100 py-md-1 px-md-2">
+                  <div class="card-body">
+                    <img src="assets/img/landing/software-agency-2/awards/clutch.png" width="170" alt="Clutch" class="">
+                    <div class="mt-5 pt-lg-5 pt-md-4 pt-sm-3">
+                      <h3 class="h5 mt-xl-4 mb-2 pt-lg-2 pb-1 d-flex align-items-center text-nowrap">
+                        <a href="#" class="stretched-link">Learn more</a>
+                        <i class="bx bx-right-arrow-circle ms-2 fs-3 text-primary"></i>
+                      </h3>
+                      <p class="mb-0">Phasellus eu ex ultrices, facilisis ex at aliquet felis rutrum ante.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Swiper item -->
+              <div class="swiper-slide h-auto pt-1">
+                <div class="card shadow-sm card-hover position-relative h-100 py-md-1 px-md-2">
+                  <div class="card-body">
+                    <img src="assets/img/landing/software-agency-2/awards/good-firms.png" width="170" alt="Clutch" class="">
+                    <div class="mt-5 pt-lg-5 pt-md-4 pt-sm-3">
+                      <h3 class="h5 mt-xl-4 mb-2 pt-lg-2 pb-1 d-flex align-items-center text-nowrap">
+                        <a href="#" class="stretched-link">Learn more</a>
+                        <i class="bx bx-right-arrow-circle ms-2 fs-3 text-primary"></i>
+                      </h3>
+                      <p class="mb-0">Nulla pellentesque justo enim, in elementum turpis tincidunt.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Swiper item -->
+              <div class="swiper-slide h-auto pt-1">
+                <div class="card shadow-sm card-hover position-relative h-100 py-md-1 px-md-2">
+                  <div class="card-body">
+                    <img src="assets/img/landing/software-agency-2/awards/product-hunt.png" width="170" alt="Clutch" class="">
+                    <div class="mt-5 pt-lg-5 pt-md-4 pt-sm-3">
+                      <h3 class="h5 mt-xl-4 mb-2 pt-lg-2 pb-1 d-flex align-items-center text-nowrap">
+                        <a href="#" class="stretched-link">Learn more</a>
+                        <i class="bx bx-right-arrow-circle ms-2 fs-3 text-primary"></i>
+                      </h3>
+                      <p class="mb-0">Donec pulvinar iaculis ex laoreet vestibulum interdum viverra.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Swiper item -->
+              <div class="swiper-slide h-auto pt-1">
+                <div class="card shadow-sm card-hover position-relative h-100 py-md-1 px-md-2">
+                  <div class="card-body">
+                    <img src="assets/img/landing/software-agency-2/awards/awwwards.png" width="170" alt="Clutch" class="">
+                    <div class="mt-5 pt-lg-5 pt-md-4 pt-sm-3">
+                      <h3 class="h5 mt-xl-4 mb-2 pt-lg-2 pb-1 d-flex align-items-center text-nowrap">
+                        <a href="#" class="stretched-link">Learn more</a>
+                        <i class="bx bx-right-arrow-circle ms-2 fs-3 text-primary"></i>
+                      </h3>
+                      <p class="mb-0">Cras ullamcorper laoreet erat suscipit. Sed id lacus blandit.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper pagination -->
+            <div class="swiper-pagination position-static mt-4 pt-lg-3 pt-2"></div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Case Studies -->
+      <div class="container my-5 py-lg-5 py-md-4 py-3">
+        <h2 class="h1 mb-md-4 mb-3 pt-xl-3">Our Services</h2>
+        <div class="row gy-sm-4 gy-3 mb-md-5 mb-4 pb-xl-2 pb-md-0 pb-sm-2">
+          <div class="col-md-6 col-12">
+            <p class="mb-0 fs-lg">We bring real solutions to each client&apos;s problems through a deep understanding of their market, solution, and vision.</p>
+          </div>
+          <div class="col text-md-end">
+            <a href="#" class="btn btn-lg btn-outline-primary">See all case studies</a>
+          </div>
+        </div>
+
+        <!-- Swiper slider -->
+        <div class="swiper mb-xl-3" data-swiper-options='{
+          "spaceBetween": 24,
+          "breakpoints": {
+            "0": {
+              "slidesPerView": 1
+            },
+            "768": {
+              "slidesPerView": 2
+            }
+          },
+          "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
+          }
+        }'>
+          <div class="swiper-wrapper">
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto pt-1">
+              <div class="card h-100">
+                <img src="assets/img/landing/software-agency-2/case-studies/01.jpg" class="card-img-top" alt="Card image">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">Travelers Portal with Smart Search</h5>
+                  <p class="card-text mb-4 pb-md-3 fs-lg">Aenean sed mi ut erat venenatis imperdiet. Mauris sed turpis ac elit ultricies rhoncus id et magna donec euismod interdum risus.</p>
+                  <a href="#" class="btn btn-lg btn-outline-primary">See all case studies</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto pt-1">
+              <div class="card h-100">
+                <img src="assets/img/landing/software-agency-2/case-studies/02.jpg" class="card-img-top" alt="Card image">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">Fintech App for Financial Management</h5>
+                  <p class="card-text mb-4 pb-md-3 fs-lg">Nullam semper enim quis vulputate mollis. Donec ultrices elementum mauris, ac porttitor mi cursus eget vestibulum tellus sodales.</p>
+                  <a href="#" class="btn btn-lg btn-outline-primary">See all case studies</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Swiper pagination -->
+          <div class="swiper-pagination position-static mt-4 pt-lg-3 pt-2"></div>
+        </div>
+      </div>
+
+
+      <!-- What Our Clients Say About Us -->
+      <section class="container mb-5 pb-lg-5 pb-md-4 pb-3">
+        <div class="mb-xl-3">
+          <h2 class="h1 mb-md-5 mb-4 pb-xl-3 pb-lg-2 pb-md-0 pb-sm-2">What Our Clients Say About Us</h2>
+
+          <!-- Tabs -->
+          <div class="row gy-4 gx-md-4 gx-3">
+
+            <!-- Nav tabs -->
+            <div class="col-lg-4 col-sm-5 order-sm-1 order-2">
+              <ul class="nav nav-tabs flex-column" role="tablist">
+                <li class="nav-item mb-3">
+                  <a href="#testimonial-1" class="nav-link flex-md-row flex-sm-column align-items-md-center align-items-sm-start align-items-center p-md-4 p-3 rounded-3 fw-normal active" data-bs-toggle="tab" role="tab">
+                    <img src="assets/img/avatar/48.jpg" width="56" alt="Avatar" class="rounded-circle me-md-3 me-sm-0 me-3 mb-md-0 mb-sm-2">
+                    <div>
+                      <span class="d-block mb-0 fs-lg fw-semibold">Jack Taylor</span>
+                      Co-founder of Lorem Company
+                    </div>
+                  </a>
+                </li>
+                <li class="nav-item mb-3">
+                  <a href="#testimonial-2" class="nav-link flex-md-row flex-sm-column align-items-md-center align-items-sm-start align-items-center p-md-4 p-3 rounded-3 fw-normal" data-bs-toggle="tab" role="tab">
+                    <img src="assets/img/avatar/49.jpg" width="56" alt="Avatar" class="rounded-circle me-md-3 me-sm-0 me-3 mb-md-0 mb-sm-2">
+                    <div>
+                      <span class="d-block mb-0 fs-lg fw-semibold">Annette Black</span>
+                      VP of Strategy, Stretto Inc.
+                    </div>
+                  </a>
+                </li>
+                <li class="nav-item mb-0">
+                  <a href="#testimonial-3" class="nav-link flex-md-row flex-sm-column align-items-md-center align-items-sm-start align-items-center p-md-4 p-3 rounded-3 fw-normal" data-bs-toggle="tab" role="tab">
+                    <img src="assets/img/avatar/50.jpg" width="56" alt="Avatar" class="rounded-circle me-md-3 me-sm-0 me-3 mb-md-0 mb-sm-2">
+                    <div>
+                      <span class="d-block mb-0 fs-lg fw-semibold">Mel Gibson</span>
+                      Founder &amp; CEO, Uber
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tabs content -->
+            <div class="col-sm-7 offset-lg-1 order-sm-2 order-1">
+              <div class="tab-content ps-lg-0 ps-md-4">
+                <div class="tab-pane fade show active" id="testimonial-1" role="tabpanel">
+                  <h4 class="mb-3" style="max-width: 22.875rem;">“Cool and experienced team to develop your web application.”</h4>
+                  <div class="fs-sm text-nowrap">
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                  </div>
+                  <p class="mt-md-4 mt-3 pt-lg-3 pt-md-2 mb-0 fs-lg">Dolor, a eget elementum, integer nulla volutpat, nunc, sit. Quam iaculis varius mauris magna sem. Egestas sed sed suscipit dolor faucibus dui imperdiet at eget. Tincidunt imperdiet quis hendrerit aliquam feugiat neque cras sed. Dictum quam integer volutpat tellus, faucibus platea. Pulvinar turpis proin faucibus at mauris. Sagittis gravida vitae porta enim, nulla arcu fermentum massa volutpat pretium.</p>
+                </div>
+                <div class="tab-pane fade" id="testimonial-2" role="tabpanel">
+                  <h4 class="mb-3" style="max-width: 22.875rem;">“Efficient and Innovative: Our Experience with Silicon.”</h4>
+                  <div class="fs-sm text-nowrap">
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                  </div>
+                  <p class="mt-md-4 mt-3 pt-lg-3 pt-md-2 mb-0 fs-lg">Vero minima sequi adipisci architecto dolorum, error animi delectus dicta perferendis! A, exercitationem soluta quam reprehenderit rem animi amet eligendi voluptates consequatur ipsam pariatur necessitatibus laboriosam in illo eos molestias ex explicabo eaque assumenda voluptatibus ducimus consectetur perferendis! Architecto molestias, rerum reprehenderit amet sunt natus fuga blanditiis suscipit.</p>
+                </div>
+                <div class="tab-pane fade" id="testimonial-3" role="tabpanel">
+                  <h4 class="mb-3" style="max-width: 22.875rem;">“Exceptional Service and Quality Results.”</h4>
+                  <div class="fs-sm text-nowrap">
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                    <i class="bx bxs-star text-warning"></i>
+                  </div>
+                  <p class="mt-md-4 mt-3 pt-lg-3 pt-md-2 mb-0 fs-lg">In quas adipisci assumenda voluptas eveniet obcaecati est quis sapiente voluptatum iste porro blanditiis debitis ut beatae, fugit quidem fugiat eum molestias? Dolore magni harum officia tempore eos sapiente. Voluptatibus pariatur omnis libero unde quasi optio, tenetur reprehenderit tempore necessitatibus harum mollitia qui. Maxime, quas tempore. Sunt quaerat porro facere blanditiis voluptatibus.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Sign up CTA -->
+      <section class="container">
+        <div class="position-relative bg-dark rounded-3 overflow-hidden py-5 px-4 px-sm-0">
+          <span class="position-absolute top-0 start-0 d-block w-100 h-100" style="background: radial-gradient(116.18% 118% at 50% 100%, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 41.83%, rgba(241, 244, 253, 0.07) 82.52%);"></span>
+          <div class="position-relative row justify-content-center py-sm-2 py-lg-5">
+            <div class="col-xl-6 col-lg-7 col-md-8 col-sm-10 text-center">
+              <h2 class="h1 text-light mb-4">Ready to Get Started?</h2>
+              <p class="fs-lg text-light opacity-70 pb-4 mb-3">Write your email address so we can contact you</p>
+
+              <!-- Desktop form -->
+              <form class="input-group input-group-lg d-none d-sm-flex needs-validation mb-3" novalidate>
+                <input type="email" class="form-control rounded-start ps-5" placeholder="Your email" required>
+                <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
+                <div class="invalid-tooltip position-absolute top-100 start-0">Please provide a valid email address.</div>
+                <button type="submit" class="btn btn-primary">Get in touch</button>
+              </form>
+
+              <!-- Mobile form -->
+              <form class="needs-validation d-sm-none mb-3" novalidate>
+                <div class="position-relative mb-3">
+                  <input type="email" class="form-control form-control-lg rounded-start ps-5" placeholder="Your email" required>
+                  <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
+                  <div class="invalid-tooltip position-absolute top-0 start-0 mt-n4">Please provide a valid email address.</div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg w-100">Get in touch</button>
+              </form>
+              <p class="fs-sm text-light opacity-50 mb-0">No subscriptions. No annual fees. No lock-ins.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4 pb-lg-5">
+      <div class="container pt-lg-4">
+        <div class="row pb-5">
+          <div class="col-lg-4 col-md-6">
+            <div class="navbar-brand text-dark p-0 me-0 mb-3 mb-lg-4">
+              <img src="assets/img/logo.svg" width="47" alt="Silicon">
+              Silicon
+            </div>
+            <p class="fs-sm pb-lg-3 mb-4">Proin ipsum pharetra, senectus eget scelerisque varius pretium platea velit. Lacus, eget eu vitae nullam proin turpis etiam mi sit. Non feugiat feugiat egestas nulla nec. Arcu tempus, eget elementum dolor ullamcorper sodales ultrices eros.</p>
+            <form class="needs-validation" novalidate>
+              <label for="subscr-email" class="form-label">Subscribe to our newsletter</label>
+              <div class="input-group">
+                <input type="email" id="subscr-email" class="form-control rounded-start ps-5" placeholder="Your email" required>
+                <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
+                <div class="invalid-tooltip position-absolute top-100 start-0">Please provide a valid email address.</div>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-xl-6 col-lg-7 col-md-5 offset-xl-2 offset-md-1 pt-4 pt-md-1 pt-lg-0">
+            <div id="footer-links" class="row">
+              <div class="col-lg-4">
+                <h6 class="mb-2">
+                  <a href="#useful-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Useful Links</a>
+                </h6>
+                <div id="useful-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <ul class="nav flex-column pb-lg-1 mb-lg-3">
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Services</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Case Studies</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Careers</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Blog</a></li>
+                  </ul>
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Terms &amp; Conditions</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Privacy Policy</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-3">
+                <h6 class="mb-2">
+                  <a href="#social-links" class="d-block text-dark dropdown-toggle d-lg-none py-2" data-bs-toggle="collapse">Socials</a>
+                </h6>
+                <div id="social-links" class="collapse d-lg-block" data-bs-parent="#footer-links">
+                  <ul class="nav flex-column mb-2 mb-lg-0">
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Facebook</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">LinkedIn</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Twitter</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-inline-block px-0 pt-1 pb-2">Instagram</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-5 pt-2 pt-lg-0">
+                <h6 class="mb-2">Contact Us</h6>
+                <a href="mailto:email@example.com" class="fw-medium">email@example.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="nav d-block fs-xs text-center text-md-start pb-2 pb-lg-0 mb-0">
+          <span class="text-muted">&copy; All rights reserved. Made by </span>
+          <a class="nav-link d-inline-block p-0 opacity-80" href="https://createx.studio/" target="_blank" rel="noopener">Createx Studio</a>
+        </p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="assets/vendor/rellax/rellax.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
