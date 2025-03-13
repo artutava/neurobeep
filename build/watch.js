@@ -34,3 +34,4 @@ browserSync.watch(`${path.src_js}/**/*.js`).on('change', () => {
     browserSync.reload()
   })
 })
+
