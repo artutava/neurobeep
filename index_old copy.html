@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="light">
   <head>
     <meta charset="utf-8">
-    <title>Neurobeep | Home</title>
+    <title>Neurobeep</title>
 
     <!-- SEO Meta Tags-->
     <meta name="description" content="Neurobeep">
@@ -144,71 +144,74 @@
 
       <!-- NAV START -->
       <script>
-        document.addEventListener("DOMContentLoaded", async () => {
+        (function() {
             try {
-                const response = await fetch('navbar.html');
-                if (!response.ok) throw new Error("Failed to load navbar.html");
-        
-                const html = await response.text();
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", "navbar.html", false); // ❗ Make request synchronous (blocking)
+                xhr.send();
+    
+                if (xhr.status !== 200) throw new Error("Failed to load navbar.html");
+    
                 const temp = document.createElement('div');
-                temp.innerHTML = html;
-        
+                temp.innerHTML = xhr.responseText;
+    
                 const header = temp.querySelector('.header1');
                 if (!header) throw new Error("Element with class 'header1' not found");
-        
+    
                 const scriptTag = document.currentScript || document.scripts[document.scripts.length - 1];
                 scriptTag.insertAdjacentElement('beforebegin', header);
             } catch (error) {
                 console.error(error);
             }
-        });
-        </script>
-      <!--NAV END -->
+        })();
+    </script>
+      <!--NAV START -->
       
 
       <!-- CONTEUDO START -->
-            <!-- Hero -->
-      <section class="jarallax position-relative d-flex align-items-center min-vh-100 bg-light mb-5 py-lg-5 pt-5" style="background-image: url(assets/img/landing/digital-agency/hero-bg.svg);" data-jarallax data-img-position="0% 100%" data-speed="0.5">
-        <div class="container position-relative zindex-5 py-5">
-          <div class="row justify-content-md-start justify-content-center">
-            <div class="col-md-6 col-sm-8 order-md-1 order-2 d-flex flex-column justify-content-between mt-4 pt-2 text-md-start text-center">
-              <div class="mb-md-5 pb-xl-5 mb-4">
-
-                <!-- Text -->
-                <h1 class="display-5 mt-8 mb-3 pb-3">
-                  Inclusão Educacional através da <span class="text-gradient-primary">Neurociência</span>, <span class="text-gradient-primary">Tecnologia Assistiva</span> e <span class="text-gradient-primary">Robótica</span>
-                </h1>
-                <div class="d-md-flex align-items-md-start">
+        <!-- Hero -->
+        <section class="jarallax position-relative d-flex align-items-center min-vh-100 bg-light mb-5 py-lg-5 pt-5" style="background-image: url(assets/img/landing/digital-agency/hero-bg.svg);" data-jarallax data-img-position="0% 100%" data-speed="0.5">
+          <div class="container position-relative zindex-5 py-5">
+            <div class="row justify-content-md-start justify-content-center">
+              <div class="col-md-6 col-sm-8 order-md-1 order-2 d-flex flex-column justify-content-between mt-4 pt-2 text-md-start text-center">
+                <div class="mb-md-5 pb-xl-5 mb-4">
+  
+                  <!-- Text -->
+                  <h1 class="display-5 mt-8 mb-3 pb-3">
+                    Inclusão Educacional através da <span class="text-gradient-primary">Neurociência</span>, <span class="text-gradient-primary">Tecnologia Assistiva</span> e <span class="text-gradient-primary">Robótica</span>
+                  </h1>
+                  <div class="d-md-flex align-items-md-start">
+                    
+                    <p class="d-lg-block d-none mb-md-4 mb-0">Uma proposta de inclusão de crianças com severas deficiências motoras na robótica educacional</p>
+                    <!--<a href="page-quem-somos.html" class="btn btn-lg btn-primary flex-shrink-0 me-md-4 mb-md-0 mb-sm-4 mb-3">Ler mais</a>-->
+                  </div>
+                  <!-- Video popup btn -->
+                  <div class="d-inline-flex align-items-center position-relative mb-5">
+                    <a href="https://www.youtube.com/watch?v=zPo5ZaH6sW8" class="btn btn-video btn-icon btn-lg flex-shrink-0 me-3 stretched-link" data-bs-toggle="video" aria-label="Play video">
+                      <i class="bx bx-play"></i>
+                    </a>
+                    <h4 class=" mb-0">Conheça o Projeto</h4>
+                  </div>
                   
-                  <p class="d-lg-block d-none mb-md-4 mb-0">Uma proposta de inclusão de crianças com severas deficiências motoras na robótica educacional</p>
-                  <!--<a href="page-quem-somos.html" class="btn btn-lg btn-primary flex-shrink-0 me-md-4 mb-md-0 mb-sm-4 mb-3">Ler mais</a>-->
                 </div>
-                <!-- Video popup btn -->
-                <div class="d-inline-flex align-items-center position-relative mb-5">
-                  <a href="https://www.youtube.com/watch?v=zPo5ZaH6sW8" class="btn btn-video btn-icon btn-lg flex-shrink-0 me-3 stretched-link" data-bs-toggle="video" aria-label="Play video">
-                    <i class="bx bx-play"></i>
+  
+                <!-- Scroll down btn -->
+                <div class="d-inline-flex align-items-center justify-content-center justify-content-md-start position-relative">
+                  <a href="#benefits" data-scroll data-scroll-offset="100" class="btn btn-video btn-icon rounded-circle shadow-sm flex-shrink-0 stretched-link me-3" aria-label="Scroll for more">
+                    <i class="bx bx-chevron-down"></i>
                   </a>
-                  <h4 class=" mb-0">Conheça o Projeto</h4>
+                  <span class="fs-sm">Descubra mais</span>
                 </div>
-                
               </div>
-
-              <!-- Scroll down btn -->
-              <div class="d-inline-flex align-items-center justify-content-center justify-content-md-start position-relative">
-                <a href="#benefits" data-scroll data-scroll-offset="100" class="btn btn-video btn-icon rounded-circle shadow-sm flex-shrink-0 stretched-link me-3" aria-label="Scroll for more">
-                  <i class="bx bx-chevron-down"></i>
-                </a>
-                <span class="fs-sm">Descubra mais</span>
+  
+              <!-- Animated gfx -->
+              <div class="col-sm-6 col-9 order-md-2 order-1">
+                <lottie-player class="mx-auto" src="assets/json/animation-digital-agency.json" background="transparent" speed="1" loop autoplay></lottie-player>
               </div>
-            </div>
-
-            <!-- Animated gfx -->
-            <div class="col-sm-6 col-9 order-md-2 order-1">
-              <lottie-player class="mx-auto" src="assets/json/animation-digital-agency.json" background="transparent" speed="1" loop autoplay></lottie-player>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+  
 
       
       <!-- Benefits (features) -->
@@ -922,7 +925,7 @@
           </div>
         </section>
       </div>
-    </main>     
+    </main>
 
       <!-- CONTEUDO END -->
 
@@ -964,5 +967,7 @@
   
     <!-- Main Theme Script -->
     <script src="assets/js/theme.min.js"></script>
+
+    
   </body>
   </html>

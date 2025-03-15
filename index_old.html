@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <title>Neurobeep</title>
+
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Neurobeep">
+    <meta name="keywords" content="bootstrap, business, creative agency, construction, services, e-commerce, shopping cart, mobile app showcase, multipurpose, shop, ui kit, marketing, seo, landing, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="SirCruX Studios">
+
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Theme switcher (color modes) -->
+    <script src="assets/js/theme-switcher.js"></script>
+
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      [data-bs-theme="dark"] .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      [data-bs-theme="dark"] .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      [data-bs-theme="dark"] .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+      <!-- NAV START -->
+      <script>
+        (function() {
+            try {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", "navbar.html", false); // ❗ Make request synchronous (blocking)
+                xhr.send();
+    
+                if (xhr.status !== 200) throw new Error("Failed to load navbar.html");
+    
+                const temp = document.createElement('div');
+                temp.innerHTML = xhr.responseText;
+    
+                const header = temp.querySelector('.header1');
+                if (!header) throw new Error("Element with class 'header1' not found");
+    
+                const scriptTag = document.currentScript || document.scripts[document.scripts.length - 1];
+                scriptTag.insertAdjacentElement('beforebegin', header);
+            } catch (error) {
+                console.error(error);
+            }
+        })();
+    </script>
+      <!--NAV START -->
+      
+
+      <!-- CONTEUDO START -->
+        <!-- Hero -->
+        <section class="vh-100 bg-repeat-0 bg-position-center bg-size-cover overflow-hidden" style="background-image: url(assets/img/landing/intro/hero/bg.jpg);" data-bs-theme="dark">
+          <div class="container vh-100">
+            <div class="row flex-nowrap vh-100">
+              <div class="col-lg-4 col-md-5 d-flex flex-column text-center text-md-start py-5">
+                <h1 class="display-3 mt-auto mb-4">Silicon</h1>
+                <p class="lead text-light opacity-70 pb-5 mb-0 mb-md-3">Multipurpose Business /<br class="d-none d-md-inline"> Technology Template</p>
+                <img src="assets/img/landing/intro/hero/switcher.svg" width="212" class="d-block mx-auto mx-md-0" alt="Light / Dark Mode">
+                <div class="position-relative d-flex align-items-center justify-content-center justify-content-md-start mb-md-4 mb-lg-5 mt-auto">
+                  <div class="btn btn-icon btn-secondary rounded-circle">
+                    <i class="bx bx-chevron-down"></i>
+                  </div>
+                  <a href="#landings" class="nav-link stretched-link text-light fw-normal opacity-80 py-2 px-3" data-scroll data-scroll-offset="70">View Landings</a>
+                </div>
+              </div>
+              <div class="d-flex flex-shrink-0 align-items-start">
+                <img src="assets/img/landing/intro/hero/screens01.png" class="rellax d-block flex-shrink-0 mt-n5" width="486" height="1390" alt="Screens" data-rellax-speed="4" data-disable-parallax-down="md">
+                <img src="assets/img/landing/intro/hero/screens02.png" class="rellax d-block flex-shrink-0 mt-5" width="486" height="1470" alt="Screens" data-rellax-speed="-4" data-disable-parallax-down="md">
+                <img src="assets/img/landing/intro/hero/screens03.png" class="rellax d-block flex-shrink-0" width="486" height="1480" alt="Screens" data-rellax-speed="4" data-disable-parallax-down="md">
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Main features (Slider on narrow scrreens) -->
+        <section class="container pt-5">
+          <div class="swiper mt-n3 mt-md-0 pt-md-4 pt-lg-5 mx-n2" data-swiper-options='{
+            "slidesPerView": 1,
+            "spaceBetween": 8,
+            "pagination": {
+              "el": ".swiper-pagination",
+              "clickable": true
+            },
+            "navigation": {
+              "prevEl": "#prev-news",
+              "nextEl": "#next-news"
+            },
+            "breakpoints": {
+              "500": {
+                "slidesPerView": 2
+              },
+              "700": {
+                "slidesPerView": 3
+              },
+              "1000": {
+                "slidesPerView": 4
+              }
+            }
+          }'>
+            <div class="swiper-wrapper">
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pb-3">
+                <div class="card card-hover bg-light border-0 animation-on-hover h-100 mx-2">
+                  <lottie-player class="d-dark-mode-none mx-auto mt-4 mb-2" src="assets/json/animation-feature-1-light.json" background="transparent" speed="1.25" loop style="width: 180px;"></lottie-player>
+                  <lottie-player class="d-none d-dark-mode-block mx-auto mt-4 mb-2" src="assets/json/animation-feature-1-dark.json" background="transparent" speed="1.25" loop style="width: 180px;"></lottie-player>
+                  <div class="card-body fs-lg fw-semibold text-center">Light / Dark Mode</div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pb-3">
+                <div class="card card-hover bg-light border-0 animation-on-hover h-100 mx-2">
+                  <lottie-player class="d-dark-mode-none mx-auto mt-4 mb-2" src="assets/json/animation-feature-2-light.json" background="transparent" speed="1.25" loop style="width: 180px;"></lottie-player>
+                  <lottie-player class="d-none d-dark-mode-block mx-auto mt-4 mb-2" src="assets/json/animation-feature-2-dark.json" background="transparent" speed="1.25" loop style="width: 180px;"></lottie-player>
+                  <div class="card-body fs-lg fw-semibold text-center">Figma Files Included</div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pb-3">
+                <div class="card card-hover bg-light border-0 animation-on-hover h-100 mx-2">
+                  <lottie-player class="d-dark-mode-none mx-auto mt-4 mb-2" src="assets/json/animation-feature-3-light.json" background="transparent" speed="1.25" loop style="width: 180px;"></lottie-player>
+                  <lottie-player class="d-none d-dark-mode-block mx-auto mt-4 mb-2" src="assets/json/animation-feature-3-dark.json" background="transparent" speed="1.25" loop style="width: 180px;"></lottie-player>
+                  <div class="card-body fs-lg fw-semibold text-center">50+ UI Flexible Components</div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pb-3">
+                <div class="card card-hover bg-light border-0 animation-on-hover h-100 mx-2">
+                  <lottie-player class="d-dark-mode-none mx-auto mt-4 mb-2" src="assets/json/animation-feature-4-light.json" background="transparent" speed="1.25" loop style="width: 180px;"></lottie-player>
+                  <lottie-player class="d-none d-dark-mode-block mx-auto mt-4 mb-2" src="assets/json/animation-feature-4-dark.json" background="transparent" speed="1.25" loop style="width: 180px;"></lottie-player>
+                  <div class="card-body fs-lg fw-semibold text-center">Free Lifetime Updates</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pagination (bullets) -->
+            <div class="swiper-pagination position-relative bottom-0 mt-2"></div>
+          </div>
+        </section>
+
+
+        <!-- Landings (Grid) -->
+        <section id="landings" class="container text-center pt-5 mt-2 mt-md-4 mt-lg-5">
+          <h2 class="h1 pt-2 pt-lg-0">Landing Pages</h2>
+          <p class="fs-lg pb-2 pb-md-3 pb-lg-0 mb-4 mb-lg-5">Choose from pre-built layouts of our unique landing pages</p>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/mobile-app-showcase-v1.jpg" class="b-block border rounded-3 shadow-sm" alt="Mobile App Showcase v.1">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-mobile-app-showcase-v1.html" class="stretched-link">Mobile App Showcase v.1</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/mobile-app-showcase-v2.jpg" class="b-block border rounded-3 shadow-sm" alt="Mobile App Showcase v.2">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-mobile-app-showcase-v2.html" class="stretched-link">Mobile App Showcase v.2</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/mobile-app-showcase-v3.jpg" class="b-block border rounded-3 shadow-sm" alt="Mobile App Showcase v.3">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-mobile-app-showcase-v3.html" class="stretched-link">Mobile App Showcase v.3<span class="badge bg-success fs-xs ms-2">New</span></a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/product-landing.jpg" class="b-block border rounded-3 shadow-sm" alt="Product Landing">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-product.html" class="d-flex justify-content-center align-items-center stretched-link">Product Landing</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/saas-v1.jpg" class="b-block border rounded-3 shadow-sm" alt="SaaS v.1">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-saas-v1.html" class="stretched-link">SaaS v.1</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/saas-v2.jpg" class="b-block border rounded-3 shadow-sm" alt="SaaS v.2">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-saas-v2.html" class="stretched-link">SaaS v.2</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/saas-v3.jpg" class="b-block border rounded-3 shadow-sm" alt="SaaS v.3">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-saas-v3.html" class="stretched-link">SaaS v.3</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/saas-v4.jpg" class="b-block border rounded-3 shadow-sm" alt="SaaS v.4">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-saas-v4.html" class="stretched-link">SaaS v.4</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/saas-v5.jpg" class="b-block border rounded-3 shadow-sm" alt="SaaS v.4">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-saas-v5.html" class="stretched-link">SaaS v.5<span class="badge bg-success fs-xs ms-2">New</span></a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/startup.jpg" class="b-block border rounded-3 shadow-sm" alt="Mobile App Showcase v.2">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-startup.html" class="d-flex justify-content-center align-items-center stretched-link">Startup</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/financial.jpg" class="b-block border rounded-3 shadow-sm" alt="Financial Consulting">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-financial.html" class="stretched-link">Financial Consulting</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/online-courses.jpg" class="b-block border rounded-3 shadow-sm" alt="Online Courses">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-online-courses.html" class="stretched-link">Online Courses</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/medical.jpg" class="b-block border rounded-3 shadow-sm" alt="Medical">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-medical.html" class="stretched-link">Medical</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/digital-agency.jpg" class="b-block border rounded-3 shadow-sm" alt="Digital Agency">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-digital-agency.html" class="stretched-link">Digital Agency</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/software-agency-v1.jpg" class="b-block border rounded-3 shadow-sm" alt="Software Dev Agency v.1">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-software-dev-agency-v1.html" class="stretched-link">Software Dev Agency v.1</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/software-agency-v2.jpg" class="b-block border rounded-3 shadow-sm" alt="Software Dev Agency v.2">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-software-dev-agency-v2.html" class="stretched-link">Software Dev Agency v.2</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/software-agency-v3.jpg" class="b-block border rounded-3 shadow-sm" alt="Software Dev Agency v.3">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-software-dev-agency-v3.html" class="stretched-link">Software Dev Agency v.3</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/conference.jpg" class="b-block border rounded-3 shadow-sm" alt="Conference">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-conference.html" class="stretched-link">Conference</a>
+              </h3>
+            </div>
+            <div class="col card-hover shadow-none bg-none position-relative mb-4 mb-lg-5">
+              <img src="assets/img/landing/intro/landings/blog-homepage.jpg" class="b-block border rounded-3 shadow-sm" alt="Blog Homepage">
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <a href="landing-blog.html" class="stretched-link">Blog Homepage</a>
+              </h3>
+            </div>
+            <div class="col position-relative mb-4 mb-lg-5">
+              <div class="position-relative">
+                <img src="assets/img/landing/intro/landings/placeholder.jpg" class="b-block border rounded-3 shadow-sm" alt="Placeholder">
+                <div class="position-absolute" style="top: 38.4%; padding-left: 15.38%; padding-right: 15.38%;">
+                  <img src="assets/img/landing/intro/landings/wireframe.svg" class="placeholder placeholder-wave bg-transparent opacity-80" alt="">
+                </div>
+              </div>
+              <h3 class="h5 mt-4 mb-3 mb-lg-0">
+                <span class="nav-link justify-content-center fw-bold pe-none p-0">Coming Soon</span>
+              </h3>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- More features (Grid) -->
+        <section class="container pt-4 pb-5 py-lg-5">
+          <h2 class="h1 text-center pt-1 pt-md-3 pt-lg-4 pb-3 pb-md-4 mb-0 mb-lg-3">More Silicon Features</h2>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 g-lg-3 g-xl-4 pb-md-3 pb-lg-5">
+
+            <!-- Item -->
+            <div class="col">
+              <div class="card h-100 bg-transparent border-0">
+                <div class="bg-secondary rounded-3 w-auto lh-1 p-2 mt-4 ms-4 me-auto">
+                  <i class="bx bxl-bootstrap fs-2 text-gradient-primary" style="padding: .375rem;"></i>
+                </div>
+                <div class="card-body">
+                  <h3 class="h6">Built with Bootstrap 5</h3>
+                  <p class="fs-sm mb-0">Silicon is the powerful front-end solution based on Bootstrap 5 — the world’s most popular responsive, mobile-first front-end component library.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="col">
+              <div class="card h-100 bg-transparent border-0">
+                <div class="bg-secondary rounded-3 w-auto lh-1 p-2 mt-4 ms-4 me-auto">
+                  <i class="bx bx-file fs-2 text-gradient-primary" style="padding: .375rem;"></i>
+                </div>
+                <div class="card-body">
+                  <h3 class="h6">Detailed Documentation</h3>
+                  <p class="fs-sm mb-0">Download package includes the documentation that covers all crucial information about how to get started, customize template and components usage.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="col">
+              <div class="card h-100 bg-transparent border-0">
+                <div class="bg-secondary rounded-3 w-auto lh-1 p-2 mt-4 ms-4 me-auto">
+                  <i class="bx bx-mobile fs-2 text-gradient-primary" style="padding: .375rem;"></i>
+                </div>
+                <div class="card-body">
+                  <h3 class="h6">Mobile Freindly Interface</h3>
+                  <p class="fs-sm mb-0">It's not a surprise that nowadays over 80% of users surf the inernet using their mobile devices. Silicon is 100% responsive and optimized for small touch screens.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="col">
+              <div class="card h-100 bg-transparent border-0">
+                <div class="bg-secondary rounded-3 w-auto lh-1 p-2 mt-4 ms-4 me-auto">
+                  <svg class="m-1" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none"><g clip-path="url(#D)"><path d="M6.706 11.335c0-4.925 4.007-8.932 8.932-8.932s8.932 4.007 8.932 8.932a9 9 0 0 1-.169 1.73l2.358.463c.142-.723.214-1.461.214-2.193A11.35 11.35 0 0 0 15.638 0 11.35 11.35 0 0 0 4.303 11.335c0 2.566.883 5.081 2.486 7.082l1.875-1.503a8.83 8.83 0 0 1-1.958-5.579z" fill="url(#A)"/><path d="M15.638 6.407c2.716 0 4.927 2.21 4.927 4.927h2.403a7.34 7.34 0 0 0-7.33-7.33 7.34 7.34 0 0 0-7.33 7.33 7.33 7.33 0 0 0 .959 3.623l2.088-1.19c-.421-.739-.643-1.581-.643-2.433 0-2.716 2.21-4.927 4.926-4.927z" fill="url(#B)"/><path d="M28.375 17.3a3.31 3.31 0 0 0-1.06.173 3.33 3.33 0 0 0-3.186-2.374c-.392 0-.767.069-1.116.193a3.33 3.33 0 0 0-3.129-2.203c-.32 0-.628.046-.921.131v-1.884a3.33 3.33 0 0 0-3.324-3.324 3.33 3.33 0 0 0-3.324 3.324v6.998c-.293-.084-.602-.131-.921-.131a3.33 3.33 0 0 0-3.324 3.324v6.236a8.25 8.25 0 0 0 8.237 8.237h7.157a8.25 8.25 0 0 0 8.237-8.237v-7.14a3.33 3.33 0 0 0-3.324-3.324zm.921 10.464c0 3.217-2.617 5.834-5.834 5.834h-7.157c-3.217 0-5.834-2.617-5.834-5.834v-6.236c0-.508.413-.921.921-.921s.921.413.921.921v4.852h2.403V11.336c0-.508.413-.921.921-.921s.921.413.921.921v5.077 3.526.684h2.403v-.684-3.526c0-.508.413-.921.921-.921s.921.413.921.921v4.211h2.403v-2.201c0-.508.413-.921.921-.921s.921.413.921.921v2.201h2.403c0-.508.413-.921.921-.921s.921.413.921.921v7.14z" fill="url(#C)"/></g><defs><linearGradient id="A" x1="4.303" y1="9.252" x2="26.973" y2="9.252" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#d946ef"/></linearGradient><linearGradient id="B" x1="8.309" y1="9.506" x2="22.968" y2="9.506" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#d946ef"/></linearGradient><linearGradient id="C" x1="8.068" y1="22.073" x2="31.7" y2="22.073" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#d946ef"/></linearGradient><clipPath id="D"><path fill="#fff" d="M0 0h36v36H0z"/></clipPath></defs></svg>
+                </div>
+                <div class="card-body">
+                  <h3 class="h6">Touch-Enabled Sliders</h3>
+                  <p class="fs-sm mb-0">In the era of touch screens it's important to ensure great user experience on mobile, especially when it comes to such frequently used interface component as slider.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="col">
+              <div class="card h-100 bg-transparent border-0">
+                <div class="bg-secondary rounded-3 w-auto lh-1 p-2 mt-4 ms-4 me-auto">
+                  <i class="bx bxl-html5 text-gradient-primary m-1" style="font-size: 2.25rem;"></i>
+                </div>
+                <div class="card-body">
+                  <h3 class="h6">W3C Valid HTML Code</h3>
+                  <p class="fs-sm mb-0">All HTML files are checked via W3C validator to ensure 100% valid code. As you probably know invalid HTML limits innovation, but Silicon is innovative at its core.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="col">
+              <div class="card h-100 bg-transparent border-0">
+                <div class="bg-secondary rounded-3 w-auto lh-1 p-2 mt-4 ms-4 me-auto">
+                  <i class="bx bxl-nodejs text-gradient-primary m-1" style="font-size: 2.25rem;"></i>
+                </div>
+                <div class="card-body">
+                  <h3 class="h6">Kick-Start Your Development</h3>
+                  <p class="fs-sm mb-0">Start your development process fast and easy with Node.js and Gulp setup. Configuration files are included in download package. Full tasks automation.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="col">
+              <div class="card h-100 bg-transparent border-0">
+                <div class="bg-secondary rounded-3 w-auto lh-1 p-2 mt-4 ms-4 me-auto">
+                  <i class="bx bxl-sass text-gradient-primary m-1" style="font-size: 2.25rem;"></i>
+                </div>
+                <div class="card-body">
+                  <h3 class="h6">Easy to Customize with Sass</h3>
+                  <p class="fs-sm mb-0">Silicon is built using Sass. Easily change colors, typography and much more. It is the most mature, stable, and powerful CSS extension language in the world.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="col">
+              <div class="card h-100 bg-transparent border-0">
+                <div class="bg-secondary rounded-3 w-auto lh-1 p-2 mt-4 ms-4 me-auto">
+                  <i class="bx bxl-javascript text-gradient-primary m-1" style="font-size: 2.25rem;"></i>
+                </div>
+                <div class="card-body">
+                  <h3 class="h6">Future Proof Java-Script</h3>
+                  <p class="fs-sm mb-0">Silicon core scripts as well as all dependencies are written in vanilla JS. And now with Bootstrap 5 we finally drop jQuery and use ES6 modules.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      <!-- CONTEUDO END -->
+
+      
+    </main>
+
+
+    <!-- FOOTER START -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+          try {
+              const response = await fetch('footer.html');
+              if (!response.ok) throw new Error("Failed to load navbar.html");
+      
+              const html = await response.text();
+              const temp = document.createElement('div');
+              temp.innerHTML = html;
+      
+              const header = temp.querySelector('.footer1');
+              if (!header) throw new Error("Element with class 'header1' not found");
+      
+              const scriptTag = document.currentScript || document.scripts[document.scripts.length - 1];
+              scriptTag.insertAdjacentElement('beforebegin', header);
+          } catch (error) {
+              console.error(error);
+          }
+      });
+      </script>
+      
+    <!-- FOOTER END -->
+
+    
+  
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/rellax/rellax.min.js"></script>
+    <script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+
+    
+  </body>
+  </html>
