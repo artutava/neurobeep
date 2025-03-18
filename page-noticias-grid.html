@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <title>Notícias</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Silicon - Multipurpose Technology Bootstrap Template">
+    <meta name="keywords" content="bootstrap, business, creative agency, mobile app showcase, saas, fintech, finance, online courses, software, medical, conference landing, services, e-commerce, shopping cart, multipurpose, shop, ui kit, marketing, seo, landing, blog, portfolio, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="Createx Studio">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Theme switcher (color modes) -->
+    <script src="assets/js/theme-switcher.js"></script>
+
+    <!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css">
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      [data-bs-theme="dark"] .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      [data-bs-theme="dark"] .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      [data-bs-theme="dark"] .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+
+      <!-- NAV START -->
+      <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const response = await fetch('navbar.html');
+                if (!response.ok) throw new Error("Failed to load navbar.html");
+        
+                const html = await response.text();
+                const temp = document.createElement('div');
+                temp.innerHTML = html;
+        
+                const header = temp.querySelector('.header1');
+                if (!header) throw new Error("Element with class 'header1' not found");
+        
+                const scriptTag = document.currentScript || document.scripts[document.scripts.length - 1];
+                scriptTag.insertAdjacentElement('beforebegin', header);
+            } catch (error) {
+                console.error(error);
+            }
+        });
+        </script>
+      <!--NAV END -->
+
+
+      <!-- Breadcrumb -->
+      <nav class="container mt-lg-4 pt-5" aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 pt-5">
+          <li class="breadcrumb-item">
+            <a href="index.html"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Notícias</li>
+        </ol>
+      </nav>
+
+
+      <!-- Page content -->
+      <section class="container mt-4 mb-lg-5 pt-lg-2 pb-5">
+
+        <!-- Page title + Layout switcher + Search form -->
+        <div class="row align-items-end gy-3 mb-4 pb-lg-3 pb-1">
+          <div class="col-lg-5 col-md-4">
+            <h1 class="mb-2 mb-md-0">Notícias</h1>
+          </div>
+          <div class="col-lg-7 col-md-8">
+            <form class="row gy-2">
+              <div class="col-lg-5 col-sm-6">
+                <div class="d-flex align-items-center">
+                  <div class="nav flex-nowrap me-sm-4 me-3">
+                    <a href="page-noticias.html" class="nav-link me-2 p-0" aria-label="List view">
+                      <i class="bx bx-list-ul fs-4"></i>
+                    </a>
+                    <a href="page-noticias-grid.html" class="nav-link p-0 active" aria-label="Grid view">
+                      <i class="bx bx-grid-alt fs-4"></i>
+                    </a>
+                  </div>
+                  <select class="form-select">
+                    <option>All categories</option>
+                    <option value="processes-and-tools">Processes &amp; Tools</option>
+                    <option value="startups">Startups</option>
+                    <option value="digital">Digital</option>
+                    <option value="strategy">Strategy</option>
+                    <option value="business">Business</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-7 col-sm-6">
+                <div class="input-group">
+                  <input type="text" class="form-control pe-5 rounded" placeholder="Search the blog...">
+                  <i class="bx bx-search position-absolute top-50 end-0 translate-middle-y me-3 zindex-5 fs-lg"></i>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Blog grid -->
+        <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 gy-md-4 gy-2">
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Read later" aria-label="Read later">
+                  <i class="bx bx-bookmark"></i>
+                </a>
+                <img src="assets/img/blog/01.jpg" class="card-img-top" alt="Image">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Business</a>
+                  <span class="fs-sm text-muted">May 19, 2023</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="blog-single.html">5 Bad Landing Page Examples &amp; How We Would Fix Them</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/avatar/01.jpg" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Jerome Bell
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Read later" aria-label="Read later">
+                  <i class="bx bx-bookmark"></i>
+                </a>
+                <img src="assets/img/blog/02.jpg" class="card-img-top" alt="Image">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Digital</a>
+                  <span class="fs-sm text-muted">Sep 28, 2023</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="blog-single.html">Why UX Design Matters and How it Affects Ranking</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/avatar/01.jpg" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Jerome Bell
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Read later" aria-label="Read later">
+                  <i class="bx bx-bookmark"></i>
+                </a>
+                <img src="assets/img/blog/03.jpg" class="card-img-top" alt="Image">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Business</a>
+                  <span class="fs-sm text-muted">Sep 16, 2023</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="blog-single.html">This Week in Search: New Limits and Exciting Features</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/avatar/02.jpg" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Ralph Edwards
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Read later" aria-label="Read later">
+                  <i class="bx bx-bookmark"></i>
+                </a>
+                <img src="assets/img/blog/04.jpg" class="card-img-top" alt="Image">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Processes &amp; Tools</a>
+                  <span class="fs-sm text-muted">12 hours ago</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="blog-single.html">Five Effective Lead Generation Techniques For Your Business</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/avatar/03.jpg" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Esther Howard
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Read later" aria-label="Read later">
+                  <i class="bx bx-bookmark"></i>
+                </a>
+                <img src="assets/img/blog/05.jpg" class="card-img-top" alt="Image">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Digital</a>
+                  <span class="fs-sm text-muted">Oct 9, 2023</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="blog-single.html">Inclusive Marketing: Why and How Does it Work?</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/avatar/04.jpg" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Jane Cooper
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Read later" aria-label="Read later">
+                  <i class="bx bx-bookmark"></i>
+                </a>
+                <img src="assets/img/blog/06.jpg" class="card-img-top" alt="Image">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Marketing</a>
+                  <span class="fs-sm text-muted">Apr 2, 2023</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="blog-single.html">How Agile is Your Forecasting Process?</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/avatar/05.jpg" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Albert Flores
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Read later" aria-label="Read later">
+                  <i class="bx bx-bookmark"></i>
+                </a>
+                <img src="assets/img/blog/07.jpg" class="card-img-top" alt="Image">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Processes &amp; Tools</a>
+                  <span class="fs-sm text-muted">Sep 3, 2023</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="blog-single.html">Your Guide to Optimising A JavaScript-enabled Website</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/avatar/02.jpg" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Ralph Edwards
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Read later" aria-label="Read later">
+                  <i class="bx bx-bookmark"></i>
+                </a>
+                <img src="assets/img/blog/08.jpg" class="card-img-top" alt="Image">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Processes &amp; Tools</a>
+                  <span class="fs-sm text-muted">Sep 10, 2023</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="blog-single.html">A Study on Smartwatch Design Qualities and People’s Preferences</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/avatar/03.jpg" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Esther Howard
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Item -->
+          <div class="col pb-3">
+            <article class="card border-0 shadow-sm h-100">
+              <div class="position-relative">
+                <a href="blog-single.html" class="position-absolute top-0 start-0 w-100 h-100" aria-label="Read more"></a>
+                <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-5 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Read later" aria-label="Read later">
+                  <i class="bx bx-bookmark"></i>
+                </a>
+                <img src="assets/img/blog/09.jpg" class="card-img-top" alt="Image">
+              </div>
+              <div class="card-body pb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <a href="#" class="badge fs-sm text-nav bg-secondary text-decoration-none">Strategy</a>
+                  <span class="fs-sm text-muted">Sep 16, 2023</span>
+                </div>
+                <h3 class="h5 mb-0">
+                  <a href="blog-single.html">This Long-Awaited Technology May Finally Change the World</a>
+                </h3>
+              </div>
+              <div class="card-footer py-4">
+                <a href="#" class="d-flex align-items-center fw-bold text-dark text-decoration-none">
+                  <img src="assets/img/avatar/02.jpg" class="rounded-circle me-3" width="48" alt="Avatar">
+                  Ralph Edwards
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center pt-md-4 pt-2">
+            <li class="page-item">
+              <a href="#" class="page-link" aria-label="Previous page">
+                <i class="bx bx-chevron-left mx-n1"></i>
+              </a>
+            </li>
+            <li class="page-item disabled d-sm-none">
+              <span class="page-link text-body">2 / 4</span>
+            </li>
+            <li class="page-item d-none d-sm-block">
+              <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item active d-none d-sm-block" aria-current="page">
+              <span class="page-link">
+                2
+                <span class="visually-hidden">(current)</span>
+              </span>
+            </li>
+            <li class="page-item d-none d-sm-block">
+              <a href="#" class="page-link">3</a>
+            </li>
+            <li class="page-item d-none d-sm-block">
+              <a href="#" class="page-link">4</a>
+            </li>
+            <li class="page-item">
+              <a href="#" class="page-link" aria-label="Next page">
+                <i class="bx bx-chevron-right mx-n1"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </main>
+
+
+    <!-- FOOTER START -->
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+          try {
+              const response = await fetch('footer.html');
+              if (!response.ok) throw new Error("Failed to load navbar.html");
+      
+              const html = await response.text();
+              const temp = document.createElement('div');
+              temp.innerHTML = html;
+      
+              const header = temp.querySelector('.footer1');
+              if (!header) throw new Error("Element with class 'footer1' not found");
+      
+              const scriptTag = document.currentScript || document.scripts[document.scripts.length - 1];
+              scriptTag.insertAdjacentElement('beforebegin', header);
+          } catch (error) {
+              console.error(error);
+          }
+      });
+      </script>
+      
+    <!-- FOOTER END -->
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/rellax/rellax.min.js"></script>
+    <script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
