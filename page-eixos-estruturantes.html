@@ -143,25 +143,27 @@
 
       <!-- NAV START -->
       <script>
-        document.addEventListener("DOMContentLoaded", async () => {
+        (function() {
             try {
-                const response = await fetch('navbar.html');
-                if (!response.ok) throw new Error("Failed to load navbar.html");
-        
-                const html = await response.text();
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", "navbar.html", false); // ❗ Make request synchronous (blocking)
+                xhr.send();
+    
+                if (xhr.status !== 200) throw new Error("Failed to load navbar.html");
+    
                 const temp = document.createElement('div');
-                temp.innerHTML = html;
-        
+                temp.innerHTML = xhr.responseText;
+    
                 const header = temp.querySelector('.header1');
                 if (!header) throw new Error("Element with class 'header1' not found");
-        
+    
                 const scriptTag = document.currentScript || document.scripts[document.scripts.length - 1];
                 scriptTag.insertAdjacentElement('beforebegin', header);
             } catch (error) {
                 console.error(error);
             }
-        });
-        </script>
+        })();
+    </script>
       <!--NAV END -->
       
 
