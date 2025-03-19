@@ -130,6 +130,7 @@
   <!-- Body -->
   <body>
 
+    
     <!-- Page loading spinner -->
     <div class="page-loading active">
       <div class="page-loading-inner">
@@ -174,15 +175,14 @@
         <div class="container position-relative zindex-5 py-5">
           <div class="row justify-content-md-start justify-content-center">
             <div class="col-md-6 col-sm-8 order-md-1 order-2 d-flex flex-column justify-content-between mt-4 pt-2 text-md-start text-center">
-              <div class="mb-md-5 pb-xl-5 mb-4">
+              <div class="mb-md-8 pb-xl-6 mb-4">
 
-                <!-- Text -->
-                <h1 class="display-5 mt-8 mb-3 pb-3">
-                  Inclusão Educacional através da <span class="text-gradient-primary">Neurociência</span>, <span class="text-gradient-primary">Tecnologia Assistiva</span> e <span class="text-gradient-primary">Robótica</span>
-                </h1>
+                <h3 class="display-5 mb-4"><span class="text-gradient-primary">Inclusão Educacional através da Neurociência, Tecnologia Assistiva e Robótica</span></h3>
+
+                
                 <div class="d-md-flex align-items-md-start">
                   
-                  <p class="d-lg-block d-none mb-md-4 mb-0">Uma proposta de inclusão de crianças com severas deficiências motoras na robótica educacional</p>
+                  <p class="fs-xl pb-4 mb-1 mb-md-2 mb-lg-3">Uma proposta de inclusão de crianças com severas deficiências motoras na robótica educacional</p>
                   <!--<a href="page-quem-somos.html" class="btn btn-lg btn-primary flex-shrink-0 me-md-4 mb-md-0 mb-sm-4 mb-3">Ler mais</a>-->
                 </div>
                 <!-- Video popup btn -->
@@ -203,6 +203,7 @@
                 <span class="fs-sm">Descubra mais</span>
               </div>
             </div>
+            
 
             <!-- Animated gfx -->
             <div class="col-sm-6 col-9 order-md-2 order-1">
@@ -213,64 +214,155 @@
       </section>
 
       
-      <!-- Benefits (features) -->
-      <section class="container mb-5 pt-lg-5" id="benefits">
-        <div class="swiper pt-3" data-swiper-options='{
-          "slidesPerView": 1,
-          "pagination": {
-            "el": ".swiper-pagination",
-            "clickable": true
-          },
+
+       <!-- How it works (Slider) -->
+       <section class="container">
+        <div class="row align-items-center">
+          <!-- Sturtups category -->
+      <div class="row align-items-center justify-content-center py-4 py-md-5 my-1 my-sm-3 my-md-0 my-xl-3">
+        <div class="col-10 col-sm-9 col-md-6 col-xl-7 pb-2 pb-md-0 mb-4 mb-md-0">
+          <div class="pe-md-4 pe-xl-0">
+            <img src="assets/img/landing/app-showcase-2/screens/neurobeep_logo_veert_v2.png" width="636" alt="Startupper">
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-5 text-center text-md-start">
+          <h3 class="display-7 mb-4"><span class="text-gradient-primary">Habilitar crianças em processos de ensino-aprendizagem</span></h3>
+          <p class="fs-lg pb-4 mb-0">O NeuroBeep é um projeto transformador que integra avanços em neurociência e tecnologia assistiva para criar soluções inovadoras que permitam a crianças com paralisia cerebral severa participar ativamente de processos educacionais mediados por robótica.</p>
+          <a href="page-quem-somos.html" class="btn btn-outline-primary mt-1">
+            Leia mais
+            <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
+          </a>
+        </div>
+      </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solutions -->
+      <section class="container mb-5 ">
+        <div>
+          <h3 class="display-7 mb-4"><span class="text-gradient-primary">Linhas temáticas do NeuroBeep</span></h3>
+          <p class="fs-xl pb-4 mb-1 mb-md-2 mb-2">Com foco na inovação tecnológica e na acessibilidade, o projeto desenvolve interfaces cérebro-máquina e plataformas de robótica para superar barreiras físicas e cognitivas. 
+        Ao oferecer soluções replicáveis, busca ampliar a autonomia das pessoas e contribuir para uma sociedade mais inclusiva.</p>
+        </div>
+        <!-- Swiper slider -->
+        <div class="swiper mb-xl-3" data-swiper-options='{
+          "spaceBetween": 24,
           "breakpoints": {
+            "0": {
+              "slidesPerView": 1
+            },
             "500": {
               "slidesPerView": 2
             },
-            "991": {
+            "768": {
               "slidesPerView": 3
+            },
+            "1200": {
+              "slidesPerView": 4
             }
+          },
+          "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
           }
-        }'>
+        }' autoplay>
+
           <div class="swiper-wrapper">
 
-            <!-- Item -->
-            <div class="swiper-slide border-end-lg px-2">
-              <div class="text-center">
-                <img src="assets/img/landing/digital-agency/icons/idea.svg" width="48" alt="Bulb icon" class="d-block mb-4 mx-auto">
-                <h4 class="mb-2 pb-1">Creative Solutions</h4>
-                <p class="mx-auto" style="max-width: 336px;">Sed morbi nulla pulvinar lectus tempor vel euismod accumsan.</p>
+            <!-- Swiper item -->
+            <div class="swiper-slide card-hover">
+              <div class="card card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center card-hover border-primary">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/brands/habilitacao.svg" width="90" alt="Icon" class="d-block mb-4 mx-auto">
+                  <h4><span class="text-gradient-primary">Habilitação</span></h4>
+                </div>
               </div>
             </div>
 
-            <!-- Item -->
-            <div class="swiper-slide border-end-lg px-2">
-              <div class="text-center">
-                <img src="assets/img/landing/digital-agency/icons/award.svg" width="48" alt="Award icon" class="d-block mb-4 mx-auto">
-                <h4 class="mb-2 pb-1">Award Winning</h4>
-                <p class="mx-auto" style="max-width: 336px;">Sit facilisis dolor arcu, fermentum vestibulum arcu elementum imperdiet.</p>
+            <!-- Swiper item -->
+            <div class="swiper-slide card-hover">
+              <div class="card card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center card-hover border-primary">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/brands/reabilitacao.svg"width="90" alt="Icon" class="d-block mb-4 mx-auto">
+                  <h4><span class="text-gradient-primary">Reabilitação</span></h4>
+                </div>
               </div>
             </div>
 
-            <!-- Item -->
-            <div class="swiper-slide px-2">
-              <div class="text-center">
-                <img src="assets/img/landing/digital-agency/icons/team.svg" width="48" alt="Team icon" class="d-block mb-4 mx-auto">
-                <h4 class="mb-2 pb-1">Team of Professionals</h4>
-                <p class="mx-auto" style="max-width: 336px;">Nam venenatis urna aenean quis feugiat et senectus turpis.</p>
+            <!-- Swiper item -->
+            <div class="swiper-slide card-hover">
+              <div class="card card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center card-hover border-primary">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/brands/convivencia.svg"width="90" alt="Icon" class="d-block mb-4 mx-auto">
+                  <h4><span class="text-gradient-primary">Convivência</span></h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide card-hover">
+              <div class="card card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center card-hover border-primary">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/brands/cuidado.svg"width="90" alt="Icon" class="d-block mb-4 mx-auto">
+                  <h4><span class="text-gradient-primary">Cuidado</span></h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide card-hover">
+              <div class="card card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center card-hover border-primary">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/brands/moradia.svg"width="90" alt="Icon" class="d-block mb-4 mx-auto">
+                  <h4><span class="text-gradient-primary">Moradia</span></h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide card-hover">
+              <div class="card card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center card-hover border-primary">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/brands/transporte.svg"width="90" alt="Icon" class="d-block mb-4 mx-auto">
+                  <h4><span class="text-gradient-primary">Transporte</span></h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide card-hover">
+              <div class="card card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center card-hover border-primary">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/brands/paralimpico.svg"width="90" alt="Icon" class="d-block mb-4 mx-auto">
+                  <h4><span class="text-gradient-primary">Esporte Paralímpico</span></h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide card-hover">
+              <div class="card card flex-column flex-sm-row flex-md-column flex-xxl-row align-items-center card-hover border-primary">
+                <div class="card-body my-md-5 my-4 py-xl-2 py-md-0 py-sm-2 text-center">
+                  <img src="assets/img/brands/tech.svg"width="90" alt="Icon" class="d-block mb-4 mx-auto">
+                  <h4><span class="text-gradient-primary">Tecnologias para Inclusão Digital</span></h4>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Pagination (bullets) -->
-          <div class="swiper-pagination position-relative pt-2 pt-sm-3 mt-4"></div>
+          <!-- Swiper pagination -->
+          <div class="swiper-pagination position-static mt-4 pt-lg-3 pt-2"></div>
         </div>
       </section>
 
 
       <!-- Featured Projects -->
       <section class="container mb-5 pt-lg-2 pt-xl-4 pb-2 pb-md-3 pb-lg-5">
-        <h2 class="h1 mb-4 text-center">Featured Projects</h2>
-        <p class="mb-4 mx-auto pb-3 fs-lg text-center" style="max-width: 636px;">We create websites and mobile apps, marketing materials, branding, web design, UX/UI design and illustrations.</p>
-
+        <div>
+          <h3 class="display-7 mb-6"><span class="text-gradient-primary">Desenvolvimento Científico 
+            e Inovação em Tecnologias Assistivas</span></h3>
+        </div>
         <!-- Portfolio grid -->
         <div class="masonry-grid row g-md-4 g-3 mb-4">
 
@@ -280,8 +372,7 @@
               <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center rounded-3">
                 <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50 rounded-3"></span>
                 <div class="position-relative zindex-2">
-                  <h3 class="h5 text-light mb-2">Astronaut &amp; Flashing Neon Lights</h3>
-                  <span class="fs-sm text-light opacity-70">3D Render / Graphic Design / Motion Design</span>
+                  <h3 class="h5 text-light mb-2">Estrutura com Laboratórios Multidisciplinares</h3>
                 </div>
               </div>
               <div class="card-img">
@@ -296,8 +387,7 @@
               <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center rounded-3">
                 <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50 rounded-3"></span>
                 <div class="position-relative zindex-2">
-                  <h3 class="h5 text-light mb-2">Plaster Antique Sculpture in a Pop Art Style</h3>
-                  <span class="fs-sm text-light opacity-70">NFT / Graphic Design / Art / 3D</span>
+                  <h3 class="h5 text-light mb-2">Desenvolvimento da Plataforma Neuroassist 2C</h3>
                 </div>
               </div>
               <div class="card-img">
@@ -312,8 +402,7 @@
               <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center rounded-3">
                 <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50 rounded-3"></span>
                 <div class="position-relative zindex-2">
-                  <h3 class="h5 text-light mb-2">Big Blue Whale Shape</h3>
-                  <span class="fs-sm text-light opacity-70">3D Pollygonal Shape / Graphic Design / Art</span>
+                  <h3 class="h5 text-light mb-2">Desenvolvimento de Pesquisa Básica</h3>
                 </div>
               </div>
               <div class="card-img">
@@ -328,8 +417,7 @@
               <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center rounded-3">
                 <span class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50 rounded-3"></span>
                 <div class="position-relative zindex-2">
-                  <h3 class="h5 text-light mb-2">3D Shape Illustration</h3>
-                  <span class="fs-sm text-light opacity-70">3D Design / Illustration / Art</span>
+                  <h3 class="h5 text-light mb-2">Inovação em Tecnologias Assistivas</h3>
                 </div>
               </div>
               <div class="card-img">
@@ -340,7 +428,7 @@
         </div>
 
         <div class="pt-md-3 pt-2 text-center">
-          <a href="portfolio-grid.html" class="btn btn-lg btn-primary w-sm-auto w-100">Explore all</a>
+          <a href="portfolio-grid.html" class="btn btn-lg btn-primary w-sm-auto w-100">Explorar tudo</a>
         </div>
       </section>
 
@@ -349,8 +437,8 @@
       <section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
         <div class="card border-0 bg-secondary p-md-5 px-sm-2 pt-4 pb-3">
           <div class="card-body mx-auto" style="max-width: 860px;">
-            <h2 class="h1 mb-4 text-center">Our Competencies</h2>
-            <p class="mb-4 pb-3 fs-lg text-center text-muted">We fully understand your business. If you need to update something, we are more than happy to help you with the services we are providing.</p>
+            <h2 class="h1 mb-4 text-center">Pergutnas Frequentes</h2>
+            <p class="mb-4 pb-3 fs-lg text-center text-muted">Ainda com dúvidas? Preparamos algumas respostas de perguntas frequentes para você</p>
 
             <!-- Accordion: Alternative style -->
             <div class="accordion" id="accordion-services">
@@ -358,14 +446,14 @@
               <!-- Item -->
               <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
                 <h3 class="accordion-header" id="heading-1">
-                  <button class="accordion-button fs-xl shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">Digital Marketing</button>
+                  <button class="accordion-button fs-xl shadow-none rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">O que  é o NeuroBeep?</button>
                 </h3>
                 <div class="accordion-collapse collapse show" id="collapse-1" aria-labelledby="heading-1" data-bs-parent="#accordion-services">
                   <div class="accordion-body pt-0">
                     <div class="d-flex flex-md-row flex-column align-items-md-center">
-                      <img src="assets/img/landing/digital-agency/services/01.png" width="200" alt="Digital Marketing" class="me-md-4 mb-md-0 mb-3">
+                      <img src="assets/img/about/cta.png" width="200" alt="Digital Marketing" class="me-md-4 mb-md-0 mb-3">
                       <div class="ps-md-3">
-                        <p class="mb-0">Nisi, sed accumsan tincidunt pulvinar sapien. Neque, adipiscing posuere amet eget cursus mattis egestas nec quam. Tellus in lectus volutpat tellus bibendum. Etiam id phasellus in proin tristique. Semper habitasse volutpat et urna dui sed in pellentesque purus. Convallis viverra faucibus lacus nunc venenatis.</p>
+                        <p class="mb-0">O NeuroBeep é um projeto inovador que combina neurociência, robótica educacional e tecnologia assistiva para promover a inclusão digital de crianças com paralisia cerebral severa em ambientes educacionais. Ele permite que essas crianças participem ativamente do aprendizado por meio de interfaces cérebro-máquina, ampliando sua autonomia e interação no ambiente escolar.</p>
                       </div>
                     </div>
                   </div>
@@ -375,14 +463,14 @@
               <!-- Item -->
               <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
                 <h3 class="accordion-header" id="heading-2">
-                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2">Web Development</button>
+                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2">Qual o objetivo do projeto?</button>
                 </h3>
                 <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="heading-2" data-bs-parent="#accordion-services">
                   <div class="accordion-body pt-0">
                     <div class="d-flex flex-md-row flex-column align-items-md-center">
                       <img src="assets/img/landing/digital-agency/services/02.png" width="200" alt="Web Development" class="me-md-4 mb-md-0 mb-3">
                       <div class="ps-md-3">
-                        <p class="mb-0">Vitae varius euismod egestas egestas lacus. Augue vitae arcu sollicitudin metus iaculis amet, eu at amet. Netus pulvinar tristique ridiculus sed. Viverra ut viverra aenean nisl. Tortor lorem cum congue a. Orci mattis massa tortor magna massa nisi, aliquet risus. Ornare cras aenean pellentesque quam pulvinar at. Libero mollis tortor erat sed. Adipiscing lectus nisi commodo vel. Id augue vitae, hendrerit iaculis.</p>
+                        <p class="mb-0">O NeuroBeep busca desenvolver tecnologias acessíveis, formação de professores, promover a educação inclusiva e ampliar o impacto da inovação científica. Além disso, o projeto incentiva a formação de pesquisadores e o desenvolvimento de startups voltadas para tecnologia assistiva.</p>
                       </div>
                     </div>
                   </div>
@@ -392,14 +480,14 @@
               <!-- Item -->
               <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
                 <h3 class="accordion-header" id="heading-3">
-                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="true" aria-controls="collapse-3">Application Development</button>
+                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="true" aria-controls="collapse-3">Quem desenvolve o NeuroBeep?</button>
                 </h3>
                 <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="heading-3" data-bs-parent="#accordion-services">
                   <div class="accordion-body pt-0">
                     <div class="d-flex flex-md-row flex-column align-items-md-center">
                       <img src="assets/img/landing/digital-agency/services/03.png" width="200" alt="Application Development" class="me-md-4 mb-md-0 mb-3">
                       <div class="ps-md-3">
-                        <p class="mb-0">Morbi tristique justo, ut ac facilisi vel. Faucibus tortor libero commodo maecenas commodo sed. Sapien, vitae senectus turpis enim habitasse ipsum justo. Sagittis vel tortor velit dapibus dictum facilisis dictumst aliquam. Et, tempus euismod non semper vitae egestas semper eget turpis. Eros, pellentesque sed ut faucibus ac egestas leo metus.</p>
+                        <p class="mb-0">O projeto é desenvolvido pelo Departamento de Engenharia Biomédica da Universidade Federal de Pernambuco (UFPE), com financiamento da FINEP – SISASSISTIVA-MCTI e conta com a parceria de outras universidades, startups de tecnologia assistiva e instituições de saúde.</p>
                       </div>
                     </div>
                   </div>
@@ -409,14 +497,14 @@
               <!-- Item -->
               <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
                 <h3 class="accordion-header" id="heading-4">
-                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="true" aria-controls="collapse-4">Strategy</button>
+                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="true" aria-controls="collapse-4">O que é uma interface cérebro-máquina e como funciona no NeuroBeep?</button>
                 </h3>
                 <div class="accordion-collapse collapse" id="collapse-4" aria-labelledby="heading-4" data-bs-parent="#accordion-services">
                   <div class="accordion-body pt-0">
                     <div class="d-flex flex-md-row flex-column align-items-md-center">
                       <img src="assets/img/landing/digital-agency/services/04.png" width="200" alt="Strategy" class="me-md-4 mb-md-0 mb-3">
                       <div class="ps-md-3">
-                        <p class="mb-0">Non bibendum mauris velit at enim. Vel tellus nunc malesuada pellentesque feugiat nibh mauris blandit. Tempus, ut vulputate feugiat quis molestie sit eu blandit rhoncus. Iaculis eget magna sit eget eget massa. Diam nunc dolor tristique lectus imperdiet. Nunc, vitae etiam venenatis arcu turpis sollicitudin amet sit. Ac dapibus non erat sed. Auctor eleifend mattis scelerisque gravida felis nibh. Habitant nascetur turpis ullamcorper.</p>
+                        <p class="mb-0">A interface cérebro-máquina (ICM) é uma tecnologia que capta sinais cerebrais e os converte em comandos digitais, permitindo que crianças com limitações motoras interajam com o ambiente educacional. No NeuroBeep, essa tecnologia possibilita que os alunos controlem dispositivos robóticos e participem de atividades escolares.</p>
                       </div>
                     </div>
                   </div>
@@ -426,14 +514,104 @@
               <!-- Item -->
               <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
                 <h3 class="accordion-header" id="heading-5">
-                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="true" aria-controls="collapse-5">Digital Advertising</button>
+                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="true" aria-controls="collapse-5">O que é o NeuroBeep 2C?</button>
                 </h3>
                 <div class="accordion-collapse collapse" id="collapse-5" aria-labelledby="heading-5" data-bs-parent="#accordion-services">
                   <div class="accordion-body pt-0">
                     <div class="d-flex flex-md-row flex-column align-items-md-center">
                       <img src="assets/img/landing/digital-agency/services/05.png" width="200" alt="Digital Advertising" class="me-md-4 mb-md-0 mb-3">
                       <div class="ps-md-3">
-                        <p class="mb-0">Nulla odio diam, arcu dictum neque nec cursus. Vel, aliquam nisl ridiculus sed. Pulvinar lectus ac pellentesque sollicitudin tristique aliquet ullamcorper in eu. Tincidunt porta magna faucibus neque, nunc gravida sagittis. Ut tellus sed odio laoreet. Molestie sit viverra maecenas nisl felis consequat.</p>
+                        <p class="mb-0">O NeuroBeep 2C é uma plataforma assistiva que permite a comunicação e interação por meio de dois comandos básicos, controlados por sinais cerebrais de uma única área encefálica. Ele possibilita que crianças com paralisia cerebral severa participem de atividades educacionais e interajam com o ambiente escolar de forma acessível e adaptada às suas necessidades.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header" id="heading-6">
+                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-6" aria-expanded="true" aria-controls="collapse-6">Como o NeuroBeep será aplicado nas escolas?</button>
+                </h3>
+                <div class="accordion-collapse collapse" id="collapse-6" aria-labelledby="heading-6" data-bs-parent="#accordion-services">
+                  <div class="accordion-body pt-0">
+                    <div class="d-flex flex-md-row flex-column align-items-md-center">
+                      <img src="assets/img/landing/digital-agency/services/05.png" width="200" alt="Digital Advertising" class="me-md-4 mb-md-0 mb-3">
+                      <div class="ps-md-3">
+                        <p class="mb-0">O NeuroBeep será inserido e testado em escolas públicas distribuídas em Recife (PE), Natal (RN), Feira de Santana (BA) e Cruz das Almas (BA). Professores receberão formação para utilizar a tecnologia assistiva e integrá-la ao ensino.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header" id="heading-7">
+                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-7" aria-expanded="true" aria-controls="collapse-7">O NeuroBeep 2C pode ser usado fora do ambiente escolar?</button>
+                </h3>
+                <div class="accordion-collapse collapse" id="collapse-7" aria-labelledby="heading-7" data-bs-parent="#accordion-services">
+                  <div class="accordion-body pt-0">
+                    <div class="d-flex flex-md-row flex-column align-items-md-center">
+                      <img src="assets/img/landing/digital-agency/services/05.png" width="200" alt="Digital Advertising" class="me-md-4 mb-md-0 mb-3">
+                      <div class="ps-md-3">
+                        <p class="mb-0">Sim! O objetivo final do projeto é que a tecnologia possa ser utilizada em diferentes contextos, como reabilitação, comunicação alternativa e interação social, possibilitando que crianças com deficiência utilizem o NeuroBeep 2C tanto na escola quanto em casa.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header" id="heading-8">
+                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-8" aria-expanded="true" aria-controls="collapse-8">Como professores podem participar de formações para usar o NeuroBeep?</button>
+                </h3>
+                <div class="accordion-collapse collapse" id="collapse-8" aria-labelledby="heading-8" data-bs-parent="#accordion-services">
+                  <div class="accordion-body pt-0">
+                    <div class="d-flex flex-md-row flex-column align-items-md-center">
+                      <img src="assets/img/landing/digital-agency/services/05.png" width="200" alt="Digital Advertising" class="me-md-4 mb-md-0 mb-3">
+                      <div class="ps-md-3">
+                        <p class="mb-0">O projeto oferecerá cursos de extensão universitária para professores da rede pública. Durante a formação, os educadores aprenderão a utilizar a tecnologia assistiva e a integrá-la ao ensino mediado por robótica.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header" id="heading-9">
+                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-9" aria-expanded="true" aria-controls="collapse-9">Como pesquisadores e estudantes podem se envolver?</button>
+                </h3>
+                <div class="accordion-collapse collapse" id="collapse-9" aria-labelledby="heading-9" data-bs-parent="#accordion-services">
+                  <div class="accordion-body pt-0">
+                    <div class="d-flex flex-md-row flex-column align-items-md-center">
+                      <img src="assets/img/landing/digital-agency/services/05.png" width="200" alt="Digital Advertising" class="me-md-4 mb-md-0 mb-3">
+                      <div class="ps-md-3">
+                        <p class="mb-0">O NeuroBeep conta com bolsas para estudantes de graduação e pós-graduação interessados em neurociência, tecnologia assistiva e educação inclusiva.
+                          </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item -->
+              <div class="accordion-item border-0 rounded-3 shadow-sm mb-3">
+                <h3 class="accordion-header" id="heading-10">
+                  <button class="accordion-button fs-xl shadow-none rounded-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-10" aria-expanded="true" aria-controls="collapse-10">Qual o impacto esperado do NeuroBeep?</button>
+                </h3>
+                <div class="accordion-collapse collapse" id="collapse-10" aria-labelledby="heading-10" data-bs-parent="#accordion-services">
+                  <div class="accordion-body pt-0">
+                    <div class="d-flex flex-md-row flex-column align-items-md-center">
+                      <img src="assets/img/landing/digital-agency/services/05.png" width="200" alt="Digital Advertising" class="me-md-4 mb-md-0 mb-3">
+                      <div class="ps-md-3">
+                        <p class="mb-0">✔ Inclusão digital de crianças com deficiência.<br>
+                          ✔ Formação de professores para o ensino inclusivo.<br>
+                          ✔ Expansão da tecnologia assistiva para mais escolas e instituições.<br>
+                          ✔ Popularização da ciência e da inovação educacional.<br>
+                          </p>
                       </div>
                     </div>
                   </div>
@@ -568,213 +746,12 @@
         </div>
       </section>
 
-
-      <!-- Testimonials slider -->
-      <section class="container mb-5 pt-2 pb-3 py-md-4 py-lg-5">
-        <h2 class="h1 pb-2 pb-lg-0 mb-4 mb-lg-5 text-center">What They Say About Us</h2>
-        <div class="row">
-          <div class="col-md-8">
-            <div class="card border-0 shadow-sm p-4 p-xxl-5 mb-4 me-xxl-4">
-
-              <!-- Quotation mark -->
-              <div class="pb-4 mb-2">
-                <span class="btn btn-icon btn-primary btn-lg shadow-primary pe-none">
-                  <i class="bx bxs-quote-left"></i>
-                </span>
-              </div>
-
-              <!-- Slider -->
-              <div class="swiper mx-0 mb-md-n2 mb-xxl-n3" data-swiper-options='{
-                "spaceBetween": 24,
-                "pager": true,
-                "loop": true,
-                "tabs": true,
-                "navigation": {
-                  "prevEl": ".page-prev",
-                  "nextEl": ".page-next"
-                }
-              }'>
-                <div class="swiper-wrapper">
-
-                  <!-- Item -->
-                  <div class="swiper-slide h-auto" data-swiper-tab="#author-1">
-                    <figure class="card h-100 position-relative border-0 bg-transparent">
-                      <blockquote class="card-body p-0 mb-0">
-                        <p class="fs-lg mb-0">Dolor, a eget elementum, integer nulla volutpat, nunc, sit. Quam iaculis varius mauris magna sem. Egestas sed sed suscipit dolor faucibus dui imperdiet at eget. Tincidunt imperdiet quis hendrerit aliquam feugiat neque cras sed. Dictum quam integer volutpat tellus, faucibus platea. Pulvinar turpis proin faucibus at mauris. Sagittis gravida vitae porta enim, nulla arcu fermentum massa. Tortor ullamcorper lacus. Pellentesque lectus adipiscing aenean volutpat tortor habitant.</p>
-                      </blockquote>
-                      <figcaption class="card-footer border-0 d-sm-flex d-md-none w-100 pb-2">
-                        <div class="d-flex align-items-center border-end-sm pe-sm-4 me-sm-2">
-                          <img src="assets/img/avatar/01.jpg" width="48" class="rounded-circle" alt="Ralph Edwards">
-                          <div class="ps-3">
-                            <h5 class="fw-semibold lh-base mb-0">Ralph Edwards</h5>
-                            <span class="fs-sm text-muted">Head of Marketing</span>
-                          </div>
-                        </div>
-                        <img src="assets/img/brands/01.svg" width="160" class="d-block mt-2 ms-5 mt-sm-0 ms-sm-0" alt="Company logo">
-                      </figcaption>
-                    </figure>
-                  </div>
-
-                  <!-- Item -->
-                  <div class="swiper-slide h-auto" data-swiper-tab="#author-2">
-                    <figure class="card h-100 position-relative border-0 bg-transparent">
-                      <blockquote class="card-body p-0 mb-0">
-                        <p class="fs-lg mb-0">Mi semper risus ultricies orci pulvinar in at enim orci. Quis facilisis nunc pellentesque in ullamcorper sit. Lorem blandit arcu sapien, senectus libero, amet dapibus cursus quam. Eget pellentesque eu purus volutpat adipiscing malesuada. Purus nisi, tortor vel lacus. Donec diam molestie ultrices vitae eget pulvinar fames. Velit lacus mi purus velit justo, amet. Nascetur lobortis diam, duis orci.</p>
-                      </blockquote>
-                      <figcaption class="card-footer border-0 d-sm-flex d-md-none w-100 pb-2">
-                        <div class="d-flex align-items-center border-end-sm pe-sm-4 me-sm-2">
-                          <img src="assets/img/avatar/06.jpg" width="48" class="rounded-circle" alt="Annette Black">
-                          <div class="ps-3">
-                            <h5 class="fw-semibold lh-base mb-0">Annette Black</h5>
-                            <span class="fs-sm text-muted">Strategic Advisor</span>
-                          </div>
-                        </div>
-                        <img src="assets/img/brands/02.svg" width="160" class="d-block mt-2 ms-5 mt-sm-0 ms-sm-0" alt="Company logo">
-                      </figcaption>
-                    </figure>
-                  </div>
-
-                  <!-- Item -->
-                  <div class="swiper-slide h-auto" data-swiper-tab="#author-3">
-                    <figure class="card h-100 position-relative border-0 bg-transparent">
-                      <blockquote class="card-body p-0 mb-0">
-                        <p class="fs-lg mb-0">Ac at sed sit senectus massa. Massa ante amet ultrices magna porta tempor. Aliquet diam in et magna ultricies mi at. Lectus enim, vel enim egestas nam pellentesque et leo. Elit mi faucibus laoreet aliquam pellentesque sed aliquet integer massa. Orci leo tortor ornare id mattis auctor aliquam volutpat aliquet. Odio lectus viverra eu blandit nunc malesuada vitae eleifend pulvinar. In ac fermentum sit in orci.</p>
-                      </blockquote>
-                      <figcaption class="card-footer border-0 d-sm-flex d-md-none w-100 pb-2">
-                        <div class="d-flex align-items-center border-end-sm pe-sm-4 me-sm-2">
-                          <img src="assets/img/avatar/05.jpg" width="48" class="rounded-circle" alt="Darrell Steward">
-                          <div class="ps-3">
-                            <h5 class="fw-semibold lh-base mb-0">Darrell Steward</h5>
-                            <span class="fs-sm text-muted">Project Manager</span>
-                          </div>
-                        </div>
-                        <img src="assets/img/brands/04.svg" width="160" class="d-block mt-2 ms-5 mt-sm-0 ms-sm-0" alt="Company logo">
-                      </figcaption>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pagination (Pager) -->
-            <nav class="pagination d-flex justify-content-center justify-content-md-start">
-              <div class="page-item me-2">
-                <a class="page-link page-prev btn-icon btn-sm" href="#" aria-label="Previous">
-                  <i class="bx bx-chevron-left"></i>
-                </a>
-              </div>
-              <ul class="list-unstyled d-flex justify-content-center w-auto mb-0"></ul>
-              <div class="page-item ms-2">
-                <a class="page-link page-next btn-icon btn-sm" href="#" aria-label="Next">
-                  <i class="bx bx-chevron-right"></i>
-                </a>
-              </div>
-            </nav>
-          </div>
-          <div class="col-md-4 d-none d-md-block">
-
-            <!-- Swiper tabs (Author images) -->
-            <div class="swiper-tabs">
-
-              <!-- Author image 1 -->
-              <div id="author-1" class="card bg-transparent border-0 swiper-tab active">
-                <div class="card-body p-0 rounded-3 bg-size-cover bg-repeat-0 bg-position-top-center" style="background-image: url(assets/img/testimonials/01.jpg);"></div>
-                <div class="card-footer d-flex w-100 border-0 pb-0">
-                  <img src="assets/img/brands/01.svg" width="160" class="d-none d-xl-block" alt="Company logo">
-                  <div class="border-start-xl ps-xl-4 ms-xl-2">
-                    <h5 class="fw-semibold lh-base mb-0">Ralph Edwards</h5>
-                    <span class="fs-sm text-muted">Head of Marketing <span class="d-xl-none d-inline">at Lorem Ltd.</span></span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Author image 2 -->
-              <div id="author-2" class="card bg-transparent border-0 swiper-tab">
-                <div class="card-body p-0 rounded-3 bg-size-cover bg-repeat-0 bg-position-top-center" style="background-image: url(assets/img/testimonials/02.jpg);"></div>
-                <div class="card-footer d-flex w-100 border-0 pb-0">
-                  <img src="assets/img/brands/02.svg" width="160" class="d-none d-xl-block" alt="Company logo">
-                  <div class="border-start-xl ps-xl-4 ms-xl-2">
-                    <h5 class="fw-semibold lh-base mb-0">Annette Black</h5>
-                    <span class="fs-sm text-muted">Strategic Advisor <span class="d-xl-none d-inline">at Company LLC</span></span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Author image 3 -->
-              <div id="author-3" class="card bg-transparent border-0 swiper-tab">
-                <div class="card-body p-0 rounded-3 bg-size-cover bg-repeat-0 bg-position-top-center" style="background-image: url(assets/img/testimonials/03.jpg);"></div>
-                <div class="card-footer d-flex w-100 border-0 pb-0">
-                  <img src="assets/img/brands/04.svg" width="160" class="d-none d-xl-block" alt="Company logo">
-                  <div class="border-start-xl ps-xl-4 ms-xl-2">
-                    <h5 class="fw-semibold lh-base mb-0">Darrell Steward</h5>
-                    <span class="fs-sm text-muted">Project Manager <span class="d-xl-none d-inline">at Ipsum Ltd.</span></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- Our Creative Atmosphere -->
-      <section class="container mb-5 pb-lg-5 pt-2 pt-md-4">
-        <h2 class="h1 d-md-inline-block position-relative mb-md-5 mb-4 text-md-start text-center">
-          Our Creative Atmosphere
-
-          <!-- Arrow shape -->
-          <span class="d-md-block d-none position-absolute top-0 start-100 text-primary ms-4" style="width: 84px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="84" height="76" fill="currentColor"><path d="M52.873 59.368c9.856-.312 19.56 1.721 29.317 1.568.935-.074 2.084-1.013 1.722-2.019-3.406-9.705-9.025-18.368-14.874-26.844-.621-.948-2.116-.34-1.754.666-2.829 2.54-2.639 9.432-2.154 13.403-5.592 2.345-10.045 5.522-13.544 10.524-.703 1.11.064 2.705 1.287 2.702zm15.683-12.501c-.656-3.524.486-6.908.824-10.248 3.96 6.725 7.79 13.479 10.542 20.883-7.915-.124-15.674-1.371-23.618-1.625 3.071-3.274 6.922-5.5 11.278-7.295.935-.074 1.149-.938.974-1.715zm-39.5 1.536l25.888-5.82c1.294-.291 1.622-1.86.871-2.779-5.053-6.751-10.236-13.472-15.089-20.54-.592-.819-1.598-.457-1.841.278-.563-.689-1.958-.24-1.725.796.73 4.459 1.908 9.09.451 13.497-1.486 4.278-6.874 7.529-10.379 10.084-.819.592-.615 1.498-.081 2.058-.414 1.181.352 2.776 1.906 2.427zm11.493-13.598c1.774-4.206.005-9.656-1.243-13.999 3.542 6.682 7.932 12.903 12.423 18.964l-19.804 4.453c3.534-2.426 6.952-5.37 8.625-9.418zM7.077 38.931c8.313-1.733 16.584-3.049 24.39-6.435 1.107-.521 1.175-2.032.453-2.822-5.021-5.398-9.712-11.143-15.093-16.324-.346-.33-.764-.372-1.152-.285-.463-.848-2.116-.34-1.754.666 1.028 2.76.992 5.624 1.086 8.459.122 2.964.064 2.705-2.075 4.682-2.369 2.165-5.699 5.497-7.159 8.681-1.537 1.025-.768 3.844 1.303 3.378zm10.806-11.813c.46-.375.602-.951.486-1.469-.711-2.559-.805-5.394-1.257-8.012 3.407 4.266 6.972 8.631 10.608 12.709-5.492 2.186-11.375 3.237-17.228 4.417.201-.317.531-.663.732-.98 1.864-2.595 4.075-4.86 6.66-6.665z"/></svg>
-          </span>
-        </h2>
-        <img src="assets/img/landing/digital-agency/cover.jpg" alt="Team cover" class="rounded-3">
-      </section>
-
-
-      <!-- Awards -->
-      <section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
-        <div class="row gy-4 py-xl-2">
-          <div class="col-md-4">
-            <h2 class="mb-0 text-md-start text-center">Award-winning designs featured by</h2>
-          </div>
-          <div class="col-lg-7 offset-lg-1 col-md-8">
-            <div class="row row-cols-sm-4 row-cols-2 gy-4">
-              <div class="col">
-                <div class="position-relative text-center">
-                  <img src="assets/img/landing/digital-agency/awards/webby.svg" width="100" alt="Webby" class="d-block mx-auto mb-3">
-                  <a href="#" class="text-body justify-content-center fs-sm stretched-link text-decoration-none">4x mobile of the day</a>
-                </div>
-              </div>
-              <div class="col">
-                <div class="position-relative text-center">
-                  <img src="assets/img/landing/digital-agency/awards/cssda.svg" width="100" alt="CSSDA" class="d-block mx-auto mb-3">
-                  <a href="#" class="text-body justify-content-center fs-sm stretched-link text-decoration-none">1x Kudos</a>
-                </div>
-              </div>
-              <div class="col">
-                <div class="position-relative text-center">
-                  <img src="assets/img/landing/digital-agency/awards/awwwards.svg" width="100" alt="Awwwards" class="d-block mx-auto mb-3">
-                  <a href="#" class="text-body justify-content-center fs-sm stretched-link text-decoration-none">3x website of the day</a>
-                </div>
-              </div>
-              <div class="col">
-                <div class="position-relative text-center">
-                  <img src="assets/img/landing/digital-agency/awards/fwa.svg" width="100" alt="FWA" class="d-block mx-auto mb-3">
-                  <a href="#" class="text-body justify-content-center fs-sm stretched-link text-decoration-none">2x best website</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
       <!-- Blog + Contact cta -->
       <div class="bg-secondary mb-5 pt-5">
 
         <!-- Blog -->
         <section class="container mb-5 py-lg-5">
-          <h2 class="h1 mb-4 pb-3 text-center">Latest From Our Blog</h2>
+          <h2 class="h1 mb-4 pb-3">Últimas Notícias</h2>
           <div class="row">
             <div class="col-lg-5 col-12 mb-lg-0 mb-4">
 
@@ -904,7 +881,7 @@
               </article>
             </div>
             <div class="col-12 mt-4 pt-lg-4 pt-3 text-center">
-              <a href="blog-grid-no-sidebar.html" class="btn btn-lg btn-outline-primary w-sm-auto w-100">More blog posts</a>
+              <a href="blog-grid-no-sidebar.html" class="btn btn-lg btn-outline-primary w-sm-auto w-100">Mais Notícias</a>
             </div>
           </div>
         </section>

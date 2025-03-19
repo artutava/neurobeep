@@ -363,7 +363,7 @@ $utilities: map-merge(
 // Gradient text
 
 .text-gradient-primary {
-  background: linear-gradient(to right, $primary, #39abe2);
+  background: linear-gradient(to right, $primary, #8ac8e7 !important);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -398,6 +398,16 @@ $utilities: map-merge(
       opacity: 1;
     }
   }
+}
+
+.lottie-player {
+  position: fixed; /* Fixado no meio da tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza exatamente no meio */
+  width: 200px; /* Ajuste o tamanho desejado */
+  height: 200px; /* Ajuste proporcional ao width */
+  z-index: 1000; /* Garante que ficará acima de outros elementos */
 }
 
 
