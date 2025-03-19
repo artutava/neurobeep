@@ -2,7 +2,7 @@
 <html lang="en" data-bs-theme="light">
   <head>
     <meta charset="utf-8">
-    <title>Neurobeep | Eixos Estruturantes</title>
+    <title>Neurobeep | Linhas Temáticas</title>
 
     <!-- SEO Meta Tags-->
     <meta name="description" content="Neurobeep">
@@ -113,60 +113,7 @@
           transform: rotate(360deg);
         }
       }
-      /* Estilos para a timeline (vertical steps) */
-      .steps {
-        position: relative;
-        padding: 2rem 0;
-      }
-      .step {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 2rem;
-      }
-      @media (min-width: 768px) {
-        .step {
-          flex-direction: row;
-          align-items: center;
-        }
-      }
-      .step-number {
-        flex-shrink: 0;
-      }
-      .step-number-inner {
-        background-color: #fff;
-        color: #026FC2;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-      }
-      .step-body {
-        background-color: #026FC2;
-        color: #fff;
-        border-radius: 0.25rem;
-        padding: 1rem;
-        margin-top: 1rem;
-      }
-      @media (min-width: 768px) {
-        .step-body {
-          flex: 1;
-          margin-top: 0;
-        }
-        /* Para steps alternados: a cada step com flex-direction row-reverse */
-        .step.row-reverse .step-body {
-          text-align: right;
-        }
-        .step.row-reverse {
-          flex-direction: row-reverse;
-        }
-        .step:not(.row-reverse) .step-body {
-          text-align: left;
-          margin-left: 1rem;
-        }
-      }
+      
     </style>
 
     <!-- Page loading scripts -->
@@ -247,200 +194,218 @@
         </nav>
   
   
-      <!-- CONTEUDO START -->
-      <!-- Introdução -->
-      <section class="container pb-5 mb-md-2 mb-lg-4">
-        <h1 class="border-bottom pb-4">Linhas Temáticas</h1>
-        <div class="row pt-2 pt-md-3">
-          <div class="col">
-            <p class="fs-lg pe-lg-4 mb-1 mb-lg-4">
-              Desenvolve uma tecnologia assistiva com foco em crianças com paralisia cerebral severa, em idade escolar.
-            </p>
+      <!-- Início do Conteúdo -->
+        <!-- About company (agora como introdução do conteúdo) -->
+        <section class="container pb-5 mb-md-2 mb-lg-4">
+          <h1 class="border-bottom pb-4">Linhas temáticas</h1>
+          <div class="row pt-2 pt-md-3">
+            <div class="col">
+              <p class="fs-lg pe-lg-4 mb-1 mb-lg-4">
+                Os eixos estruturantes do projeto NeuroAssist são os pilares que guiam suas ações e definem as principais frentes de atuação. Eles organizam e direcionam o desenvolvimento das tecnologias, pesquisas e iniciativas de inclusão educacional, garantindo que o impacto seja amplo, interdisciplinar e sustentável.
+                <br><br>
+                Com base nesses eixos, o NeuroAssist estrutura suas atividades para alcançar resultados práticos, como a inclusão de crianças com severas deficiências motoras em processos educacionais, o fortalecimento de redes de pesquisa e inovação, e a promoção de uma sociedade mais acessível e igualitária.
+              </p>
+            </div>
+          </div>
+        </section>
+
+
+      <!-- Grid de Eixos (Cards sem links, sem hover e sem setas) -->
+      <section class="container pb-5 mb-2 mb-md-4 mb-lg-5">
+        <div class="row row-cols-1 row-cols-md-2">
+          <!-- Eixo 1: Habilitação -->
+          <div class="col py-4 my-2 my-sm-3">
+            <div class="card h-100 border-0 shadow-sm pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3">
+              <div class="card-body pt-3">
+                <div class="d-inline-block bg-primary shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+                  <img src="assets/img/services/icons/cms.svg" class="d-block m-1" width="40" alt="Habilitação Icon">
+                </div>
+                <h2 class="h4 d-inline-flex align-items-center">
+                  Habilitação
+                </h2>
+                <p class="fs-sm text-body mb-0">
+                  Desenvolvimento de habilidades fundamentais para crianças com deficiências, promovendo autonomia e inclusão.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Eixo 2: Reabilitação -->
+          <div class="col py-4 my-2 my-sm-3">
+            <div class="card h-100 border-0 shadow-sm pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3">
+              <div class="card-body pt-3">
+                <div class="d-inline-block bg-primary shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+                  <img src="assets/img/services/icons/rocket.svg" class="d-block m-1" width="40" alt="Reabilitação Icon">
+                </div>
+                <h2 class="h4 d-inline-flex align-items-center">
+                  Reabilitação
+                </h2>
+                <p class="fs-sm text-body mb-0">
+                  Aplicação de tecnologias para melhorar funções motoras e cognitivas, promovendo recuperação e qualidade de vida.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Eixo 3: Convivência -->
+          <div class="col py-4 my-2 my-sm-3">
+            <div class="card h-100 border-0 shadow-sm pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3">
+              <div class="card-body pt-3">
+                <div class="d-inline-block bg-primary shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+                  <img src="assets/img/services/icons/mobile-app.svg" class="d-block m-1" width="40" alt="Convivência Icon">
+                </div>
+                <h2 class="h4 d-inline-flex align-items-center">
+                  Convivência
+                </h2>
+                <p class="fs-sm text-body mb-0">
+                  Criação de ambientes inclusivos que incentivem a interação e a integração social.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Eixo 4: Cuidado -->
+          <div class="col py-4 my-2 my-sm-3">
+            <div class="card h-100 border-0 shadow-sm pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3">
+              <div class="card-body pt-3">
+                <div class="d-inline-block bg-primary shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+                  <img src="assets/img/services/icons/analytics.svg" class="d-block m-1" width="40" alt="Cuidado Icon">
+                </div>
+                <h2 class="h4 d-inline-flex align-items-center">
+                  Cuidado
+                </h2>
+                <p class="fs-sm text-body mb-0">
+                  Práticas e tecnologias que garantem o bem-estar de crianças e cuidadores.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Eixo 5: Moradia -->
+          <div class="col py-4 my-2 my-sm-3">
+            <div class="card h-100 border-0 shadow-sm pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3">
+              <div class="card-body pt-3">
+                <div class="d-inline-block bg-primary shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+                  <img src="assets/img/services/icons/web-search.svg" class="d-block m-1" width="40" alt="Moradia Icon">
+                </div>
+                <h2 class="h4 d-inline-flex align-items-center">
+                  Moradia
+                </h2>
+                <p class="fs-sm text-body mb-0">
+                  Adaptação de espaços para promover acessibilidade e autonomia no lar.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Eixo 6: Transporte -->
+          <div class="col py-4 my-2 my-sm-3">
+            <div class="card h-100 border-0 shadow-sm pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3">
+              <div class="card-body pt-3">
+                <div class="d-inline-block bg-primary shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+                  <img src="assets/img/services/icons/timer.svg" class="d-block m-1" width="40" alt="Transporte Icon">
+                </div>
+                <h2 class="h4 d-inline-flex align-items-center">
+                  Transporte
+                </h2>
+                <p class="fs-sm text-body mb-0">
+                  Soluções que facilitam a mobilidade e o acesso às atividades educacionais.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Eixo 7: Esporte Paralímpico -->
+          <div class="col py-4 my-2 my-sm-3">
+            <div class="card h-100 border-0 shadow-sm pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3">
+              <div class="card-body pt-3">
+                <div class="d-inline-block bg-primary shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+                  <img src="assets/img/services/icons/cms.svg" class="d-block m-1" width="40" alt="Esporte Paralímpico Icon">
+                </div>
+                <h2 class="h4 d-inline-flex align-items-center">
+                  Esporte Paralímpico
+                </h2>
+                <p class="fs-sm text-body mb-0">
+                  Atividades esportivas adaptadas que promovem desenvolvimento físico e social.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Eixo 8: Tecnologias para Inclusão Digital -->
+          <div class="col py-4 my-2 my-sm-3">
+            <div class="card h-100 border-0 shadow-sm pt-5 px-sm-3 px-md-0 px-lg-3 pb-sm-3 pb-md-0 pb-lg-3">
+              <div class="card-body pt-3">
+                <div class="d-inline-block bg-primary shadow-primary rounded-3 position-absolute top-0 translate-middle-y p-3">
+                  <img src="assets/img/services/icons/rocket.svg" class="d-block m-1" width="40" alt="Inclusão Digital Icon">
+                </div>
+                <h2 class="h4 d-inline-flex align-items-center">
+                  Tecnologias para Inclusão Digital
+                </h2>
+                <p class="fs-sm text-body mb-0">
+                  Ferramentas digitais que ampliam o acesso à educação e promovem a inclusão.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Grid de Eixos (conteúdo original) -->
-      <section class="container pb-5 mb-2 mb-md-4 mb-lg-5 bg-secondary">
-        <p class="fs-lg pe-lg-4 mb-1 mb-lg-4">
-          São os eixos de atuação do Neuroassist, que delimitam as frentes nas quais as ações e soluções do projeto estão focadas, refletindo a amplitude dos objetivos e das contribuições esperadas.
-        </p>
-        <div class="row row-cols-2 gx-4 gy-2 mb-5">
-          <!-- Item 1 -->
-          <div class="col">
-            <div class="p-3 bg-light rounded">
-              <h5>Habilitação</h5>
-              <p>Desenvolvimento de habilidades fundamentais que permitem às crianças com paralisia cerebral explorar suas capacidades cognitivas e motoras.</p>
-            </div>
-          </div>
-          <!-- Item 2 -->
-          <div class="col">
-            <div class="p-3 bg-light rounded">
-              <h5>Reabilitação</h5>
-              <p>Aplicação de tecnologias para ajudar na recuperação e melhoria das funções motoras e cognitivas, promovendo maior qualidade de vida.</p>
-            </div>
-          </div>
-          <!-- Item 3 -->
-          <div class="col">
-            <div class="p-3 bg-light rounded">
-              <h5>Convivência</h5>
-              <p>Criação de ambientes inclusivos que incentivem a interação social e a integração das crianças no contexto educacional e comunitário.</p>
-            </div>
-          </div>
-          <!-- Item 4 -->
-          <div class="col">
-            <div class="p-3 bg-light rounded">
-              <h5>Cuidado</h5>
-              <p>Implementação de práticas e tecnologias que assegurem o bem-estar físico e emocional das crianças e de seus cuidadores.</p>
-            </div>
-          </div>
-          <!-- Item 5 -->
-          <div class="col">
-            <div class="p-3 bg-light rounded">
-              <h5>Moradia</h5>
-              <p>Adaptação de espaços físicos para promover acessibilidade e autonomia dentro do ambiente doméstico e comunitário.</p>
-            </div>
-          </div>
-          <!-- Item 6 -->
-          <div class="col">
-            <div class="p-3 bg-light rounded">
-              <h5>Transporte</h5>
-              <p>Desenvolvimento de soluções para facilitar a mobilidade e o acesso das crianças a espaços educacionais e sociais.</p>
-            </div>
-          </div>
-          <!-- Item 7 -->
-          <div class="col">
-            <div class="p-3 bg-light rounded">
-              <h5>Esporte Paralímpico</h5>
-              <p>Inclusão de crianças em atividades esportivas adaptadas que promovam desenvolvimento motor, social e emocional.</p>
-            </div>
-          </div>
-          <!-- Item 8 -->
-          <div class="col">
-            <div class="p-3 bg-light rounded">
-              <h5>Tecnologias para Inclusão Digital</h5>
-              <p>Utilização de ferramentas digitais para ampliar o acesso à educação, comunicação e inclusão social.</p>
-            </div>
-          </div>
-        </div>
-      
-      <!-- Timeline Vertical Steps (estrutura exata conforme referência) -->
-      
-        <h4 class="border-bottom pb-4">As etapas do projeto</h4>
-        <style>
-          .steps {
-            margin: 0 auto;
-            max-width: 600px;
-            padding: 2rem 0;
-          }
-          .step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-          }
-          .step-number {
-            margin-right: 1rem;
-          }
-          .step-number-inner {
-            background-color: #fff;
-            color: #026FC2;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-          }
-          .step-body h5 {
-            margin-bottom: 0.5rem;
-          }
-          .step-body p {
-            font-size: 0.875rem;
-            margin-bottom: 0;
-          }
-        </style>
+      <!-- How it works (Steps) -->
+      <section class="container pt-4 pt-lg-0 pb-4 pb-lg-5">
+        <h2 class="h1 text-center pb-3 pb-md-0 mb-md-5">How Does It Work?</h2>
         <div class="steps">
-          <!-- Step 1 -->
-          <div class="step">
+          <div class="step pt-0 pt-md-3 pb-5">
             <div class="step-number">
               <div class="step-number-inner">1</div>
             </div>
-            <div class="step-body">
-              <h5 class="mb-2">Formação das equipes executoras nas localidades do projeto.</h5>
-              <p class="fs-sm mb-0">Formação das equipes executoras nas localidades do projeto.</p>
+            <div class="step-body d-flex align-items-center ps-xl-5">
+              <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.3" data-disable-parallax-down="lg">
+                <img src="assets/img/landing/online-courses/steps/01-dark.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+                <img src="assets/img/landing/online-courses/steps/01-light.svg" class="d-none d-dark-mode-block" width="306" alt="Illustration">
+              </div>
+              <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.4" data-disable-parallax-down="lg">
+                <h3 class="h4">Find what fascinates you &amp; choose your course</h3>
+                <p class="mb-0">Nulla faucibus mauris pellentesque blandit faucibus non. Sit ut et at suspendisse gravida hendrerit scelerisque tempus placerat.</p>
+              </div>
             </div>
           </div>
-
-          <!-- Step 2 -->
-          <div class="step">
+          <div class="step pt-0 pt-md-4 pb-5">
             <div class="step-number">
               <div class="step-number-inner">2</div>
             </div>
-            <div class="step-body">
-              <h5 class="mb-2">Desenvolvimento da plataforma Neuroassist 2C</h5>
-              <p class="fs-sm mb-0">Desenvolvimento da plataforma Neuroassist 2C</p>
+            <div class="step-body d-flex align-items-center ps-xl-5">
+              <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="lg">
+                <img src="assets/img/landing/online-courses/steps/02-dark.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+                <img src="assets/img/landing/online-courses/steps/02-light.svg" class="d-none d-dark-mode-block" width="306" alt="Illustration">
+              </div>
+              <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.5" data-disable-parallax-down="lg">
+                <h3 class="h4">Learn by doing</h3>
+                <p class="mb-0">Tristique sed pharetra feugiat tempor sagittis. Ultricies eu bibendum adipiscing lacinia. Quisque praesent aliquam tempus phasellus ut integer ac nunc dapibus.</p>
+              </div>
             </div>
           </div>
-
-          <!-- Step 3 -->
-          <div class="step">
+          <div class="step pt-0 pt-md-4 pb-5">
             <div class="step-number">
               <div class="step-number-inner">3</div>
             </div>
-            <div class="step-body">
-              <h5 class="mb-2">Desenvolvimento de pesquisas básicas e aplicadas.</h5>
-              <p class="fs-sm mb-0">Desenvolvimento de pesquisas básicas e aplicadas.</p>
+            <div class="step-body d-flex align-items-center ps-xl-5">
+              <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.3" data-disable-parallax-down="lg">
+                <img src="assets/img/landing/online-courses/steps/03-dark.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+                <img src="assets/img/landing/online-courses/steps/03-light.svg" class="d-none d-dark-mode-block" width="306" alt="Illustration">
+              </div>
+              <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.4" data-disable-parallax-down="lg">
+                <h3 class="h4">Get instant expert feedback</h3>
+                <p class="mb-0">Duis euismod enim, facilisis risus tellus pharetra lectus diam neque. Nec ultrices mi faucibus est. Magna ullamcorper potenti elementum ultricies auctor nec volutpat augue.</p>
+              </div>
             </div>
           </div>
-          <!-- Step 4 -->
-          <div class="step">
+          <div class="step pt-0 pt-md-4 pb-5">
             <div class="step-number">
               <div class="step-number-inner">4</div>
             </div>
-            <div class="step-body">
-              <h5 class="mb-2">Cursos de Extensão e formação para professores.</h5>
-              <p class="fs-sm mb-0">Cursos de Extensão e formação para professores.</p>
-            </div>
-          </div>
-          <!-- Step 5 -->
-          <div class="step">
-            <div class="step-number">
-              <div class="step-number-inner">5</div>
-            </div>
-            <div class="step-body">
-              <h5 class="mb-2">Seleção de professores e crianças.</h5>
-              <p class="fs-sm mb-0">Seleção de professores e crianças.</p>
-            </div>
-          </div>
-          <!-- Step 6 -->
-          <div class="step">
-            <div class="step-number">
-              <div class="step-number-inner">6</div>
-            </div>
-            <div class="step-body">
-              <h5 class="mb-2">Teste e validação da plataforma em campo.</h5>
-              <p class="fs-sm mb-0">Teste e validação da plataforma em campo.</p>
-            </div>
-          </div>
-          <!-- Step 7 -->
-          <div class="step">
-            <div class="step-number">
-              <div class="step-number-inner">7</div>
-            </div>
-            <div class="step-body">
-              <h5 class="mb-2">Consolidação de dados na plataforma digital.</h5>
-              <p class="fs-sm mb-0">Consolidação de dados na plataforma digital.</p>
-            </div>
-          </div>
-          <!-- Step 8 -->
-          <div class="step">
-            <div class="step-number">
-              <div class="step-number-inner">8</div>
-            </div>
-            <div class="step-body">
-              <h5 class="mb-2">Apresentação dos produtos oriundos do projeto.</h5>
-              <p class="fs-sm mb-0">Apresentação dos produtos oriundos do projeto.</p>
+            <div class="step-body d-flex align-items-center ps-xl-5">
+              <div class="rellax d-none d-lg-block flex-shrink-0 mx-4 mx-xl-5" data-rellax-percentage="0.5" data-rellax-speed="-0.5" data-disable-parallax-down="lg">
+                <img src="assets/img/landing/online-courses/steps/04-dark.svg" class="d-dark-mode-none" width="306" alt="Illustration">
+                <img src="assets/img/landing/online-courses/steps/04-light.svg" class="d-none d-dark-mode-block" width="306" alt="Illustration">
+              </div>
+              <div class="rellax ps-md-4 ps-xl-5" data-rellax-percentage="0.5" data-rellax-speed="0.6" data-disable-parallax-down="lg">
+                <h3 class="h4">Put your learning into practice &amp; find your dream job</h3>
+                <p class="mb-0">Sed fermentum ut nibh duis. Dolor pretium arcu, tincidunt ultrices tristique arcu cursus massa gravida tortor nulla, mollis id pretium.</p>
+              </div>
             </div>
           </div>
         </div>
