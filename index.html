@@ -37,6 +37,8 @@
     <!-- Page loading styles -->
     <style>
 
+      
+
       .card-min {
         min-height:312px;
       }
@@ -253,7 +255,12 @@
         <!-- Swiper slider -->
         <div class="swiper mb-xl-3" data-swiper-options='{
           "spaceBetween": 24,
-          
+          "loop": true,
+          "speed": 2000,
+          "autoplay": {
+            "delay": 0,
+            "disableOnInteraction": false
+          },
           "breakpoints": {
             "0": {
               "slidesPerView": 1
@@ -274,7 +281,7 @@
           }
         }' autoplay>
 
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper mt-2">
 
             <!-- Swiper item -->
             <div class="swiper-slide card-hover">
@@ -672,8 +679,9 @@
             "nextEl": "#next-brand"
           },
           "loop": true,
+          "speed": 2000,
           "autoplay": {
-            "delay": 3000,
+            "delay": 0,
             "disableOnInteraction": false
           },
           "pagination": {
