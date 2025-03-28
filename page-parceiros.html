@@ -43,7 +43,6 @@
         left: 0;
         width: 100%;
         height: 100%;
-        -webkit-transition: all .4s .2s ease-in-out;
         transition: all .4s .2s ease-in-out;
         background-color: #fff;
         opacity: 0;
@@ -63,9 +62,7 @@
         left: 0;
         width: 100%;
         text-align: center;
-        -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
-        -webkit-transition: opacity .2s ease-in-out;
         transition: opacity .2s ease-in-out;
         opacity: 0;
       }
@@ -91,24 +88,31 @@
         border: .15em solid #b4b7c9;
         border-right-color: transparent;
         border-radius: 50%;
-        -webkit-animation: spinner .75s linear infinite;
         animation: spinner .75s linear infinite;
       }
       [data-bs-theme="dark"] .page-spinner {
         border-color: rgba(255,255,255,.4);
         border-right-color: transparent;
       }
-      @-webkit-keyframes spinner {
+      @keyframes spinner {
         100% {
-          -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
         }
       }
-      @keyframes spinner {
-        100% {
-          -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
+      /* ====== Classes para manter fundo e textos fixos ====== */
+      .bg-secondary.fixed-bg {
+        background-color: #f8f9fa !important;
+        color: #212529 !important;
+      }
+      .bg-secondary.fixed-bg a,
+      .bg-secondary.fixed-bg p,
+      .bg-secondary.fixed-bg h1,
+      .bg-secondary.fixed-bg h2,
+      .bg-secondary.fixed-bg h3,
+      .bg-secondary.fixed-bg h4,
+      .bg-secondary.fixed-bg h5,
+      .bg-secondary.fixed-bg h6 {
+        color: #212529 !important;
       }
     </style>
 
@@ -126,7 +130,6 @@
     </script>
   </head>
 
-
   <!-- Body -->
   <body>
 
@@ -137,9 +140,7 @@
       </div>
     </div>
     
-
     <!-- Page wrapper for sticky footer -->
-    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
     <main class="page-wrapper">
 
       <!-- NAV START -->
@@ -147,31 +148,24 @@
         (function() {
             try {
                 const xhr = new XMLHttpRequest();
-                xhr.open("GET", "navbar.html", false); // ❗ Make request synchronous (blocking)
+                xhr.open("GET", "navbar.html", false); // Solicitação síncrona
                 xhr.send();
-    
                 if (xhr.status !== 200) throw new Error("Failed to load navbar.html");
-    
                 const temp = document.createElement('div');
                 temp.innerHTML = xhr.responseText;
-    
                 const header = temp.querySelector('.header1');
                 if (!header) throw new Error("Element with class 'header1' not found");
-    
                 const scriptTag = document.currentScript || document.scripts[document.scripts.length - 1];
                 scriptTag.insertAdjacentElement('beforebegin', header);
             } catch (error) {
                 console.error(error);
             }
         })();
-    </script>
+      </script>
       <!--NAV END -->
       
-
       <!-- CONTEUDO START -->
       
-      
-  
         <!-- Breadcrumb -->
         <nav class="container py-4 mb-2 my-lg-3" aria-label="breadcrumb">
           <ol class="breadcrumb mt-5">
@@ -182,23 +176,22 @@
           </ol>
         </nav>
   
-  
         <!-- About company -->
         <section class="container pb-5 mb-md-2 mb-lg-4">
           <h1 class="border-bottom pb-4">Nossos Parceiros</h1>
           <div class="row pt-2 pt-md-3">
             <div class="col">
-              <p class="fs-lg pe-lg-4 mb-1 mb-lg-4">Os parceiros do projeto NeuroAssist desempenham um papel essencial na realização de suas ações e objetivos. Por meio de uma rede colaborativa que integra ciência, educação e tecnologia, os envolvidos contribuem com expertise, infraestrutura e recursos estratégicos.
-                As atividades do projeto se concentram em quatro cidades do Nordeste brasileiro: Recife (PE), Natal (RN), Cruz das Almas (BA) e Feira de Santana (BA). Nessas localidades, os parceiros apoiam iniciativas como capacitação de professores, validação da plataforma NeuroAssist em escolas públicas e desenvolvimento de tecnologias assistivas. Abaixo estão as organizações que fazem parte da rede de colaboração do projeto Neuroassist.</p>
+              <p class="fs-lg pe-lg-4 mb-1 mb-lg-4">
+                Os parceiros do projeto NeuroAssist desempenham um papel essencial na realização de suas ações e objetivos. Por meio de uma rede colaborativa que integra ciência, educação e tecnologia, os envolvidos contribuem com expertise, infraestrutura e recursos estratégicos.
+                As atividades do projeto se concentram em quatro cidades do Nordeste brasileiro: Recife (PE), Natal (RN), Cruz das Almas (BA) e Feira de Santana (BA). Nessas localidades, os parceiros apoiam iniciativas como capacitação de professores, validação da plataforma NeuroAssist em escolas públicas e desenvolvimento de tecnologias assistivas. Abaixo estão as organizações que fazem parte da rede de colaboração do projeto NeuroAssist.
+              </p>
             </div>
-            
           </div>
         </section>
   
-  
-        <!-- Stats -->
+        <!-- Stats - Realização -->
         <section class="container pb-5 mb-2 mb-md-4 mb-lg-5">
-          <div class="bg-secondary rounded-3 py-5 px-3 px-md-0">
+          <div class="bg-secondary fixed-bg rounded-3 py-5 px-3 px-md-0">
             <div class="row justify-content-center mb-1 py-md-2 py-lg-4">
               <div class="col-lg-10 col-md-11">
                 <h2 class="pb-5">Realização</h2>
@@ -210,9 +203,9 @@
                       </div>
                       <div class="col-lg-8 col-md-6">
                         <div class="ms-xl-5 ms-lg-4 ps-xxl-34">
-                          <p class="mb-0 fs-lg">O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, 
-                            melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, 
-                            utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.</p>
+                          <p class="mb-0 fs-lg">
+                            O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.
+                          </p>
                           <a href="#" class="btn btn-outline-primary mt-4">
                             Acessar Site
                             <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
@@ -228,9 +221,9 @@
                       </div>
                       <div class="col-lg-8 col-md-6">
                         <div class="ms-xl-5 ms-lg-4 ps-xxl-34">
-                          <p class="mb-0 fs-lg">O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, 
-                            melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, 
-                            utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.</p>
+                          <p class="mb-0 fs-lg">
+                            O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação...
+                          </p>
                           <a href="#" class="btn btn-outline-primary mt-4">
                             Acessar Site
                             <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
@@ -239,19 +232,16 @@
                       </div>
                     </div>
                   </section>
-
-                 
-                      
-                </div>
-
+                  <!-- Outras seções semelhantes para Realização -->
                 </div>
               </div>
             </div>
           </div>
         </section>
-
+  
+        <!-- Stats - Apoio Financeiro -->
         <section class="container pb-5 mb-2 mb-md-4 mb-lg-5">
-          <div class="bg-secondary rounded-3 py-5 px-3 px-md-0">
+          <div class="bg-secondary fixed-bg rounded-3 py-5 px-3 px-md-0">
             <div class="row justify-content-center mb-1 py-md-2 py-lg-4">
               <div class="col-lg-10 col-md-11">
                 <h2 class="pb-5">Apoio Financeiro</h2>
@@ -263,9 +253,9 @@
                       </div>
                       <div class="col-lg-8 col-md-6">
                         <div class="ms-xl-5 ms-lg-4 ps-xxl-34">
-                          <p class="mb-0 fs-lg">O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, 
-                            melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, 
-                            utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.</p>
+                          <p class="mb-0 fs-lg">
+                            O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação...
+                          </p>
                           <a href="#" class="btn btn-outline-primary mt-4">
                             Acessar Site
                             <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
@@ -275,15 +265,14 @@
                     </div>
                   </section>      
                 </div>
-
-                </div>
               </div>
             </div>
           </div>
         </section>
-
+  
+        <!-- Stats - Instituições Parceiras -->
         <section class="container pb-5 mb-2 mb-md-4 mb-lg-5">
-          <div class="bg-secondary rounded-3 py-5 px-3 px-md-0">
+          <div class="bg-secondary fixed-bg rounded-3 py-5 px-3 px-md-0">
             <div class="row justify-content-center mb-1 py-md-2 py-lg-4">
               <div class="col-lg-10 col-md-11">
                 <h2 class="pb-5">Instituições Parceiras</h2>
@@ -295,9 +284,9 @@
                       </div>
                       <div class="col-lg-8 col-md-6">
                         <div class="ms-xl-5 ms-lg-4 ps-xxl-34">
-                          <p class="mb-0 fs-lg">O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, 
-                            melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, 
-                            utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.</p>
+                          <p class="mb-0 fs-lg">
+                            O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação...
+                          </p>
                           <a href="#" class="btn btn-outline-primary mt-4">
                             Acessar Site
                             <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
@@ -313,9 +302,9 @@
                       </div>
                       <div class="col-lg-8 col-md-6">
                         <div class="ms-xl-5 ms-lg-4 ps-xxl-34">
-                          <p class="mb-0 fs-lg">O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, 
-                            melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, 
-                            utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.</p>
+                          <p class="mb-0 fs-lg">
+                            O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação...
+                          </p>
                           <a href="#" class="btn btn-outline-primary mt-4">
                             Acessar Site
                             <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
@@ -331,9 +320,9 @@
                       </div>
                       <div class="col-lg-8 col-md-6">
                         <div class="ms-xl-5 ms-lg-4 ps-xxl-34">
-                          <p class="mb-0 fs-lg">O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, 
-                            melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, 
-                            utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.</p>
+                          <p class="mb-0 fs-lg">
+                            O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação...
+                          </p>
                           <a href="#" class="btn btn-outline-primary mt-4">
                             Acessar Site
                             <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
@@ -349,9 +338,9 @@
                       </div>
                       <div class="col-lg-8 col-md-6">
                         <div class="ms-xl-5 ms-lg-4 ps-xxl-34">
-                          <p class="mb-0 fs-lg">O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, 
-                            melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, 
-                            utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.</p>
+                          <p class="mb-0 fs-lg">
+                            O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação...
+                          </p>
                           <a href="#" class="btn btn-outline-primary mt-4">
                             Acessar Site
                             <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
@@ -360,95 +349,21 @@
                       </div>
                     </div>
                   </section>
-
-                 
-                      
-                </div>
-
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        <section class="container pb-5 mb-2 mb-md-4 mb-lg-5">
-          <div class="bg-secondary rounded-3 py-5 px-3 px-md-0">
-            <div class="row justify-content-center mb-1 py-md-2 py-lg-4">
-              <div class="col-lg-10 col-md-11">
-                <h2 class="pb-5">Empresas Parceiras</h2>
-                <div class="row g-5">
-                  <section class="container mt-3 mb-3 pt-2 pb-lg-5">
-                    <div class="row gy-4">
-                      <div class="col-lg-4 col-md-6">
-                        <img src="assets/img/brands/8-roboeduc_logo.png" alt="Cover" class="rounded-3">
-                      </div>
-                      <div class="col-lg-8 col-md-6">
-                        <div class="ms-xl-5 ms-lg-4 ps-xxl-34">
-                          <p class="mb-0 fs-lg">O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, 
-                            melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, 
-                            utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.</p>
-                          <a href="#" class="btn btn-outline-primary mt-4">
-                            Acessar Site
-                            <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                  <section class="container mt-3 mb-3 pt-2 pb-lg-5">
-                    <div class="row gy-4">
-                      <div class="col-lg-4 col-md-6">
-                        <img src="assets/img/brands/9-neurobots_logo.png" alt="Cover" class="rounded-3">
-                      </div>
-                      <div class="col-lg-8 col-md-6">
-                        <div class="ms-xl-5 ms-lg-4 ps-xxl-34">
-                          <p class="mb-0 fs-lg">O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, 
-                            melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, 
-                            utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.</p>
-                          <a href="#" class="btn btn-outline-primary mt-4">
-                            Acessar Site
-                            <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-                  <section class="container mt-3 mb-3 pt-2 pb-lg-5">
-                    <div class="row gy-4">
-                      <div class="col-lg-4 col-md-6">
-                        <img src="assets/img/brands/10-realportugues_logo.png" alt="Cover" class="rounded-3">
-                      </div>
-                      <div class="col-lg-8 col-md-6">
-                        <div class="ms-xl-5 ms-lg-4 ps-xxl-34">
-                          <p class="mb-0 fs-lg">O objetivo geral deste projeto é o desenvolvimento científico, tecnológico e de inovação, da ação empreendedora na área de tecnologia assistiva capaz de habilitar, reabilitar, 
-                            melhorar a convivência e a inclusão digital de crianças com paralisia cerebral em processos de ensino/aprendizagem mediados pela robótica educacional; ampliando assim a sua acessibilidade, 
-                            utilizando o conceito de desenho universal e acessibilidade comunicacional através de novas tecnologias de interface cérebro-máquina.</p>
-                          <a href="#" class="btn btn-outline-primary mt-4">
-                            Acessar Site
-                            <i class="bx bx-chevron-right fs-lg ms-2 me-n2"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </section>      
-                </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+  
         <section class="container pb-5 mb-md-2 mb-lg-4">
-          
           <div class="row pt-2 pt-md-3">
             <div class="col">
-              <p class="fs-lg pe-lg-4 mb-1 mb-lg-4">Com essa rede de colaboração, o projeto NeuroAssist fortalece a integração entre instituições acadêmicas, empresas e comunidades locais, criando soluções que transcendem barreiras e transformam realidades.</p>
+              <p class="fs-lg pe-lg-4 mb-1 mb-lg-4">
+                Com essa rede de colaboração, o projeto NeuroAssist fortalece a integração entre instituições acadêmicas, empresas e comunidades locais, criando soluções que transcendem barreiras e transformam realidades.
+              </p>
             </div>
-            
           </div>
         </section>
-
   
         <!-- Contact form -->
         <section class="container pb-5 mb-2 mb-md-4 mb-lg-5">
@@ -479,56 +394,45 @@
                 <button type="submit" class="btn btn-primary shadow-primary btn-lg">Enviar</button>
               </form>
             </div>
-  
             <!-- Pattern -->
             <div class="position-absolute end-0 bottom-0 text-primary">
-              <svg width="416" height="444" viewBox="0 0 416 444" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.08" fill-rule="evenodd" clip-rule="evenodd" d="M240.875 615.746C389.471 695.311 562.783 640.474 631.69 504.818C700.597 369.163 645.201 191.864 496.604 112.299C348.007 32.7335 174.696 87.5709 105.789 223.227C36.8815 358.882 92.278 536.18 240.875 615.746ZM208.043 680.381C388.035 776.757 605.894 713.247 694.644 538.527C783.394 363.807 709.428 144.04 529.436 47.6636C349.443 -48.7125 131.584 14.7978 42.8343 189.518C-45.916 364.238 28.0504 584.005 208.043 680.381Z" fill="currentColor"/><path opacity="0.08" fill-rule="evenodd" clip-rule="evenodd" d="M262.68 572.818C382.909 637.194 526.686 594.13 584.805 479.713C642.924 365.295 595.028 219.601 474.799 155.224C354.57 90.8479 210.793 133.912 152.674 248.33C94.5545 362.747 142.45 508.442 262.68 572.818ZM253.924 590.054C382.526 658.913 538.182 613.536 601.593 488.702C665.004 363.867 612.156 206.847 483.554 137.988C354.953 69.129 199.296 114.506 135.886 239.341C72.4752 364.175 125.323 521.195 253.924 590.054Z" fill="currentColor"/></svg>
+              <svg width="416" height="444" viewBox="0 0 416 444" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.08" fill-rule="evenodd" clip-rule="evenodd" d="M240.875 615.746C389.471 695.311 562.783 640.474 631.69 504.818C700.597 369.163 645.201 191.864 496.604 112.299C348.007 32.7335 174.696 87.5709 105.789 223.227C36.8815 358.882 92.278 536.18 240.875 615.746ZM208.043 680.381C388.035 776.757 605.894 713.247 694.644 538.527C783.394 363.807 709.428 144.04 529.436 47.6636C349.443 -48.7125 131.584 14.7978 42.8343 189.518C-45.916 364.238 28.0504 584.005 208.043 680.381Z" fill="currentColor"/>
+                <path opacity="0.08" fill-rule="evenodd" clip-rule="evenodd" d="M262.68 572.818C382.909 637.194 526.686 594.13 584.805 479.713C642.924 365.295 595.028 219.601 474.799 155.224C354.57 90.8479 210.793 133.912 152.674 248.33C94.5545 362.747 142.45 508.442 262.68 572.818ZM253.924 590.054C382.526 658.913 538.182 613.536 601.593 488.702C665.004 363.867 612.156 206.847 483.554 137.988C354.953 69.129 199.296 114.506 135.886 239.341C72.4752 364.175 125.323 521.195 253.924 590.054Z" fill="currentColor"/>
+              </svg>
             </div>
           </div>
         </section>
-      </main>
-
+  
       <!-- CONTEUDO END -->
-
       
     </main>
 
-
     <!-- FOOTER START -->
-
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
           try {
               const response = await fetch('footer.html');
               if (!response.ok) throw new Error("Failed to load navbar.html");
-      
               const html = await response.text();
               const temp = document.createElement('div');
               temp.innerHTML = html;
-      
               const header = temp.querySelector('.footer1');
-              if (!header) throw new Error("Element with class 'header1' not found");
-      
+              if (!header) throw new Error("Element with class 'footer1' not found");
               const scriptTag = document.currentScript || document.scripts[document.scripts.length - 1];
               scriptTag.insertAdjacentElement('beforebegin', header);
           } catch (error) {
               console.error(error);
           }
       });
-      </script>
-      
+    </script>
     <!-- FOOTER END -->
 
-    
-  
-     <!-- Vendor Scripts -->
+    <!-- Vendor Scripts -->
     <script src="assets/vendor/rellax/rellax.min.js"></script>
     <script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
     <script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
-  
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/lightgallery/lightgallery.min.js"></script>
     <script src="assets/vendor/lightgallery/plugins/video/lg-video.min.js"></script>
     <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
@@ -537,4 +441,4 @@
     <!-- Main Theme Script -->
     <script src="assets/js/theme.min.js"></script>
   </body>
-  </html>
+</html>
