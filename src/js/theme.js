@@ -1,9 +1,9 @@
 /**
- * Silicon | Multipurpose Bootstrap Template & UI Kit
- * Copyright 2023 Createx Studio
+ * Neurobeep
+ * Copyright 2025 Neurobeep
  * Theme core scripts
  *
- * @author Createx Studio
+ * @author Neurobeep
  * @version 1.6.0
  */
 
