@@ -1,0 +1,77 @@
+<!-- whatsappWidget.html -->
+<style>
+  #whatsapp-widget {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background-color: var(--bs-light);
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 96px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    transition: transform .3s ease, opacity .3s;
+    cursor: default;
+  }
+  #whatsapp-widget:hover {
+    transform: scale(1.1);
+  }
+  [data-bs-theme="dark"] #whatsapp-widget {
+    background-color: var(--bs-dark);
+  }
+  #whatsapp-widget .wh-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: var(--bs-dark);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: opacity .3s;
+    z-index: 1060;
+  }
+  #whatsapp-widget .wh-close:hover {
+    opacity: .8;
+  }
+  [data-bs-theme="dark"] #whatsapp-widget .wh-close {
+    background-color: var(--bs-light);
+    color: var(--bs-dark);
+  }
+  #whatsapp-widget .wh-icon {
+    font-size: 40px;
+    color: var(--bs-success);
+    transition: color .3s;
+    z-index: 1050;
+  }
+  #whatsapp-widget .wh-icon:hover {
+    color: var(--bs-success-dark);
+  }
+</style>
+
+<div id="whatsapp-widget">
+  <button class="wh-close" aria-label="Fechar">&times;</button>
+  <a href="https://wa.me/551234567890" target="_blank" rel="noopener" aria-label="Abrir chat WhatsApp">
+    <i class="bx bxl-whatsapp wh-icon"></i>
+  </a>
+</div>
+
+<script>
+  (function() {
+    const widget = document.getElementById('whatsapp-widget');
+    const btnClose = widget.querySelector('.wh-close');
+    btnClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      widget.style.opacity = '0';
+      setTimeout(() => widget.remove(), 300);
+    });
+  })();
+</script>

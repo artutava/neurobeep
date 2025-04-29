@@ -759,6 +759,64 @@
     </main>
 
 
+    <!-- Cookie Consent Banner (mockup responsivo a tema) -->
+    <style>
+      /* Garantir que links também mudem de cor */
+      #cookieConsentBanner a {
+        color: var(--bs-link-color);
+        text-decoration: underline;
+      }
+    </style>
+
+    <div id="cookieConsentBanner"
+        class="fixed-bottom bg-body-tertiary text-body border-top shadow-sm">
+      <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between py-3">
+        <div class="mb-2 mb-md-0">
+          <span class="me-2">🧠</span>
+          <small>
+            Bem-vindo ao NeuroBeep! Utilizamos cookies e coletamos dados pessoais para oferecer uma melhor experiência em nosso site, personalizar conteúdo, entender como você interage conosco e garantir a segurança da sua navegação.
+            Ao continuar navegando, você concorda com nossa 
+            <a href="page-privacy.html">Política de Privacidade</a> e 
+            <a href="page-cookies.html">Política de Cookies</a>. Você pode gerenciar suas preferências a qualquer momento.
+            Para mais informações, acesse também nossos 
+            <a href="page-terms.html">Termos de Uso</a>.
+          </small>
+        </div>
+        <div class="btn-group">
+          <button id="acceptAll" class="btn btn-primary">Aceitar todos os cookies</button>
+          <button id="managePrefs" class="btn btn-outline-secondary">Gerenciar preferências</button>
+          <button id="declineOptional" class="btn btn-link">Recusar cookies opcionais</button>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      // Mock de comportamento
+      const banner = document.getElementById('cookieConsentBanner');
+      document.getElementById('acceptAll').onclick = () => banner.style.display = 'none';
+      document.getElementById('declineOptional').onclick = () => banner.style.display = 'none';
+      document.getElementById('managePrefs').onclick = () => {
+        alert('Aqui você poderá gerenciar suas preferências (mockup).');
+      };
+    </script>
+
+    <script>
+      // Mock do whatsapp
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const response = await fetch('whatsapp-widget.html');
+          if (!response.ok) throw new Error("Failed to load whatsappWidget.html");
+          const html = await response.text();
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          document.body.appendChild(temp);
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    </script>
+
     <!-- FOOTER START -->
 
     <script>
@@ -801,5 +859,7 @@
   
     <!-- Main Theme Script -->
     <script src="assets/js/theme.min.js"></script>
+
+  
   </body>
   </html>
