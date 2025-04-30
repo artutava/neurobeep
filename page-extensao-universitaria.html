@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <title>Neurobeep | Extensão Universitária</title>
+
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Neurobeep">
+    <meta name="keywords" content="bootstrap, business, creative agency, construction, services, e-commerce, shopping cart, mobile app showcase, multipurpose, shop, ui kit, marketing, seo, landing, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="author" content="SirCruX Studios">
+
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Theme switcher (color modes) -->
+    <script src="assets/js/theme-switcher.js"></script>
+
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#6366f1">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#080032">
+    <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css">
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      [data-bs-theme="dark"] .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      [data-bs-theme="dark"] .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      [data-bs-theme="dark"] .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Carregando...</span>
+      </div>
+    </div>
+    
+
+    <!-- Page wrapper for sticky footer -->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="page-wrapper">
+
+      <!-- NAV START -->
+      <script>
+        (function() {
+            try {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", "navbar.html", false); // ❗ Make request synchronous (blocking)
+                xhr.send();
+    
+                if (xhr.status !== 200) throw new Error("Failed to load navbar.html");
+    
+                const temp = document.createElement('div');
+                temp.innerHTML = xhr.responseText;
+    
+                const header = temp.querySelector('.header1');
+                if (!header) throw new Error("Element with class 'header1' not found");
+    
+                const scriptTag = document.currentScript || document.scripts[document.scripts.length - 1];
+                scriptTag.insertAdjacentElement('beforebegin', header);
+            } catch (error) {
+                console.error(error);
+            }
+        })();
+    </script>
+    
+      <!--NAV END -->
+      
+
+      <!-- CONTEUDO START -->
+
+      
+    
+      <!-- Breadcrumb -->
+      <nav class="container py-4 mb-lg-2 mt-lg-3" aria-label="breadcrumb">
+        <ol class="breadcrumb mt-5">
+          <li class="breadcrumb-item">
+            <a href="index.html"><i class="bx bx-home-alt fs-lg me-1"></i>Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="page-painel.html">Painel</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Extensão Universitária</li>
+        </ol>
+      </nav>
+
+      <!-- About project -->
+      <section class="container">
+        <h1>Extensão Universitária como Ferramenta de Integração Social</h1>
+        <div class="row">
+          <div class="mb-4 mb-lg-0">
+            <div class="pe-lg-4 me-lg-3 pe-xl-0 me-xl-0">
+              <p class="fs-lg mb-0">A extensão universitária é um dos pilares do NeuroBeep, funcionando como um elo essencial entre a academia e a sociedade. Através de iniciativas práticas e educativas, o projeto busca democratizar o acesso ao conhecimento em neurociência, tecnologia assistiva e neurorobótica educacional, promovendo impacto direto na formação de professores, estudantes e na inclusão de crianças com deficiências motoras severas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       <!-- Industries -->
+       <section class="container pt-2 pt-lg-5 pb-5 mb-md-4 mb-lg-5">
+        
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs flex-nowrap justify-content-lg-center overflow-auto pb-2 mb-3 mb-lg-4" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-nowrap active" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab" aria-controls="education" aria-selected="true">
+              Projeto de Extensão
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-nowrap" id="ecommerce-tab" data-bs-toggle="tab" data-bs-target="#ecommerce" type="button" role="tab" aria-controls="ecommerce" aria-selected="false">
+              Cursos de Extensão
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-nowrap" id="sports-tab" data-bs-toggle="tab" data-bs-target="#sports" type="button" role="tab" aria-controls="sports" aria-selected="false">
+              Criação de Material Didático
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link text-nowrap" id="construction-tab" data-bs-toggle="tab" data-bs-target="#construction" type="button" role="tab" aria-controls="construction" aria-selected="false">
+              Ações de Extensão e Impacto na Comunidade
+            </button>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content bg-secondary rounded-3 py-4">
+
+          <!-- Education -->
+          <div class="tab-pane fade show active" id="education" role="tabpanel" aria-labelledby="education-tab">
+            <div class="row align-items-center pt-3 pt-sm-4 pt-md-0 px-3 px-sm-4 px-lg-0">
+              <div class="col-lg-4 col-md-5 offset-lg-1 text-center text-md-start">
+                <h3 class="mb-lg-4">Projeto de Extensão</h3>
+                <p>O projeto de extensão "Neurociência e Neurorobótica" é uma das principais ferramentas de comunicação científica do NeuroBeep. Seu objetivo é aproximar a sociedade dos conceitos desenvolvidos no projeto, promovendo a integração entre ciência, tecnologia e educação. Essas ações serão conduzidas por estudantes, professores e pesquisadores envolvidos no projeto, ampliando o entendimento sobre neurotecnologia e sua aplicação na inclusão educacional.</p>
+              </div>
+              <div class="col-lg-6 col-md-7 mt-2 mb-3 mt-md-3">
+                <img src="assets/img/services/industries/education.jpg" class="d-block rounded-3 my-lg-2 mx-auto me-md-0" width="564" alt="Image">
+              </div>
+            </div>
+          </div>
+
+          <!-- E-Commerce -->
+          <div class="tab-pane fade" id="ecommerce" role="tabpanel" aria-labelledby="ecommerce-tab">
+            <div class="row align-items-center pt-3 pt-sm-4 pt-md-0 px-3 px-sm-4 px-lg-0">
+              <div class="col-lg-4 col-md-5 offset-lg-1 text-center text-md-start">
+                <h3 class="mb-lg-4">Cursos de Extensão</h3>
+                <p>Ao longo da execução do NeuroBeep, serão oferecidos cursos de extensão universitária com duração de 20 horas, abordando as áreas temáticas do projeto. Esses cursos atenderão diferentes públicos, incluindo professores da rede pública, estudantes de graduação e profissionais interessados, permitindo que mais pessoas compreendam e utilizem a tecnologia desenvolvida para inclusão digital e educacional.</p>
+              </div>
+              <div class="col-lg-6 col-md-7 mt-2 mb-3 mt-md-3">
+                <img src="assets/img/services/industries/ecommerce.jpg" class="d-block rounded-3 my-lg-2 mx-auto me-md-0" width="564" alt="Image">
+              </div>
+            </div>
+          </div>
+
+          <!-- Sports -->
+          <div class="tab-pane fade" id="sports" role="tabpanel" aria-labelledby="sports-tab">
+            <div class="row align-items-center pt-3 pt-sm-4 pt-md-0 px-3 px-sm-4 px-lg-0">
+              <div class="col-lg-4 col-md-5 offset-lg-1 text-center text-md-start">
+                <h3 class="mb-lg-4">Criação de Material Didático</h3>
+                <p>A fim de ampliar o acesso ao conhecimento, o projeto NeuroBeep promoverá a criação de materiais didáticos em formatos diversos. Serão elaborados conteúdos digitais, incluindo e-books, cartilhas interativas e materiais acessíveis, para garantir que o conhecimento produzido pelo projeto alcance diferentes públicos. Esses recursos serão essenciais tanto para a capacitação de professores quanto para a disseminação da ciência e das tecnologias assistivas de forma clara, acessível e inclusiva.</p>
+              </div>
+              <div class="col-lg-6 col-md-7 mt-2 mb-3 mt-md-3">
+                <img src="assets/img/services/industries/sports.jpg" class="d-block rounded-3 my-lg-2 mx-auto me-md-0" width="564" alt="Image">
+              </div>
+            </div>
+          </div>
+
+          <!-- Construction -->
+          <div class="tab-pane fade" id="construction" role="tabpanel" aria-labelledby="construction-tab">
+            <div class="row align-items-center pt-3 pt-sm-4 pt-md-0 px-3 px-sm-4 px-lg-0">
+              <div class="col-lg-4 col-md-5 offset-lg-1 text-center text-md-start">
+                <h3 class="mb-lg-4">Ações de Extensão e Impacto na Comunidade</h3>
+                <p>Além dos cursos e materiais educativos, o NeuroBeep ampliará seu impacto por meio de ações comunitárias e eventos científicos, como:
+
+                  Atividades em escolas e bairros, conectando crianças, estudantes e professores ao projeto.
+                  
+                  Participação em eventos acadêmicos e tecnológicos, promovendo a neurociência e a neurorobótica educacional.
+                  
+                  Intercâmbio de saberes, incentivando a disseminação do conhecimento científico e o diálogo entre pesquisadores e a sociedade.</p>
+              </div>
+              <div class="col-lg-6 col-md-7 mt-2 mb-3 mt-md-3">
+                <img src="assets/img/services/industries/construction.jpg" class="d-block rounded-3 my-lg-2 mx-auto me-md-0" width="564" alt="Image">
+              </div>
+            </div>
+          </div>
+        </div>
+       </section>
+
+       <!-- About project -->
+       <section class="container">
+        <div class="row">
+          <div class="mb-4 mb-lg-0">
+            <div class="pe-lg-4 me-lg-3 pe-xl-0 me-xl-0">
+              <p class="fs-lg mb-0">Por meio dessas iniciativas, o NeuroBeep reforça seu compromisso com a inclusão, a acessibilidade e o desenvolvimento social, tornando a extensão universitária uma ponte entre a inovação acadêmica e as transformações educacionais e sociais.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social networks (Carousel on narrow screens) -->
+      <section class="container text-center py-5 my-2 my-md-4 my-lg-5">
+        <h2 class="h1 mb-4">Nós temos Redes Sociais!</h2>
+        <p class="fs-lg text-muted pb-2 mb-5">Siga-nos e fique por dentro das últimas novidades!</p>
+        <div class="row">
+          <div class="col">
+            <div class="position-relative text-center border-end border-start mx-n1">
+              <a href="#" class="btn btn-icon btn-secondary btn-facebook btn-lg stretched-link" aria-label="Facebook">
+                <i class="bx bxl-facebook"></i>
+              </a>
+              <div class="pt-4">
+                <h6 class="mb-1">Facebook</h6>
+                <p class="fs-sm text-muted mb-0">NeuroBeep</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col">
+            <div class="position-relative text-center border-end mx-n1">
+              <a href="#" class="btn btn-icon btn-secondary btn-instagram btn-lg stretched-link" aria-label="Instagram">
+                <i class="bx bxl-instagram"></i>
+              </a>
+              <div class="pt-4">
+                <h6 class="mb-1">Instagram</h6>
+                <p class="fs-sm text-muted mb-0">@neurobeep</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="position-relative text-center border-end mx-n1">
+              <a href="#" class="btn btn-icon btn-secondary btn-linkedin btn-lg stretched-link" aria-label="LinkedIn">
+                <i class="bx bxl-linkedin"></i>
+              </a>
+              <div class="pt-4">
+                <h6 class="mb-1">LinkedIn</h6>
+                <p class="fs-sm text-muted mb-0">NeuroBeep Inc.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="position-relative text-center border-end mx-n1">
+              <a href="#" class="btn btn-icon btn-secondary btn-youtube btn-lg stretched-link" aria-label="Twitter">
+                <i class="bx bxl-youtube"></i>
+              </a>
+              <div class="pt-4">
+                <h6 class="mb-1">YouTube</h6>
+                <p class="fs-sm text-muted mb-0">NeuroBeep</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- CONTEUDO END -->
+
+      
+    </main>
+
+
+    <!-- FOOTER START -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+          try {
+              const response = await fetch('footer.html');
+              if (!response.ok) throw new Error("Failed to load navbar.html");
+      
+              const html = await response.text();
+              const temp = document.createElement('div');
+              temp.innerHTML = html;
+      
+              const header = temp.querySelector('.footer1');
+              if (!header) throw new Error("Element with class 'header1' not found");
+      
+              const scriptTag = document.currentScript || document.scripts[document.scripts.length - 1];
+              scriptTag.insertAdjacentElement('beforebegin', header);
+          } catch (error) {
+              console.error(error);
+          }
+      });
+      </script>
+      
+    <!-- FOOTER END -->
+
+    <!-- AUTOPLAYING -->
+      <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            let tabs = document.querySelectorAll('.nav-tabs .nav-link');
+            let tabContents = document.querySelectorAll('.tab-pane');
+            let currentIndex = 0;
+            let intervalTime = 4000;
+
+            function changeTab() {
+                // Encontrar a aba ativa atualmente
+                let activeTab = document.querySelector('.nav-tabs .nav-link.active');
+                let activeContent = document.querySelector('.tab-pane.show.active');
+
+                // Remover classe ativa das abas e conteúdos
+                if (activeTab) activeTab.classList.remove("active");
+                if (activeContent) activeContent.classList.remove("show", "active");
+
+                // Definir nova aba ativa
+                currentIndex = (currentIndex + 1) % tabs.length;
+                let nextTab = tabs[currentIndex];
+                let nextContent = tabContents[currentIndex];
+
+                nextTab.classList.add("active");
+                nextContent.classList.add("show", "active");
+
+                // Alternar conteúdo usando API do Bootstrap
+                let tab = new bootstrap.Tab(nextTab);
+                tab.show();
+            }
+
+            // Iniciar autoplay
+            setInterval(changeTab, intervalTime);
+        });
+      </script>
+    <!-- AUTOPLAYING END -->
+  
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/rellax/rellax.min.js"></script>
+    <script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+  </html>
