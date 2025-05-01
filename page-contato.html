@@ -233,7 +233,7 @@
                   </li>
                 </ul>
                 <div class="d-flex">
-                  <a href="#" class="btn btn-icon btn-outline-secondary btn-facebook me-3" aria-label="Facebook">
+                  <a href="https://www.facebook.com/NeuroBeep/" class="btn btn-icon btn-outline-secondary btn-facebook me-3" aria-label="Facebook">
                     <i class="bx bxl-facebook"></i>
                   </a>
                   <a href="#" class="btn btn-icon btn-outline-secondary btn-twitter me-3" aria-label="Twitter">
@@ -242,7 +242,7 @@
                   <a href="#" class="btn btn-icon btn-outline-secondary btn-linkedin me-3" aria-label="LinkedIn">
                     <i class="bx bxl-linkedin"></i>
                   </a>
-                  <a href="#" class="btn btn-icon btn-outline-secondary btn-instagram" aria-label="Instagram">
+                  <a href="https://www.instagram.com/neurobeep/?utm_source=ig_web_button_share_sheet" class="btn btn-icon btn-outline-secondary btn-instagram" aria-label="Instagram">
                     <i class="bx bxl-instagram"></i>
                   </a>
                 </div>
@@ -319,6 +319,21 @@
       
     </main>
 
+    <script>
+      // Mock do whatsapp
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const response = await fetch('whatsapp-widget.html');
+          if (!response.ok) throw new Error("Failed to load whatsappWidget.html");
+          const html = await response.text();
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          document.body.appendChild(temp);
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    </script>
 
     <!-- FOOTER START -->
 

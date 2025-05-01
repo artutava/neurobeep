@@ -298,8 +298,8 @@
           <!-- Sharing -->
           <div class="col-lg-3 position-relative">
             <div class="sticky-top ms-xl-5 ms-lg-4 ps-xxl-4" style="top: 105px !important;">
-              <span class="d-block mb-3">5 min read</span>
-              <h6>Share this post:</h6>
+              <span class="d-block mb-3">5 min de leitura</span>
+              <h6>Compartilhe o post:</h6>
               <div class="mb-4 pb-lg-3">
                 <a href="#" class="btn btn-icon btn-secondary btn-linkedin me-2 mb-2" aria-label="LinkedIn">
                   <i class="bx bxl-linkedin"></i>
@@ -442,6 +442,23 @@
 
 
     <!-- FOOTER START -->
+
+    <script>
+      // Mock do whatsapp
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const response = await fetch('whatsapp-widget.html');
+          if (!response.ok) throw new Error("Failed to load whatsappWidget.html");
+          const html = await response.text();
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          document.body.appendChild(temp);
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    </script>
+
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
           try {

@@ -345,6 +345,22 @@
     <!-- FOOTER START -->
 
     <script>
+      // Mock do whatsapp
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const response = await fetch('whatsapp-widget.html');
+          if (!response.ok) throw new Error("Failed to load whatsappWidget.html");
+          const html = await response.text();
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          document.body.appendChild(temp);
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    </script>
+
+    <script>
       document.addEventListener("DOMContentLoaded", async () => {
           try {
               const response = await fetch('footer.html');

@@ -770,34 +770,53 @@
 
     <div id="cookieConsentBanner"
         class="fixed-bottom bg-body-tertiary text-body border-top shadow-sm">
-      <div class="container flex-column flex-md-row align-items-center justify-content-between py-5">
-        <div class="mb-2 mb-md-4">
+        <div class="container flex-column flex-md-row align-items-center justify-content-between py-5">
+          <div class="mb-2 mb-md-4">
           <small>
             Utilizamos cookies e coletamos dados pessoais para oferecer uma melhor experiência em nosso site, personalizar conteúdo, entender como você interage conosco e garantir a segurança da sua navegação.
             Ao continuar navegando, você concorda com nossa 
-            <a href="page-privacy.html">Política de Privacidade</a> e 
-            <a href="page-cookies.html">Política de Cookies</a>. Você pode gerenciar suas preferências a qualquer momento.
+            <a href="page-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> e 
+            <a href="page-cookies.html" target="_blank" rel="noopener">Política de Cookies</a>. Você pode gerenciar suas preferências a qualquer momento.
             Para mais informações, acesse também nossos 
-            <a href="page-terms.html">Termos de Uso</a>.
+            <a href="page-terms.html" target="_blank" rel="noopener">Termos de Uso</a>.
           </small>
         </div>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-primary shadow-primary">Aceitar todos os cookies</button>
-          <button type="button" class="btn btn-secondary shadow-secondary">Gerenciar preferências</button>
-          <button type="button" class="btn btn-outline-secondary">Recusar cookies opcionais</button>
+        <div class="btn-group" role="group" aria-label="Consent buttons">
+          <button id="acceptAll" type="button" class="btn btn-primary shadow-primary">
+            Aceitar todos os cookies
+          </button>
+          <button id="managePrefs" type="button" class="btn btn-secondary shadow-secondary">
+            Gerenciar preferências
+          </button>
+          <button id="declineOptional" type="button" class="btn btn-outline-secondary">
+            Recusar cookies opcionais
+          </button>
         </div>
       </div>
     </div>
 
-
     <script>
-      // Mock de comportamento
-      const banner = document.getElementById('cookieConsentBanner');
-      document.getElementById('acceptAll').onclick = () => banner.style.display = 'none';
-      document.getElementById('declineOptional').onclick = () => banner.style.display = 'none';
-      document.getElementById('managePrefs').onclick = () => {
-        alert('Aqui você poderá gerenciar suas preferências (mockup).');
-      };
+      document.addEventListener('DOMContentLoaded', function() {
+        const banner = document.getElementById('cookieConsentBanner');
+        const btnAccept  = document.getElementById('acceptAll');
+        const btnManage  = document.getElementById('managePrefs');
+        const btnDecline = document.getElementById('declineOptional');
+
+        // Ao aceitar ou recusar, apenas escondemos o banner
+        btnAccept.addEventListener('click', () => {
+          banner.style.display = 'none';
+          console.log('Cookies aceitos.');
+        });
+        btnDecline.addEventListener('click', () => {
+          banner.style.display = 'none';
+          console.log('Cookies opcionais recusados.');
+        });
+
+        // Mock de configurações
+        btnManage.addEventListener('click', () => {
+          alert('Aqui você poderá gerenciar suas preferências.');
+        });
+      });
     </script>
 
     <script>

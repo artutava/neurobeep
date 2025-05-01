@@ -813,7 +813,7 @@
           </div>
           <div class="col">
             <div class="position-relative text-center border-end mx-n1">
-              <a href="#" class="btn btn-icon btn-secondary btn-instagram btn-lg stretched-link" aria-label="Instagram">
+              <a href="https://www.instagram.com/neurobeep/?utm_source=ig_web_button_share_sheet" class="btn btn-icon btn-secondary btn-instagram btn-lg stretched-link" aria-label="Instagram">
                 <i class="bx bxl-instagram"></i>
               </a>
               <div class="pt-4">
@@ -856,6 +856,22 @@
 
 
     <!-- FOOTER START -->
+
+    <script>
+      // Mock do whatsapp
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const response = await fetch('whatsapp-widget.html');
+          if (!response.ok) throw new Error("Failed to load whatsappWidget.html");
+          const html = await response.text();
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          document.body.appendChild(temp);
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    </script>
 
     <script>
       document.addEventListener("DOMContentLoaded", async () => {

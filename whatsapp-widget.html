@@ -2,7 +2,7 @@
 <style>
   #whatsapp-widget {
     position: fixed;
-    bottom: 16px;
+    bottom: 260px;   /* Elevado para ficar bem acima do banner de cookies */
     right: 16px;
     background-color: var(--bs-light);
     border-radius: 50%;
@@ -13,38 +13,14 @@
     align-items: center;
     justify-content: center;
     z-index: 1050;
-    transition: transform .3s ease, opacity .3s;
-    cursor: default;
+    transition: transform .3s ease;
+    cursor: pointer;
   }
   #whatsapp-widget:hover {
     transform: scale(1.1);
   }
   [data-bs-theme="dark"] #whatsapp-widget {
     background-color: var(--bs-dark);
-  }
-  #whatsapp-widget .wh-close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background-color: var(--bs-dark);
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    color: #fff;
-    font-size: 20px;
-    line-height: 32px;
-    text-align: center;
-    cursor: pointer;
-    transition: opacity .3s;
-    z-index: 1060;
-  }
-  #whatsapp-widget .wh-close:hover {
-    opacity: .8;
-  }
-  [data-bs-theme="dark"] #whatsapp-widget .wh-close {
-    background-color: var(--bs-light);
-    color: var(--bs-dark);
   }
   #whatsapp-widget .wh-icon {
     font-size: 40px;
@@ -58,20 +34,12 @@
 </style>
 
 <div id="whatsapp-widget">
-  <a href="https://wa.me/558197326375
-" target="_blank" rel="noopener" aria-label="Abrir chat WhatsApp">
+  <a href="https://wa.me/558197326375" target="_blank" rel="noopener" aria-label="Abrir chat WhatsApp">
     <i class="bx bxl-whatsapp wh-icon"></i>
   </a>
 </div>
 
 <script>
-  (function() {
-    const widget = document.getElementById('whatsapp-widget');
-    const btnClose = widget.querySelector('.wh-close');
-    btnClose.addEventListener('click', (e) => {
-      e.stopPropagation();
-      widget.style.opacity = '0';
-      setTimeout(() => widget.remove(), 300);
-    });
-  })();
+  // Widget estático: abre o chat no WhatsApp ao clicar
+  console.log('WhatsApp widget carregado.');
 </script>
