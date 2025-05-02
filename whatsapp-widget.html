@@ -2,9 +2,12 @@
 <style>
   #whatsapp-widget {
     position: fixed;
-    bottom: 16px; /* padrão, será sobrescrito pelo JS */
+    bottom: 16px;
     right: 16px;
-    background-color: var(--bs-light);
+    /* fundo opaco */
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+    color: var(--bs-body-color);             /* ícone herda cor do tema */
     border-radius: 50%;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     width: 96px;
@@ -12,23 +15,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2000;
-    transition: transform .3s ease, bottom .3s ease;
+    z-index: 1050;
+    transition: transform .3s ease, opacity .3s;
     cursor: pointer;
   }
   #whatsapp-widget:hover {
     transform: scale(1.1);
   }
   [data-bs-theme="dark"] #whatsapp-widget {
-    background-color: var(--bs-dark);
+    background-color: #1a1a1a !important;
+    color: var(--bs-body-tertiary);          /* cor clara em dark mode */
   }
+
+  /* Ícone agora herda currentColor */
   #whatsapp-widget .wh-icon {
     font-size: 40px;
-    color: var(--bs-success);
+    color: currentColor !important;
+    opacity: 1 !important;
     transition: color .3s;
+    z-index: 1050;
   }
   #whatsapp-widget .wh-icon:hover {
-    color: var(--bs-success-dark);
+    /* um ligeiro escurecimento do próprio currentColor */
+    filter: brightness(0.9);
   }
 </style>
 
