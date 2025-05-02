@@ -2,7 +2,7 @@
 <style>
   #whatsapp-widget {
     position: fixed;
-    bottom: 260px;   /* Elevado para ficar bem acima do banner de cookies */
+    bottom: 16px; /* padrão, será sobrescrito pelo JS */
     right: 16px;
     background-color: var(--bs-light);
     border-radius: 50%;
@@ -12,8 +12,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1050;
-    transition: transform .3s ease;
+    z-index: 2000;
+    transition: transform .3s ease, bottom .3s ease;
     cursor: pointer;
   }
   #whatsapp-widget:hover {
@@ -26,7 +26,6 @@
     font-size: 40px;
     color: var(--bs-success);
     transition: color .3s;
-    z-index: 1050;
   }
   #whatsapp-widget .wh-icon:hover {
     color: var(--bs-success-dark);
@@ -38,8 +37,3 @@
     <i class="bx bxl-whatsapp wh-icon"></i>
   </a>
 </div>
-
-<script>
-  // Widget estático: abre o chat no WhatsApp ao clicar
-  console.log('WhatsApp widget carregado.');
-</script>
