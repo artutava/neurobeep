@@ -225,110 +225,82 @@
       <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
 <script>
-am5.ready(function() {
+am5.ready(function(){
 
-  /* CONFIGURAÇÃO ------------------------------------------------------- */
-  const highlight  = 0x357aEB;   // cor azul países com pontos
-  const zoomInLvl  = 4;          // nível de zoom ao clicar num ponto
+  const highlight = 0x357aEB;   // azul
+  const zoomInLvl = 4;          // nível de zoom ao clicar no ponto
 
+  /* pontos */
   const points = [
-    { country:"BR", geometry:{ type:"Point", coordinates:[-34.88, -8.05]  }, tip:"Recife"           },
-    { country:"BR", geometry:{ type:"Point", coordinates:[-35.20, -5.79]  }, tip:"Natal"            },
-    { country:"BR", geometry:{ type:"Point", coordinates:[-38.32,-12.68] }, tip:"Cruz das Almas"    },
-    { country:"BR", geometry:{ type:"Point", coordinates:[-38.51,-12.98] }, tip:"Salvador"          },
-    { country:"PT", geometry:{ type:"Point", coordinates:[ -8.4265,41.545]}, tip:"Braga"            }
+    { country:"BR", geometry:{ type:"Point", coordinates:[-34.88,-8.05]  }, tip:"Recife"           },
+    { country:"BR", geometry:{ type:"Point", coordinates:[-35.20,-5.79]  }, tip:"Natal"            },
+    { country:"BR", geometry:{ type:"Point", coordinates:[-38.32,-12.68] }, tip:"Cruz das Almas"   },
+    { country:"BR", geometry:{ type:"Point", coordinates:[-38.51,-12.98] }, tip:"Salvador"         },
+    { country:"PT", geometry:{ type:"Point", coordinates:[ -8.4265,41.545]}, tip:"Braga"          }
   ];
-  const countriesWithPoints = [...new Set(points.map(p=>p.country))];
 
-  /* ROOT + CHART ------------------------------------------------------- */
+  /* root + chart */
   const root  = am5.Root.new("chartdiv");
   root.setThemes([am5themes_Animated.new(root)]);
 
   const chart = root.container.children.push(
-    am5map.MapChart.new(root,{
-      projection: am5map.geoMercator(),
-      wheelY:"zoom",
-      pinchZoom:true
-    })
+    am5map.MapChart.new(root,{ projection: am5map.geoMercator(), wheelY:"zoom", pinchZoom:true })
   );
 
-  /* MAPA MÚNDI: só visual --------------------------------------------- */
+  /* mapa-múndi (sem interação) */
   const worldSeries = chart.series.push(
-    am5map.MapPolygonSeries.new(root,{
-      geoJSON: am5geodata_worldLow,
-      exclude:["AQ"],
-      templateField:"polygonSettings"
-    })
+    am5map.MapPolygonSeries.new(root,{ geoJSON: am5geodata_worldLow, exclude:["AQ"] })
   );
-  worldSeries.data.setAll([
-    { id:"BR", polygonSettings:{ fill: am5.color(highlight) } },
-    { id:"PT", polygonSettings:{ fill: am5.color(highlight) } }
-  ]);
-  worldSeries.mapPolygons.template.setAll({
-    fill: am5.color(0x999999),
-    interactive:false            // sem hover / clique
-  });
+  worldSeries.mapPolygons.template.setAll({ fill: am5.color(0x999999), interactive:false });
 
-  /* ESTADOS BR (apenas bordas) ----------------------------------------- */
+  /* estados BR em AZUL ------------------------------------------------- */
   const brStates = chart.series.push(
     am5map.MapPolygonSeries.new(root,{ geoJSON: am5geodata_brazilLow })
   );
   brStates.mapPolygons.template.setAll({
-    fillOpacity:0,
-    strokeOpacity:.6,
-    stroke: am5.color(0x666666),
+    fill: am5.color(highlight),   // ← azul visível
+    strokeOpacity:.1,
+    stroke: am5.color(0xffffff),
     interactive:false
   });
 
-  /* DISTRITOS PT ------------------------------------------------------- */
+  /* distritos PT em AZUL ---------------------------------------------- */
   const ptStates = chart.series.push(
     am5map.MapPolygonSeries.new(root,{ geoJSON: am5geodata_portugalLow })
   );
   ptStates.mapPolygons.template.setAll({
-    fillOpacity:0,
-    strokeOpacity:.6,
-    stroke: am5.color(0x666666),
+    fill: am5.color(highlight),   // ← azul visível
+    strokeOpacity:.1,
+    stroke: am5.color(0xffffff),
     interactive:false
   });
 
-  /* PONTOS (únicos interativos) --------------------------------------- */
-  const pointSeries = chart.series.push(
-    am5map.MapPointSeries.new(root,{ visible:true })
-  );
-
-  pointSeries.bullets.push((root, _series, dataItem) => {
+  /* pontos (único elemento interativo) -------------------------------- */
+  const pointSeries = chart.series.push(am5map.MapPointSeries.new(root,{ visible:true }));
+  pointSeries.bullets.push((root,_series,item)=>{
     const circle = am5.Circle.new(root,{
       radius:6,
       fill: am5.color(0x2b455f),
       stroke: am5.color(0x85bbea),
       strokeWidth:2,
-      tooltipText: dataItem.dataContext.tip,
+      tooltipText:item.dataContext.tip,
       cursorOverStyle:"pointer"
     });
-
-    // clique → zoom animado ao país
-    circle.events.on("click", () => {
-      const coords = dataItem.dataContext.geometry.coordinates;
-      chart.zoomToGeoPoint(
-        { latitude: coords[1], longitude: coords[0] },
-        zoomInLvl, true, 500          // level, animate, duration
-      );
+    circle.events.on("click",()=>{
+      const [lon,lat] = item.dataContext.geometry.coordinates;
+      chart.zoomToGeoPoint({ latitude:lat, longitude:lon }, zoomInLvl,true,500);
     });
-
-    return am5.Bullet.new(root,{ sprite: circle });
+    return am5.Bullet.new(root,{ sprite:circle });
   });
-
   pointSeries.data.setAll(points);
 
-  /* Clique no fundo (oceano) → volta ao mundo ------------------------- */
-  chart.chartContainer.get("background").events.on("click", () => chart.goHome());
+  /* clique no oceano → volta ao mundo */
+  chart.chartContainer.get("background").events.on("click", ()=> chart.goHome());
 
-  /* Controle de zoom opcional ---------------------------------------- */
+  /* controle de zoom opcional */
   chart.set("zoomControl", am5map.ZoomControl.new(root,{}));
-
 });
 </script>
-
 
 
 
