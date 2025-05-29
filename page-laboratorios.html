@@ -203,15 +203,71 @@
         <h2 class="h1 mb-4">Alcance do projeto</h2>
         <p class="mb-3">Congue gravida vel imperdiet rutrum lectus felis purus blandit ullamcorper. In eleifend in ultrices ultrices aliquam augue praesent.</p>
       </div>
-
+      
       <!-- Mapa -->
-      <div id="chartdiv"></div>
-
-      <!-- CSS do mapa -->
+      <div id="chartdiv" style="width: 100%; height: 500px; position: relative;">
+        <div id="cityInfoCard">
+          <button class="close-btn" onclick="document.getElementById('cityInfoCard').style.display='none'">&times;</button>
+          <div id="cityInfoContent"></div>
+        </div>
+      </div>
+      
       <style>
         #chartdiv {
           width: 100%;
           height: 500px;
+          position: relative;
+        }
+        #cityInfoCard {
+          position: absolute;
+          right: 24px;    
+          bottom: 18px;   
+          top: auto;
+          left: auto;
+          background: #fff;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+          border-radius: 14px;
+          padding: 18px 24px 14px 18px;
+          min-width: 230px;
+          min-height: 52px;
+          z-index: 11;  
+          display: none;
+          font-family: inherit;
+          transition: box-shadow .18s;
+          border: 1.5px solid #e7eaf1;
+        }
+        #cityInfoCard strong {
+          font-size: 1.18rem;
+          color: #285d9d;
+          display: block;
+          margin-bottom: 3px;
+        }
+        #cityInfoCard .estado {
+          color: #437ab4;
+          font-size: .97rem;
+          font-weight: 500;
+        }
+        #cityInfoCard .lab {
+          color: #163962;
+          font-size: .92rem;
+          margin-top: 5px;
+          display: block;
+          opacity: 0.97;
+        }
+        #cityInfoCard .close-btn {
+          position: absolute;
+          top: 7px;
+          right: 12px;
+          font-size: 17px;
+          color: #8393a7;
+          cursor: pointer;
+          font-weight: bold;
+          opacity: .46;
+          background: none;
+          border: none;
+        }
+        @media (max-width: 800px) {
+          #cityInfoCard { right: 8px; top: 11px; min-width: 160px; padding: 10px 10px 9px 10px; }
         }
       </style>
 
@@ -222,95 +278,148 @@
       <script src="https://cdn.amcharts.com/lib/5/geodata/brazilLow.js"></script>
       <script src="https://cdn.amcharts.com/lib/5/geodata/portugalLow.js"></script>
       <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-
       <script>
-      am5.ready(function(){
+        am5.ready(function(){
+          const highlight = 0x4e9adf; // azul
+          const zoomHome  = 2.0;
+          const zoomIn    = 5;
+          const radarDur  = 1200;
 
-        /* === CONFIG ========================================================================== */
-        const highlight = 0x4e9adf;   // cor Brasil / Portugal
-        const zoomHome  = 2.0;        // nível “home”
-        const zoomIn    = 5;          // zoom nos pontos
-        const radarDur  = 1200;       // ms efeito radar
+          const points = [
+            {
+              geometry: { type:"Point", coordinates: [-34.88, -8.05] },
+              tip: "Recife",
+              estado: "Pernambuco",
+              laboratorio: "UFPE - Laboratório de Neuroengenharia"
+            },
+            {
+              geometry: { type:"Point", coordinates: [-35.20, -5.79] },
+              tip: "Natal",
+              estado: "Rio Grande do Norte",
+              laboratorio: "UFRN - Instituto do Cérebro"
+            },
+            {
+              geometry: { type:"Point", coordinates: [-38.32, -12.68] },
+              tip: "Cruz das Almas",
+              estado: "Bahia",
+              laboratorio: "UFRB - Laboratório Multidisciplinar"
+            },
+            {
+              geometry: { type:"Point", coordinates: [-38.51, -12.98] },
+              tip: "Salvador",
+              estado: "Bahia",
+              laboratorio: "UFBA - Laboratório de Neurociências"
+            },
+            {
+              geometry: { type:"Point", coordinates: [ -8.4265, 41.545] },
+              tip: "Braga",
+              estado: "Braga",
+              laboratorio: "Universidade do Minho - Life and Health Sciences Research Institute"
+            }
+          ];
 
-        const points = [
-          { geometry:{ type:"Point", coordinates:[-34.88,-8.05]  }, tip:"Recife"   },
-          { geometry:{ type:"Point", coordinates:[-35.20,-5.79]  }, tip:"Natal"    },
-          { geometry:{ type:"Point", coordinates:[-38.32,-12.68] }, tip:"Cruz das Almas" },
-          { geometry:{ type:"Point", coordinates:[-38.51,-12.98] }, tip:"Salvador" },
-          { geometry:{ type:"Point", coordinates:[ -8.4265,41.545]}, tip:"Braga"   }
-        ];
+          const meanLon = points.reduce((s,p)=>s+p.geometry.coordinates[0],0)/points.length;
+          const meanLat = points.reduce((s,p)=>s+p.geometry.coordinates[1],0)/points.length;
+          const homePt  = { longitude: meanLon, latitude: meanLat };
 
-        /* centro médio dos marcadores -> homeGeoPoint ---------------------------------------- */
-        const meanLon = points.reduce((s,p)=>s+p.geometry.coordinates[0],0)/points.length;
-        const meanLat = points.reduce((s,p)=>s+p.geometry.coordinates[1],0)/points.length;
-        const homePt  = { longitude: meanLon, latitude: meanLat };
+          const root = am5.Root.new("chartdiv");
+          root.setThemes([ am5themes_Animated.new(root) ]);
 
-        /* === ROOT + CHART ==================================================================== */
-        const root = am5.Root.new("chartdiv");
-        root.setThemes([ am5themes_Animated.new(root) ]);
+          const chart = root.container.children.push(
+            am5map.MapChart.new(root,{
+              projection: am5map.geoMercator(),
+              wheelY:"zoom",
+              pinchZoom:true,
+              homeGeoPoint: homePt,
+              homeZoomLevel: zoomHome
+            })
+          );
 
-        const chart = root.container.children.push(
-          am5map.MapChart.new(root,{
-            projection: am5map.geoMercator(),
-            wheelY:"zoom",
-            pinchZoom:true,
-            homeGeoPoint: homePt,
-            homeZoomLevel: zoomHome
-          })
-        );
+          const worldSeries = chart.series.push(
+            am5map.MapPolygonSeries.new(root,{ geoJSON: am5geodata_worldLow, exclude:["AQ"] })
+          );
+          worldSeries.mapPolygons.template.setAll({ fill: am5.color(0xcccccc), interactive:false, strokeWidth:.55, stroke: am5.color(0xf2f2f2) });
 
-        /* === LAYERS VISUAIS ================================================================== */
-        const worldSeries = chart.series.push(
-          am5map.MapPolygonSeries.new(root,{ geoJSON: am5geodata_worldLow, exclude:["AQ"] })
-        );
-        worldSeries.mapPolygons.template.setAll({ fill: am5.color(0x999999), interactive:false });
-
-        const brStates = chart.series.push(am5map.MapPolygonSeries.new(root,{ geoJSON: am5geodata_brazilLow }));
-        brStates.mapPolygons.template.setAll({ fill: am5.color(highlight), stroke: am5.color(0xffffff), strokeOpacity:.6, strokeWidth: 2, interactive:false });
-
-        const ptStates = chart.series.push(am5map.MapPolygonSeries.new(root,{ geoJSON: am5geodata_portugalLow }));
-        ptStates.mapPolygons.template.setAll({ fill: am5.color(highlight), stroke: am5.color(0xffffff), strokeOpacity:.6, strokeWidth: 1, interactive:false });
-
-        /* === PONTOS COM RADAR ================================================================= */
-        const pointSeries = chart.series.push(am5map.MapPointSeries.new(root,{ visible:true }));
-
-        pointSeries.bullets.push((root,_s,item)=>{
-          const container = am5.Container.new(root,{});
-
-          const core = am5.Circle.new(root,{
-            radius:6, fill: am5.color(0x2b455f),
-            stroke: am5.color(0x85bbea), strokeWidth:2,
-            tooltipText:item.dataContext.tip, cursorOverStyle:"pointer"
+          // Brasil em azul e contorno
+          const brStates = chart.series.push(am5map.MapPolygonSeries.new(root,{ geoJSON: am5geodata_brazilLow }));
+          brStates.mapPolygons.template.setAll({ 
+            fill: am5.color(highlight),
+            stroke: am5.color(0xffffff), 
+            strokeOpacity:.7, 
+            strokeWidth: 2.3,
+            interactive:false 
           });
 
-          const ring = am5.Circle.new(root,{
-            radius:6, stroke: am5.color(0x85bbea), strokeWidth:2, fillOpacity:0, cursorOverStyle:"pointer"
+          // Portugal em azul e contorno
+          const ptStates = chart.series.push(am5map.MapPolygonSeries.new(root,{ geoJSON: am5geodata_portugalLow }));
+          ptStates.mapPolygons.template.setAll({ 
+            fill: am5.color(highlight),
+            stroke: am5.color(0xffffff), 
+            strokeOpacity:.7, 
+            strokeWidth: 2.3,
+            interactive:false 
           });
-          ring.animate({ key:"scale", from:1, to:2.5, duration:radarDur, loops:Infinity,
-                        easing: am5.ease.out(am5.ease.quad) });
-          ring.animate({ key:"strokeOpacity", from:1, to:0, duration:radarDur, loops:Infinity,
-                        easing: am5.ease.out(am5.ease.quad) });
 
-          const toPoint = ()=>{
-            const [lon,lat] = item.dataContext.geometry.coordinates;
-            chart.zoomToGeoPoint({ latitude:lat, longitude:lon }, zoomIn, true, 500);
-          };
-          core.events.on("click", toPoint);
-          ring.events.on("click", toPoint);
+          // Pontos com radar e card
+          const pointSeries = chart.series.push(am5map.MapPointSeries.new(root,{ visible:true }));
 
-          container.children.push(ring);
-          container.children.push(core);
-          return am5.Bullet.new(root,{ sprite: container });
+          pointSeries.bullets.push((root,_s,item)=>{
+            const container = am5.Container.new(root,{});
+
+            const core = am5.Circle.new(root,{
+              radius:7, fill: am5.color(0x2b455f),
+              stroke: am5.color(0x85bbea), strokeWidth:2.1,
+              tooltipText:item.dataContext.tip, cursorOverStyle:"pointer"
+            });
+
+            const ring = am5.Circle.new(root,{
+              radius:7, stroke: am5.color(0x85bbea), strokeWidth:2, fillOpacity:0, cursorOverStyle:"pointer"
+            });
+            ring.animate({ key:"scale", from:1, to:2.7, duration:radarDur, loops:Infinity,
+                          easing: am5.ease.out(am5.ease.quad) });
+            ring.animate({ key:"strokeOpacity", from:1, to:0, duration:radarDur, loops:Infinity,
+                          easing: am5.ease.out(am5.ease.quad) });
+
+            // Card fixo ao clicar
+            function showCityInfo(item) {
+              const d = item.dataContext;
+              const card = document.getElementById("cityInfoCard");
+              const html = `
+                <strong>${d.tip}</strong>
+                <span class="estado">${d.estado}</span><br>
+                <span class="lab">${d.laboratorio}</span>
+              `;
+              document.getElementById("cityInfoContent").innerHTML = html;
+              card.style.display = "block";
+            }
+            function toPoint() {
+              const [lon,lat] = item.dataContext.geometry.coordinates;
+              chart.zoomToGeoPoint({ latitude:lat, longitude:lon }, zoomIn, true, 500);
+            }
+
+            core.events.on("click", function() {
+              showCityInfo(item);
+              toPoint();
+            });
+            ring.events.on("click", function() {
+              showCityInfo(item);
+              toPoint();
+            });
+
+            container.children.push(ring);
+            container.children.push(core);
+            return am5.Bullet.new(root,{ sprite: container });
+          });
+          pointSeries.data.setAll(points);
+
+          // Esconde card ao clicar no fundo
+          chart.chartContainer.get("background").events.on("click", function() {
+            chart.goHome(true);
+            document.getElementById("cityInfoCard").style.display = "none";
+          });
+
+          worldSeries.events.once("datavalidated", ()=> chart.goHome(false));
         });
-        pointSeries.data.setAll(points);
-
-        /* === APLICAR HOME SÓ APÓS O GEOJSON estar validado =================================== */
-        worldSeries.events.once("datavalidated", ()=> chart.goHome(false));
-
-        /* === CLIQUE NO FUNDO -> VOLTAR AO MESMO HOME (animado) ================================ */
-        chart.chartContainer.get("background").events.on("click", ()=> chart.goHome(true));
-
-      });
       </script>
 
 
