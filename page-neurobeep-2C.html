@@ -585,7 +585,7 @@
 
   // HDRI no ambiente (apenas reflexos)
   const rgbeLoader = new RGBELoader();
-  rgbeLoader.load('https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/venice_sunset_1k.hdr', (texture) => {
+  rgbeLoader.load('assets/3d/studio_small_09_1k.hdr', (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     scene.environment = texture;
   });
