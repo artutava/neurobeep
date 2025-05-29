@@ -269,6 +269,17 @@
         @media (max-width: 800px) {
           #cityInfoCard { right: 8px; top: 11px; min-width: 160px; padding: 10px 10px 9px 10px; }
         }
+        .lab-icon {
+          width: 42px;
+          height: 42px;
+          object-fit: contain;
+          border-radius: 7px;
+          background: #f5f8fc;
+          box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+        }
+        @media (max-width: 800px) {
+          .lab-icon { width: 30px; height: 30px; }
+        }
       </style>
 
       <!-- Scripts amCharts 5 -->
@@ -290,19 +301,22 @@
               geometry: { type:"Point", coordinates: [-34.88, -8.05] },
               tip: "Recife",
               estado: "Pernambuco",
-              laboratorio: "UFPE - Laboratório de Neuroengenharia"
+              laboratorio: "UFPE - Laboratório de Neuroengenharia",
+              icon: "assets/img/brands/1-ufpe_logo.png"
             },
             {
               geometry: { type:"Point", coordinates: [-35.20, -5.79] },
               tip: "Natal",
               estado: "Rio Grande do Norte",
-              laboratorio: "UFRN - Instituto do Cérebro"
+              laboratorio: "UFRN - Instituto do Cérebro",
+              icon: "assets/img/brands/4-ufrn_logo.png"
             },
             {
               geometry: { type:"Point", coordinates: [-38.32, -12.68] },
               tip: "Cruz das Almas",
               estado: "Bahia",
-              laboratorio: "UFRB - Laboratório Multidisciplinar"
+              laboratorio: "UFRB - Laboratório Multidisciplinar",
+              icon: "assets/img/brands/6-ufrb_logo.png"
             },
             {
               geometry: { type:"Point", coordinates: [-38.51, -12.98] },
@@ -360,6 +374,33 @@
             interactive:false 
           });
 
+          const labelSeries = chart.series.push(am5map.MapPointSeries.new(root, {}));
+          labelSeries.bullets.push((root, _s, item) => {
+            return am5.Bullet.new(root, {
+              sprite: am5.Label.new(root, {
+                text: item.dataContext.label,
+                fontSize: 13,
+                fontWeight: "bold",
+                fill: am5.color(0xffffff),
+                background: am5.RoundedRectangle.new(root, {
+                  fill: am5.color(highlight),
+                  fillOpacity: 0.93,
+                  cornerRadiusTL: 9, cornerRadiusTR: 9, cornerRadiusBL: 9, cornerRadiusBR: 9
+                }),
+                paddingTop: 2,
+                paddingBottom: 2,
+                paddingLeft: 16,
+                paddingRight: 16,
+                centerX: am5.p50,
+                centerY: am5.p50
+              })
+            });
+          });
+          labelSeries.data.setAll([
+            { geometry: { type: "Point", coordinates: [-53, -13] }, label: "BRASIL" },
+            { geometry: { type: "Point", coordinates: [-8, 39.6] }, label: "PORTUGAL" }
+          ]);
+
           // Pontos com radar e card
           const pointSeries = chart.series.push(am5map.MapPointSeries.new(root,{ visible:true }));
 
@@ -383,11 +424,17 @@
             // Card fixo ao clicar
             function showCityInfo(item) {
               const d = item.dataContext;
+              const iconHTML = d.icon ? `<img src="${d.icon}" alt="logo ${d.tip}" class="lab-icon">` : "";
               const card = document.getElementById("cityInfoCard");
               const html = `
-                <strong>${d.tip}</strong>
-                <span class="estado">${d.estado}</span><br>
-                <span class="lab">${d.laboratorio}</span>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  ${iconHTML}
+                  <div>
+                    <strong>${d.tip}</strong>
+                    <span class="estado">${d.estado}</span><br>
+                    <span class="lab">${d.laboratorio}</span>
+                  </div>
+                </div>
               `;
               document.getElementById("cityInfoContent").innerHTML = html;
               card.style.display = "block";
