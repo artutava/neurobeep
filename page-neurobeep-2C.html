@@ -531,28 +531,23 @@
   const container = document.getElementById('three-container');
   const scene = new THREE.Scene();
 
-  // Função para obter a cor de fundo baseada no tema
   function getCurrentThemeColor() {
     const html = document.documentElement;
     const theme = html.getAttribute('data-bs-theme');
-    return theme === 'dark' ? 0x151822 : 0xf3f6ff; // Dark mode cor escura, Light mode branco
+    return theme === 'dark' ? 0x151822 : 0xf3f6ff;
   }
 
-  // Configurar a cena com a cor inicial do tema
   scene.background = new THREE.Color(getCurrentThemeColor());
 
-  // Observar mudanças no tema e atualizar o fundo
   const observer = new MutationObserver(() => {
     scene.background.set(getCurrentThemeColor());
   });
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-bs-theme'] });
 
-  // Câmera
   const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
   camera.position.set(0, 1.5, 3);
   camera.lookAt(0, 0.5, 0);
 
-  // Renderer com VSM
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(container.clientWidth, container.clientHeight);
@@ -561,14 +556,14 @@
   renderer.shadowMap.type = THREE.VSMShadowMap;
   container.appendChild(renderer.domElement);
 
-  // OrbitControls
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
   controls.target.set(0, 0.5, 0);
+  controls.maxDistance = 3.5; // 🔒 Zoom out máximo (distância mais afastada)
+  controls.minDistance = 2; // 🔒 Zoom in máximo (2x mais próximo)
   controls.update();
 
-  // Luz Direcional com VSM configurada
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
   directionalLight.position.set(0, 10, 0);
   directionalLight.castShadow = true;
@@ -583,14 +578,12 @@
   directionalLight.shadow.camera.far = 50;
   scene.add(directionalLight);
 
-  // HDRI no ambiente (apenas reflexos)
   const rgbeLoader = new RGBELoader();
   rgbeLoader.load('assets/3d/studio_small_09_1k.hdr', (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     scene.environment = texture;
   });
 
-  // Shadow catcher
   const shadowCatcher = new THREE.Mesh(
     new THREE.PlaneGeometry(20, 20),
     new THREE.ShadowMaterial({ opacity: 0.3, transparent: true })
@@ -600,18 +593,15 @@
   shadowCatcher.receiveShadow = true;
   scene.add(shadowCatcher);
 
-  // GLTF Loader
   const loader = new GLTFLoader();
   let model;
   loader.load('assets/3d/neurobeep.gltf', (gltf) => {
     model = gltf.scene;
-
     const box = new THREE.Box3().setFromObject(model);
     const center = new THREE.Vector3();
     box.getCenter(center);
     model.position.sub(center);
     model.position.set(0, 0, 0);
-
     model.traverse((child) => {
       if (child.isMesh) {
         child.castShadow = true;
@@ -619,11 +609,9 @@
         child.material.needsUpdate = true;
       }
     });
-
     scene.add(model);
   });
 
-  // Animação
   const clock = new THREE.Clock();
   function animate() {
     requestAnimationFrame(animate);
@@ -634,13 +622,13 @@
   }
   animate();
 
-  // Responsivo
   window.addEventListener('resize', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(container.clientWidth, container.clientHeight);
   });
 </script>
+
 
   </body>
   </html>
