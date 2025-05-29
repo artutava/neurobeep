@@ -531,21 +531,34 @@
   const container = document.getElementById('three-container');
   const scene = new THREE.Scene();
 
-  // Background color
-  scene.background = new THREE.Color(0x151822);
+  // Função para obter a cor de fundo baseada no tema
+  function getCurrentThemeColor() {
+    const html = document.documentElement;
+    const theme = html.getAttribute('data-bs-theme');
+    return theme === 'dark' ? 0x151822 : 0xf3f6ff; // Dark mode cor escura, Light mode branco
+  }
 
-  // Camera
+  // Configurar a cena com a cor inicial do tema
+  scene.background = new THREE.Color(getCurrentThemeColor());
+
+  // Observar mudanças no tema e atualizar o fundo
+  const observer = new MutationObserver(() => {
+    scene.background.set(getCurrentThemeColor());
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-bs-theme'] });
+
+  // Câmera
   const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
   camera.position.set(0, 1.5, 3);
   camera.lookAt(0, 0.5, 0);
 
-  // Renderer with VSM
+  // Renderer com VSM
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.VSMShadowMap; // VSM for soft shadows
+  renderer.shadowMap.type = THREE.VSMShadowMap;
   container.appendChild(renderer.domElement);
 
   // OrbitControls
@@ -555,24 +568,22 @@
   controls.target.set(0, 0.5, 0);
   controls.update();
 
-  // Directional light with VSM settings
+  // Luz Direcional com VSM configurada
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
   directionalLight.position.set(0, 10, 0);
   directionalLight.castShadow = true;
   directionalLight.shadow.mapSize.set(4096, 4096);
-  directionalLight.shadow.radius = 20; // More blur for shadows
+  directionalLight.shadow.radius = 20;
   directionalLight.shadow.bias = -0.0005;
-
   directionalLight.shadow.camera.left = -10;
   directionalLight.shadow.camera.right = 10;
   directionalLight.shadow.camera.top = 10;
   directionalLight.shadow.camera.bottom = -10;
   directionalLight.shadow.camera.near = 0.5;
   directionalLight.shadow.camera.far = 50;
-
   scene.add(directionalLight);
 
-  // HDRI environment (only reflections)
+  // HDRI no ambiente (apenas reflexos)
   const rgbeLoader = new RGBELoader();
   rgbeLoader.load('https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/venice_sunset_1k.hdr', (texture) => {
     texture.mapping = THREE.EquirectangularReflectionMapping;
@@ -589,24 +600,22 @@
   shadowCatcher.receiveShadow = true;
   scene.add(shadowCatcher);
 
-  // Load GLTF model
+  // GLTF Loader
   const loader = new GLTFLoader();
   let model;
   loader.load('assets/3d/neurobeep.gltf', (gltf) => {
     model = gltf.scene;
 
-    // Center the model
     const box = new THREE.Box3().setFromObject(model);
     const center = new THREE.Vector3();
     box.getCenter(center);
     model.position.sub(center);
-    model.position.set(0, 0, 0); // Adjust if needed
+    model.position.set(0, 0, 0);
 
     model.traverse((child) => {
       if (child.isMesh) {
         child.castShadow = true;
         child.receiveShadow = true;
-        // Trust GLTF's normals - NO recompute, NO flat shading override
         child.material.needsUpdate = true;
       }
     });
@@ -614,22 +623,18 @@
     scene.add(model);
   });
 
-  // Animation
+  // Animação
   const clock = new THREE.Clock();
   function animate() {
     requestAnimationFrame(animate);
     const delta = clock.getDelta();
-
-    if (model) {
-      model.rotation.y += delta * 0.1; // Optional slow rotation
-    }
-
+    if (model) model.rotation.y += delta * 0.1;
     controls.update();
     renderer.render(scene, camera);
   }
   animate();
 
-  // Responsive resize
+  // Responsivo
   window.addEventListener('resize', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
