@@ -17329,4 +17329,8 @@ img-comparison-slider:focus {
   background: linear-gradient(to right, rgba(255, 255, 255, 0.55) var(--buffered-width), rgba(255, 255, 255, 0.3) var(--buffered-width));
 }
 
+.btn-lattes {
+  filter: brightness(0) invert(1) !important;
+}
+
 /*# sourceMappingURL=theme.css.map */
