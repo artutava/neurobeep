@@ -1,7 +1,8 @@
 # img-comparison-slider
 
-[![npm package](https://img.shields.io/npm/v/img-comparison-slider.svg)](https://www.npmjs.com/package/img-comparison-slider)
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/img-comparison-slider)
+[![npm package](https://img.shields.io/npm/dm/img-comparison-slider?style=flat-square&label=npm&color=blue)](https://www.npmjs.com/package/img-comparison-slider)
+[![](https://img.shields.io/jsdelivr/npm/hm/img-comparison-slider?style=flat-square&color=blue&label=jsDelivr)](https://www.jsdelivr.com/package/npm/img-comparison-slider)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)](https://www.webcomponents.org/element/img-comparison-slider)
 
 ## Slider Component for Comparing Images (Before and After).
 
@@ -25,10 +26,10 @@ Usage examples: [https://img-comparison-slider.sneas.io/examples.html](https://i
 ```
 <custom-element-demo>
   <template>
-    <script defer src="https://unpkg.com/img-comparison-slider@7/dist/index.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
     <link
       rel="stylesheet"
-      href="https://unpkg.com/img-comparison-slider@7/dist/styles.css"
+      href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
     />
 
     <img-comparison-slider>
@@ -53,11 +54,11 @@ Usage examples: [https://img-comparison-slider.sneas.io/examples.html](https://i
 ```html
 <script
   defer
-  src="https://unpkg.com/img-comparison-slider@7/dist/index.js"
+  src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
 ></script>
 <link
   rel="stylesheet"
-  href="https://unpkg.com/img-comparison-slider@7/dist/styles.css"
+  href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
 />
 
 <img-comparison-slider>

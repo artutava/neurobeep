@@ -7,7 +7,7 @@
   "license": "ISC",
   "main": "index.html",
   "scripts": {
-    "dev": "npm-run-all --silent -p styles:minified scripts:minified vendor && npm run watch --silent",
+    "dev": "npm-run-all --silent -p styles:minified scripts:minified vendor watch",
     "build": "npm-run-all --silent -p styles:expanded styles:minified scripts:expanded scripts:minified vendor && npm run validate --silent",
     "styles:expanded": "node build/styles.js expanded",
     "styles:minified": "node build/styles.js minified",

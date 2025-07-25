@@ -49,6 +49,27 @@ function convertToData(attr) {
 exports.convertToData = convertToData;
 var utils = {
     /**
+     * Fetches HTML content from a given URL and inserts it into a specified element.
+     *
+     * @param url - The URL to fetch the HTML content from.
+     * @param element - The DOM element (jQuery object) to insert the HTML content into.
+     * @param insertMethod - The method to insert the HTML ('append' or 'replace').
+     */
+    fetchCaptionFromUrl: function (url, element, insertMethod) {
+        // Fetch content from the URL
+        fetch(url)
+            .then(function (response) { return response.text(); })
+            .then(function (htmlContent) {
+            if (insertMethod === 'append') {
+                var contentDiv = "<div class=\"lg-sub-html\">" + htmlContent + "</div>";
+                element.append(contentDiv);
+            }
+            else {
+                element.html(htmlContent);
+            }
+        });
+    },
+    /**
      * get possible width and height from the lgSize attribute. Used for ZoomFromOrigin option
      */
     getSize: function (el, container, spacing, defaultLgSize) {
@@ -132,7 +153,7 @@ var utils = {
     },
     getIframeMarkup: function (iframeWidth, iframeHeight, iframeMaxWidth, iframeMaxHeight, src, iframeTitle) {
         var title = iframeTitle ? 'title="' + iframeTitle + '"' : '';
-        return "<div class=\"lg-video-cont lg-has-iframe\" style=\"width:" + iframeWidth + "; max-width:" + iframeMaxWidth + "; height: " + iframeHeight + "; max-height:" + iframeMaxHeight + "\">\n                    <iframe class=\"lg-object\" frameborder=\"0\" " + title + " src=\"" + src + "\"  allowfullscreen=\"true\"></iframe>\n                </div>";
+        return "<div class=\"lg-media-cont lg-has-iframe\" style=\"width:" + iframeWidth + "; max-width:" + iframeMaxWidth + "; height: " + iframeHeight + "; max-height:" + iframeMaxHeight + "\">\n                    <iframe class=\"lg-object\" frameborder=\"0\" " + title + " src=\"" + src + "\"  allowfullscreen=\"true\"></iframe>\n                </div>";
     },
     getImgMarkup: function (index, src, altAttr, srcset, sizes, sources) {
         var srcsetAttr = srcset ? "srcset=\"" + srcset + "\"" : '';
@@ -204,7 +225,11 @@ var utils = {
         else {
             videoClass = 'lg-has-html5';
         }
-        return "<div class=\"lg-video-cont " + videoClass + "\" style=\"" + videoContStyle + "\">\n                <div class=\"lg-video-play-button\">\n                <svg\n                    viewBox=\"0 0 20 20\"\n                    preserveAspectRatio=\"xMidYMid\"\n                    focusable=\"false\"\n                    aria-labelledby=\"" + playVideoString + "\"\n                    role=\"img\"\n                    class=\"lg-video-play-icon\"\n                >\n                    <title>" + playVideoString + "</title>\n                    <polygon class=\"lg-video-play-icon-inner\" points=\"1,0 20,10 1,20\"></polygon>\n                </svg>\n                <svg class=\"lg-video-play-icon-bg\" viewBox=\"0 0 50 50\" focusable=\"false\">\n                    <circle cx=\"50%\" cy=\"50%\" r=\"20\"></circle></svg>\n                <svg class=\"lg-video-play-icon-circle\" viewBox=\"0 0 50 50\" focusable=\"false\">\n                    <circle cx=\"50%\" cy=\"50%\" r=\"20\"></circle>\n                </svg>\n            </div>\n            " + (dummyImg || '') + "\n            <img class=\"lg-object lg-video-poster\" src=\"" + _poster + "\" />\n        </div>";
+        var _dummy = dummyImg;
+        if (typeof dummyImg !== 'string') {
+            _dummy = dummyImg.outerHTML;
+        }
+        return "<div class=\"lg-video-cont " + videoClass + "\" style=\"" + videoContStyle + "\">\n                <div class=\"lg-video-play-button\">\n                <svg\n                    viewBox=\"0 0 20 20\"\n                    preserveAspectRatio=\"xMidYMid\"\n                    focusable=\"false\"\n                    aria-labelledby=\"" + playVideoString + "\"\n                    role=\"img\"\n                    class=\"lg-video-play-icon\"\n                >\n                    <title>" + playVideoString + "</title>\n                    <polygon class=\"lg-video-play-icon-inner\" points=\"1,0 20,10 1,20\"></polygon>\n                </svg>\n                <svg class=\"lg-video-play-icon-bg\" viewBox=\"0 0 50 50\" focusable=\"false\">\n                    <circle cx=\"50%\" cy=\"50%\" r=\"20\"></circle></svg>\n                <svg class=\"lg-video-play-icon-circle\" viewBox=\"0 0 50 50\" focusable=\"false\">\n                    <circle cx=\"50%\" cy=\"50%\" r=\"20\"></circle>\n                </svg>\n            </div>\n            " + _dummy + "\n            <img class=\"lg-object lg-video-poster\" src=\"" + _poster + "\" />\n        </div>";
     },
     getFocusableElements: function (container) {
         var elements = container.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');

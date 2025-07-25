@@ -160,7 +160,7 @@ export declare class LightGallery {
     preload(index: number): void;
     getDummyImgStyles(imageSize?: ImageSize): string;
     getVideoContStyle(imageSize?: ImageSize): string;
-    getDummyImageContent($currentSlide: lgQuery, index: number, alt: string): string;
+    getDummyImageContent($currentSlide: lgQuery, index: number, alt: string): HTMLImageElement | string;
     setImgMarkup(src: string, $currentSlide: lgQuery, index: number): void;
     onSlideObjectLoad($slide: lgQuery, isHTML5VideoWithoutPoster: boolean, onLoad: () => void, onError: () => void): void;
     /**

@@ -25,7 +25,7 @@ var Zoom = /** @class */ (function () {
     // Append Zoom controls. Actual size, Zoom-in, Zoom-out
     Zoom.prototype.buildTemplates = function () {
         var zoomIcons = this.settings.showZoomInOutIcons
-            ? "<button id=\"" + this.core.getIdName('lg-zoom-in') + "\" type=\"button\" aria-label=\"" + this.settings.zoomPluginStrings['zoomIn'] + "\" class=\"lg-zoom-in lg-icon\"></button><button id=\"" + this.core.getIdName('lg-zoom-out') + "\" type=\"button\" aria-label=\"" + this.settings.zoomPluginStrings['zoomIn'] + "\" class=\"lg-zoom-out lg-icon\"></button>"
+            ? "<button id=\"" + this.core.getIdName('lg-zoom-in') + "\" type=\"button\" aria-label=\"" + this.settings.zoomPluginStrings['zoomIn'] + "\" class=\"lg-zoom-in lg-icon\"></button><button id=\"" + this.core.getIdName('lg-zoom-out') + "\" type=\"button\" aria-label=\"" + this.settings.zoomPluginStrings['zoomOut'] + "\" class=\"lg-zoom-out lg-icon\"></button>"
             : '';
         if (this.settings.actualSize) {
             zoomIcons += "<button id=\"" + this.core.getIdName('lg-actual-size') + "\" type=\"button\" aria-label=\"" + this.settings.zoomPluginStrings['viewActualSize'] + "\" class=\"" + this.settings.actualSizeIcons.zoomIn + " lg-icon\"></button>";
@@ -82,6 +82,12 @@ var Zoom = /** @class */ (function () {
         };
     };
     Zoom.prototype.getDragAllowedAxises = function (scale, scaleDiff) {
+        if (!this.containerRect) {
+            return {
+                allowX: false,
+                allowY: false,
+            };
+        }
         var $image = this.core
             .getSlideItem(this.core.index)
             .find('.lg-image')

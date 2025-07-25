@@ -5,6 +5,7 @@ import { AutoplaySettings } from './plugins/autoplay/lg-autoplay-settings';
 import { CommentSettings } from './plugins/comment/lg-comment-settings';
 import { FullscreenSettings } from './plugins/fullscreen/lg-fullscreen-settings';
 import { HashSettings } from './plugins/hash/lg-hash-settings';
+import { MediumZoomSettings } from './plugins/mediumZoom/lg-medium-zoom-settings';
 import { PagerSettings } from './plugins/pager/lg-pager-settings';
 import { RotateSettings } from './plugins/rotate/lg-rotate-settings';
 import { ShareSettings } from './plugins/share/lg-share-settings';
@@ -23,7 +24,7 @@ export interface LightGalleryCoreStrings {
     playVideo: string;
     mediaLoadingFailed: string;
 }
-export declare type LightGalleryAllSettings = LightGalleryCoreSettings & ZoomSettings & ThumbnailsSettings & VideoSettings & AutoplaySettings & CommentSettings & FullscreenSettings & HashSettings & PagerSettings & RotateSettings & ShareSettings;
+export declare type LightGalleryAllSettings = LightGalleryCoreSettings & ZoomSettings & ThumbnailsSettings & VideoSettings & AutoplaySettings & CommentSettings & FullscreenSettings & HashSettings & PagerSettings & RotateSettings & ShareSettings & MediumZoomSettings;
 export declare type LightGallerySettings = Partial<LightGalleryAllSettings>;
 export interface LightGalleryCoreSettings {
     /**
@@ -111,7 +112,7 @@ export interface LightGalleryCoreSettings {
      * Useful to create inline galleries and more
      * It is an empty string in the default settings and later assigned to document.body to avoid accessing document for SSR
      */
-    container: HTMLElement | '';
+    container: HTMLElement | (() => HTMLElement | null) | (string | null);
     /**
      * Delay for hiding gallery controls in ms.
      * Pass <code>0</code> if you don't want to hide the controls
@@ -189,7 +190,7 @@ export interface LightGalleryCoreSettings {
      */
     resetScrollPosition: boolean;
     /**
-     * If false user won't be abel to close the gallery at all
+     * If false user won't be able to close the gallery at all
      * This is useful for creating inline galleries.
      */
     closable: boolean;

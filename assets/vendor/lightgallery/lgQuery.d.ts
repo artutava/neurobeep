@@ -40,7 +40,7 @@ export declare class lgQuery {
     html(): string;
     html(html: string): this;
     append(html: string | HTMLElement): this;
-    prepend(html: string): this;
+    prepend(html: string | HTMLElement): this;
     remove(): this;
     empty(): this;
     scrollTop(): number;

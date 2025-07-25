@@ -86,7 +86,7 @@ export interface JarallaxOptions {
    * Disable parallax on specific user agents (using regular expression) or with function return value.
    * The image will be set on the background.
    */
-  disableParallax?: RegExp;
+  disableParallax?: boolean | RegExp | function;
 
   /**
    * Called when parallax working. Use first argument with calculations.
@@ -157,7 +157,7 @@ export interface JarallaxOptions {
    * Disable video load on specific user agents (using regular expression) or with function return value.
    * The image will be set on the background.
    */
-  disableVideo?: RegExp;
+  disableVideo?: boolean | RegExp | function;
 
   /**
    * Called right after video is inserted in the parallax block. Video can be accessed by `this.$video`
@@ -180,6 +180,13 @@ export function jarallax(
   elements: Element | Element[] | NodeListOf<Element> | JQuery<Element>,
   userOptions: JarallaxOptions
 ): void;
+
+/**
+ * Invocation of jarallaxVideo
+ *
+ * @param {typeof jarallax} jarallaxInstance
+ */
+export function jarallaxVideo(jarallaxInstance?: typeof jarallax): void;
 
 /**
  * Void callable methods

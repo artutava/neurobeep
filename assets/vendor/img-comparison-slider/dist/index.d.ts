@@ -1,6 +1,9 @@
+declare const HTMLElement: {
+    new (): HTMLElement;
+    prototype: HTMLElement;
+};
 export declare class HTMLImgComparisonSliderElement extends HTMLElement {
     private firstElement;
-    private secondElement;
     private handleElement;
     private imageWidth;
     private imageHeight;
@@ -12,7 +15,9 @@ export declare class HTMLImgComparisonSliderElement extends HTMLElement {
     private animationDirection;
     private transitionTimer;
     private isFocused;
-    handle: boolean;
+    private dragByHandle;
+    set handle(newValue: any);
+    get handle(): any;
     get value(): any;
     set value(newValue: any);
     get hover(): any;
@@ -28,6 +33,7 @@ export declare class HTMLImgComparisonSliderElement extends HTMLElement {
     private slide;
     private onMouseMove;
     private bodyUserSelectStyle;
+    private bodyWebkitUserSelectStyle;
     private onMouseDown;
     private onWindowMouseUp;
     private touchStartPoint;
@@ -48,3 +54,4 @@ export declare class HTMLImgComparisonSliderElement extends HTMLElement {
     private stopSlideAnimation;
     private resetDimensions;
 }
+export {};

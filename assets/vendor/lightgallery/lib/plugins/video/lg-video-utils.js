@@ -56,8 +56,13 @@ exports.getVimeoURLParams = function (defaultParams, videoInfo) {
     if (!videoInfo || !videoInfo.vimeo)
         return '';
     var urlParams = videoInfo.vimeo[2] || '';
-    var defaultPlayerParams = defaultParams && Object.keys(defaultParams).length !== 0
-        ? '&' + exports.param(defaultParams)
+    var defaultVimeoPlayerParams = Object.assign({}, {
+        autoplay: 0,
+        muted: 1,
+    }, defaultParams);
+    var defaultPlayerParams = defaultVimeoPlayerParams &&
+        Object.keys(defaultVimeoPlayerParams).length !== 0
+        ? exports.param(defaultVimeoPlayerParams)
         : '';
     // Support private video
     var urlWithHash = videoInfo.vimeo[0].split('/').pop() || '';
@@ -69,8 +74,11 @@ exports.getVimeoURLParams = function (defaultParams, videoInfo) {
     }
     urlParams =
         urlParams[0] == '?' ? '&' + urlParams.slice(1) : urlParams || '';
-    // For vimeo last params gets priority if duplicates found
-    var vimeoPlayerParams = "?autoplay=0&muted=1" + (isPrivate ? "&h=" + hash : '') + defaultPlayerParams + urlParams;
+    var privateUrlParams = isPrivate ? "h=" + hash : '';
+    defaultPlayerParams = privateUrlParams
+        ? "&" + defaultPlayerParams
+        : defaultPlayerParams;
+    var vimeoPlayerParams = "?" + privateUrlParams + defaultPlayerParams + urlParams;
     return vimeoPlayerParams;
 };
 //# sourceMappingURL=lg-video-utils.js.map

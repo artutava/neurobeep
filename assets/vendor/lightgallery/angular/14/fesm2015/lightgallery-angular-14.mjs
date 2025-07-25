@@ -251,4 +251,4 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.2", ngImpor
  */
 
 export { LightgalleryComponent, LightgalleryModule, LightgalleryService };
-//# sourceMappingURL=lightgallery-angular.mjs.map
+//# sourceMappingURL=lightgallery-angular-14.mjs.map

@@ -87,7 +87,17 @@ var LightGallery = /** @class */ (function () {
         if (this.settings.dynamic) {
             this.zoomFromOrigin = false;
         }
-        if (!this.settings.container) {
+        if (this.settings.container) {
+            var container = this.settings.container;
+            if (typeof container === 'function') {
+                this.settings.container = container();
+            }
+            else if (typeof container === 'string') {
+                var el = document.querySelector(container);
+                this.settings.container = el !== null && el !== void 0 ? el : document.body;
+            }
+        }
+        else {
             this.settings.container = document.body;
         }
         // settings.preload should not be grater than $item.length
@@ -626,7 +636,7 @@ var LightGallery = /** @class */ (function () {
         }
         if (this.settings.appendSubHtmlTo !== '.lg-item') {
             if (subHtmlUrl) {
-                this.outer.find('.lg-sub-html').load(subHtmlUrl);
+                lg_utils_1.default.fetchCaptionFromUrl(subHtmlUrl, this.outer.find('.lg-sub-html'), 'replace');
             }
             else {
                 this.outer.find('.lg-sub-html').html(subHtml);
@@ -635,7 +645,7 @@ var LightGallery = /** @class */ (function () {
         else {
             var currentSlide = lgQuery_1.$LG(this.getSlideItemId(index));
             if (subHtmlUrl) {
-                currentSlide.load(subHtmlUrl);
+                lg_utils_1.default.fetchCaptionFromUrl(subHtmlUrl, currentSlide, 'append');
             }
             else {
                 currentSlide.append("<div class=\"lg-sub-html\">" + subHtml + "</div>");
@@ -703,10 +713,14 @@ var LightGallery = /** @class */ (function () {
             if (!_dummyImgSrc)
                 return '';
             var imgStyle = this.getDummyImgStyles(this.currentImageSize);
-            var dummyImgContent = "<img " + alt + " style=\"" + imgStyle + "\" class=\"lg-dummy-img\" src=\"" + _dummyImgSrc + "\" />";
+            var dummyImgContentImg = document.createElement('img');
+            dummyImgContentImg.alt = alt || '';
+            dummyImgContentImg.src = _dummyImgSrc;
+            dummyImgContentImg.className = "lg-dummy-img";
+            dummyImgContentImg.style.cssText = imgStyle;
             $currentSlide.addClass('lg-first-slide');
             this.outer.addClass('lg-first-slide-loading');
-            return dummyImgContent;
+            return dummyImgContentImg;
         }
         return '';
     };
@@ -723,8 +737,10 @@ var LightGallery = /** @class */ (function () {
         else {
             imgContent = lg_utils_1.default.getImgMarkup(index, src, altAttr, srcset, sizes, sources);
         }
-        var imgMarkup = "<picture class=\"lg-img-wrap\"> " + imgContent + "</picture>";
-        $currentSlide.prepend(imgMarkup);
+        var picture = document.createElement('picture');
+        picture.className = 'lg-img-wrap';
+        lgQuery_1.$LG(picture).append(imgContent);
+        $currentSlide.prepend(picture);
     };
     LightGallery.prototype.onSlideObjectLoad = function ($slide, isHTML5VideoWithoutPoster, onLoad, onError) {
         var mediaObject = $slide.find('.lg-object').first();
@@ -1654,7 +1670,8 @@ var LightGallery = /** @class */ (function () {
     LightGallery.prototype.isSlideElement = function (target) {
         return (target.hasClass('lg-outer') ||
             target.hasClass('lg-item') ||
-            target.hasClass('lg-img-wrap'));
+            target.hasClass('lg-img-wrap') ||
+            target.hasClass('lg-img-rotate'));
     };
     LightGallery.prototype.isPosterElement = function (target) {
         var playButton = this.getSlideItem(this.index)

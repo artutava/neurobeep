@@ -16,17 +16,23 @@ browserSync.watch(['./*.html', './**/*.html']).on('change', () => {
 })
 
 browserSync.watch(`${path.scss}/**/*.scss`).on('change', () => {
+  if (!npmCmd) return
   const stylesProcess = spawn(npmCmd, ['run', 'styles:minified'], {
+    shell: true, // <== ESSENCIAL no Windows
     stdio: 'inherit',
   })
 
-  stylesProcess.on('close', () => {
-    browserSync.reload('*.css')
+  stylesProcess.on('close', (code) => {
+    if (code === 0) {
+      browserSync.reload('*.css')
+    }
   })
 })
 
 browserSync.watch(`${path.src_js}/**/*.js`).on('change', () => {
+  if (!npmCmd) return
   const scriptsProcess = spawn(npmCmd, ['run', 'scripts:minified'], {
+    shell: true, // <== ESSENCIAL no Windows
     stdio: 'inherit',
   })
 
@@ -34,4 +40,3 @@ browserSync.watch(`${path.src_js}/**/*.js`).on('change', () => {
     browserSync.reload()
   })
 })
-

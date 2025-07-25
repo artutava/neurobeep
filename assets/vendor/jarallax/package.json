@@ -1,6 +1,6 @@
 {
   "name": "jarallax",
-  "version": "2.1.4",
+  "version": "2.2.1",
   "description": "Smooth parallax scrolling effect for background images, videos and inline elements. Code in pure JavaScript with NO dependencies + jQuery supported. Youtube, Vimeo and Local Videos parallax supported.",
   "license": "MIT",
   "homepage": "https://github.com/nk-o/jarallax",
@@ -59,6 +59,6 @@
     "rollup-plugin-serve": "^2.0.2"
   },
   "dependencies": {
-    "video-worker": "^2.1.5"
+    "video-worker": "^2.2.0"
   }
 }

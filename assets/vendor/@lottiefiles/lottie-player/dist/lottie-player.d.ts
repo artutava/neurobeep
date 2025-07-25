@@ -217,7 +217,7 @@ export declare class LottiePlayer extends LitElement {
     /**
      * Handle visibility change events.
      */
-    private _onVisibilityChange;
+    private readonly _onVisibilityChange;
     /**
      * Handles click and drag actions on the progress track.
      */

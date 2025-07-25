@@ -290,7 +290,12 @@ var lgQuery = /** @class */ (function () {
     };
     lgQuery.prototype.prepend = function (html) {
         this._each(function (el) {
-            el.insertAdjacentHTML('afterbegin', html);
+            if (typeof html === 'string') {
+                el.insertAdjacentHTML('afterbegin', html);
+            }
+            else if (html instanceof HTMLElement) {
+                el.insertBefore(html.cloneNode(true), el.firstChild);
+            }
         });
         return this;
     };

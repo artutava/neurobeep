@@ -201,7 +201,9 @@ var Video = /** @class */ (function () {
         else if (videoInfo.html5) {
             var html5VideoMarkup = '';
             for (var i = 0; i < html5Video.source.length; i++) {
-                html5VideoMarkup += "<source src=\"" + html5Video.source[i].src + "\" type=\"" + html5Video.source[i].type + "\">";
+                var type = html5Video.source[i].type;
+                var typeAttr = type ? "type=\"" + type + "\"" : '';
+                html5VideoMarkup += "<source src=\"" + html5Video.source[i].src + "\" " + typeAttr + ">";
             }
             if (html5Video.tracks) {
                 var _loop_1 = function (i) {

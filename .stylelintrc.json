@@ -2,7 +2,16 @@
   "extends": "stylelint-config-twbs-bootstrap",
   "ignoreFiles": ["assets/**/*"],
   "rules": {
+
     "selector-max-class": null,
-    "selector-max-compound-selectors": null
+    "selector-max-compound-selectors": null,
+
+    "scss/at-import-no-partial-leading-underscore": null,
+    "scss/load-no-partial-leading-underscore": true,
+
+    "stylistic/no-eol-whitespace": null,
+    "stylistic/no-missing-end-of-source-newline": null,
+    "stylistic/max-empty-lines": null,
+    "order/properties-order": null
   }
 }

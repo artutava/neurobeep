@@ -183,6 +183,14 @@ export interface GalleryItem {
 export declare function convertToData(attr: string): string;
 declare const utils: {
     /**
+     * Fetches HTML content from a given URL and inserts it into a specified element.
+     *
+     * @param url - The URL to fetch the HTML content from.
+     * @param element - The DOM element (jQuery object) to insert the HTML content into.
+     * @param insertMethod - The method to insert the HTML ('append' or 'replace').
+     */
+    fetchCaptionFromUrl(url: string, element: lgQuery, insertMethod: 'append' | 'replace'): void;
+    /**
      * get possible width and height from the lgSize attribute. Used for ZoomFromOrigin option
      */
     getSize(el: HTMLElement, container: lgQuery, spacing?: number, defaultLgSize?: string | undefined): ImageSize | undefined;
@@ -196,7 +204,7 @@ declare const utils: {
     getImgMarkup(index: number, src: string, altAttr: string, srcset?: string | undefined, sizes?: string | undefined, sources?: ImageSources[] | undefined): string;
     getResponsiveSrc(srcItms: string[]): string;
     isImageLoaded(img: HTMLImageElement): boolean;
-    getVideoPosterMarkup(_poster: string, dummyImg: string, videoContStyle: string, playVideoString: string, _isVideo?: VideoInfo | undefined): string;
+    getVideoPosterMarkup(_poster: string, dummyImg: string | HTMLElement, videoContStyle: string, playVideoString: string, _isVideo?: VideoInfo | undefined): string;
     getFocusableElements(container: HTMLElement): NodeListOf<Element>;
     /**
      * @desc Create dynamic elements array from gallery items when dynamic option is false
